@@ -1,30 +1,25 @@
-// Je vais lire dans data les données des photographes sous forme de tableau / API / base de données
-async function getPhotographers()
+// import "data/recettes.js"
+
+// affichage de. toutes les recettes
+console.log("recettes pas triées")
+let recettesAll = recettes
+console.log(recettesAll)
+
+// Renvoie les données et les fait apparaitre dans le dom dans "#wrapper-recettes"
+async function displayRecettes(recettesAll)
 {
-    // va chercher l'api
-    let response = await fetch('/data/photographers.json');
+    const recettesSection = document.querySelector("#wrapper-recettes");
 
-    // lire le corps de réponse et analyser en JSON
-    let photographers = await response.json(); 
+    // Je boucle sur recettes pour afficher les cards de chaque photographe
+    recettesAll.forEach((recettesAll) => {
+        console.log(recettesAll)
+    //     // je prend la fonction pour afficher les cards et je lui passe les données des photographes
+    //     const recettesToutes = getRecettes(recette);
 
-    return photographers
-}
+    //     const recettesCardDOM = recettesToutes.getRecettesDOM();
 
-// Renvoie les données et les fait apparaitre dans le dom dans ".photographer_section"
-async function displayData(photographers)
-{
-    const photographersSection = document.querySelector(".photographer_section");
-
-    // Je boucle sur photographers pour afficher les cards de chaque photographe
-    photographers.forEach((photographer) => {
-
-        // je prend la fonction pour afficher les cards et je lui passe les données des photographes
-        const photographerModel = photographerFactory(photographer);
-
-        const userCardDOM = photographerModel.getUserCardDOM();
-
-        // photographersSection.appendChild(userCardDOM);
-        photographersSection.insertAdjacentHTML('beforeEnd', userCardDOM);
+    //     // photographersSection.appendChild(userCardDOM);
+    //  recettesSection.insertAdjacentHTML('beforeEnd', recettesCardDOM);
     });
 };
 
@@ -32,9 +27,8 @@ async function displayData(photographers)
 async function init()
 {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-
-    displayData(photographers);
+   
+    displayRecettes()
 }
 
 init();
