@@ -1,0 +1,43 @@
+@import url("photographer.css");
+@import url("flex.css");
+
+/* font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+.test
+{
+    border: 1px solid red;
+}
+
+body
+{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+.logo
+{
+    height: 93px;
+    margin-top: 42px;
+}
+
+.zone-filtres > div
+{
+    margin-right: 2em;
+}
+.zone-filtres > div > a
+{
+    padding: 24px;
+}
+
+.card > img
+{
+    /* width: 100%; */
+    height: 300px;
+    background-color: grey;
+}
+@media (max-width: 992px)
+{
+   
+}
