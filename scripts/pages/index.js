@@ -2,35 +2,38 @@
 // import { recettes } from "./data/recettes.js"
 
 // affichage de. toutes les recettes
-console.log("recettes pas triées")
+// console.log("recettes pas triées")
 let recettesAll = recettes
-console.log(recettesAll)
-
+// console.log(recettesAll)
 
 // Renvoie les données et les fait apparaitre dans le dom dans "#wrapper-recettes"
-function displayRecettes(recettesAll)
+async function displayRecettes(recettesAll)
 {
     const recettesSection = document.querySelector("#wrapper-recettes");
-    recettesAll.forEach(recette => console.log(recette))
+
     // Je boucle sur recettes pour afficher les cards de chaque photographe
-    // recettesAll.forEach((recettesAll) => {
-    //     console.log(recettesAll)
-    // //     // je prend la fonction pour afficher les cards et je lui passe les données des photographes
-    // //     const recettesToutes = getRecettes(recette);
+    console.log("on boucle pour sortir les recettes")
+    recettesAll.forEach((recette) => {
+        // je viens de sortir toutes les recettes individuellement
+        // console.log("je viens de sortir toutes les recettes individuellement")
+        console.log(recette)
 
-    // //     const recettesCardDOM = recettesToutes.getRecettesDOM();
+        // je prend la fonction pour afficher les cards et je lui passe les données des photographes
+        const recettesToutes = getRecettes(recette);
 
-    // //     // photographersSection.appendChild(userCardDOM);
-    // //  recettesSection.insertAdjacentHTML('beforeEnd', recettesCardDOM);
-    // });
+        const recettesCardDOM = recettesToutes.getRecettesDOM();
+
+        console.log(recettesToutes)
+
+        // j'insere le bloc dans la page html dans le bloc .medias-wrapper
+        recettesSection.insertAdjacentHTML('beforeEnd', recettesCardDOM);
+
+    });
 }
-displayRecettes()
 
-// async function init()
-// {
-//     // Récupère les datas des photographes
-   
-//     displayRecettes()
-// }
+async function init()
+{
+    displayRecettes(recettesAll)
 
-// init();
+}
+init();

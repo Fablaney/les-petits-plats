@@ -1,6 +1,9 @@
 // Fonction pour afficher les cards de tous les photographes
-function getRecettes(recettes)
+function getRecettes(recette)
 {
+    let name = recette.name
+    // console.log(name)
+
     // Fonction de la création des cartes des recettes
     const getRecettesDOM = () => {
             `<div class="card col-lg-4 col-md-6">
@@ -9,7 +12,7 @@ function getRecettes(recettes)
 
                 <div class="row descriptif p-3">
 
-                    <h5 class="col-md-7 titre mb-3 d-flex align-items-center">Card title</h5>
+                    <h5 class="col-md-7 titre mb-3 d-flex align-items-center">${name}</h5>
 
                     <div class="col-md-5 time mb-3 d-flex align-items-center justify-content-end">
                         <i class="bi bi-clock"></i>
@@ -30,6 +33,5 @@ function getRecettes(recettes)
             </div>`
     }
 
-    return { name, id, picture, city, country, tagline, price, getRecettesDOM};
-
+    return { getRecettesDOM };
 }
