@@ -1,3 +1,5 @@
+// export const recettes = recettes
+
 const recettes = [
     {
         "id": 1,
