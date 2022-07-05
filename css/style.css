@@ -1,12 +1,18 @@
 @import url("photographer.css");
 @import url("flex.css");
 
-/* font-family: 'Lato', sans-serif;
-font-family: 'Roboto', sans-serif; */
+/* font-family: 'Lato', sans-serif; */
+/* font-family: 'Roboto', sans-serif; */
 
 .test
 {
     border: 1px solid red;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body
@@ -22,6 +28,38 @@ body
     margin-top: 42px;
 }
 
+/* barre de recherche */
+.search-bar
+{
+    height: 70px;
+    width: 100%;
+    position: relative;
+}
+.search-bar > input
+{
+    height: 70px;
+    width: 100%;
+    background-color: #E7E7E7;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.search-bar > button
+{
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    right: 0;
+    font-size: 32px;
+    border: none;
+    outline: none;
+    background-color: #E7E7E7;
+    border-radius: 8px;
+}
+
+/* Zone Filtres */
 .zone-filtres > div
 {
     margin-right: 2em;
@@ -31,11 +69,48 @@ body
     padding: 24px;
 }
 
-.card > img
+/* cards des recettes */
+.card
 {
-    /* width: 100%; */
+    border: none;
+    padding: 0;
+}
+.image
+{
     height: 300px;
+    width: 100%;
     background-color: grey;
+    border-radius: 8px 8px 0 0;
+}
+.descriptif
+{
+    background-color: #E7E7E7;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+}
+.titre
+{
+    font-size: 18px;
+}
+.time
+{
+    font-size: 18px;
+}
+.time > i
+{
+    font-size: 20px;
+}
+.liste
+{
+    list-style: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+.texte
+{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif; 
 }
 @media (max-width: 992px)
 {
