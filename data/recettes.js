@@ -1,4 +1,4 @@
-// export const recettes = recettes
+export {recettes}
 
 const recettes = [
     {

@@ -1,3 +1,4 @@
+export {getRecettes}
 // Fonction pour afficher les cards de tous les photographes
 function getRecettes(recette)
 {

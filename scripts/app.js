@@ -1,5 +1,5 @@
-// Import qui marche pas
-// import { recettes } from "./data/recettes.js"
+import {recettes} from "/data/recettes.js"
+import {getRecettes} from "/scripts/fonctions/all-recettes.js"
 
 // affichage de. toutes les recettes
 // console.log("recettes pas triées")
@@ -16,10 +16,10 @@ async function displayRecettes(recettesAll)
     recettesAll.forEach((recette) => {
         // je viens de sortir toutes les recettes individuellement
         // console.log("je viens de sortir toutes les recettes individuellement")
-        console.log(recette)
+        // console.log(recette)
 
         // je prend la fonction pour afficher les cards et je lui passe les données des photographes
-        const recettesToutes = getRecettes(recette);
+        const recettesToutes = getRecettes(recette)
 
         const recettesCardDOM = recettesToutes.getRecettesDOM();
 
