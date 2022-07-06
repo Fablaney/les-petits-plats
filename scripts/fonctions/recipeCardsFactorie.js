@@ -1,14 +1,15 @@
 export function recipeCardsFactorie(recette)
 {
-    console.log(recette)
+    // console.log(recette)
 
     function getRecipeCardDOM()
     {
         // Je prends la div qui va contenir mes cards
         const recipeList = document.querySelector("#wrapper-recettes");
 
-        const cardRecipie = `
-            <div class="card col-lg-4 col-md-6">
+        // je crée le bloc article des recettes
+        const articleRecipie = `
+            <article class="col-lg-4 col-md-6">
 
                 <img class="image" src="./assets/images/illustation-recette.jpg" alt="illustration" role="Image"/>
                 
@@ -29,25 +30,23 @@ export function recipeCardsFactorie(recette)
 
                 </div>
 
-            </div>`
+            </article>`
 
-        recipeList.insertAdjacentHTML('beforeEnd', cardRecipie)
+        // j'insere les blocs tant qu'il y en à l'un après l'autre
+        recipeList.insertAdjacentHTML('beforeEnd', articleRecipie)
     }
     getRecipeCardDOM();
 
 
-    // Création de la liste ingrédients
+    // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1
     recette.ingredients.forEach((ingredient) => {
-        console.log(ingredient)
+        // console.log(ingredient)
 
         let listeIngrédients = document.querySelector("#ingredients-" + recette.id)
 
         let varIngredient = ingredient.ingredient
         let varQuantity = ingredient.quantity
         let varUnit = ingredient.unit
-        // console.log(varIngredient)
-        // console.log(varQuantity)
-        // console.log(varUnit)
 
         if (varQuantity == undefined)
         {
