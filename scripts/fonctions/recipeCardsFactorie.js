@@ -49,7 +49,6 @@ export function recipeCardsFactorie(recette)
         // console.log(varQuantity)
         // console.log(varUnit)
 
-
         if (varQuantity == undefined)
         {
             varQuantity = ""
