@@ -1,6 +1,8 @@
+// datas
 import {recipies} from "/data/recettes.js"
+// creation des articles
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
-
+// bare de recherche
 import {searchInput} from "/scripts/fonctions/searchbar.js";
 
 // affichage de toutes les recettes
