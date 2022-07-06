@@ -1,6 +1,6 @@
-export {recettes}
+export {recipies}
 
-const recettes = [
+const recipies = [
     {
         "id": 1,
         "name" : "Limonade de Coco",

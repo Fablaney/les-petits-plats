@@ -73,7 +73,6 @@ body
 .card
 {
     border: none;
-    /* padding: 0; */
 }
 .image
 {
@@ -81,6 +80,7 @@ body
     width: 100%;
     background-color: grey;
     border-radius: 8px 8px 0 0;
+    object-fit: cover;
 }
 .descriptif
 {
@@ -105,12 +105,16 @@ body
 {
     list-style: none;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 400;
 }
 .texte
 {
     font-size: 12px;
     font-family: 'Roboto', sans-serif; 
+    max-height: 150px;
+    overflow: auto;
+    text-overflow: ellipsis;
+  
 }
 @media (max-width: 992px)
 {
