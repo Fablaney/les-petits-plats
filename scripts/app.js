@@ -1,5 +1,5 @@
-import {recipies} from "/data/recettes.js"
-import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
+import {recipies} from "../data/recettes.js"
+import {recipeCardsFactorie} from "../scripts/fonctions/recipecardsfactorie.js";
 
 // affichage de. toutes les recettes
 // console.log("recettes pas triées")
