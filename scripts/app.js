@@ -1,5 +1,4 @@
 import {recipies} from "/data/recettes.js"
-// import {getRecettes} from "/scripts/fonctions/all-recettes.js"
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
 
 // affichage de. toutes les recettes
