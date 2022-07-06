@@ -1,21 +1,17 @@
 import {recipies} from "/data/recettes.js"
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
 
-// affichage de. toutes les recettes
-// console.log("recettes pas triées")
+import {searchInput} from "/scripts/fonctions/searchbar.js";
+
+// affichage de toutes les recettes
+
 let recettesAll = recipies
-// console.log(recettesAll)
 
 // Boucle sur les données
-async function displayRecettes(recettesAll)
+async function init()
 {
     recettesAll.forEach((recette) => {
         recipeCardsFactorie(recette); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
     });
-}
-
-async function init()
-{
-    displayRecettes(recettesAll)
 }
 init();
