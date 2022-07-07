@@ -39,13 +39,13 @@ export function searchInput()
         }
 
         
+        console.clear()
 
         // recherche par nom
         recipies.forEach((recette) => {
 
-            let recetteSearchFilter = recipies.filter(item => item.name.includes(inputcontent))
+            let recetteSearchFilter = recipies.filter(item => item.name.toLowerCase().includes(inputcontent))
 
-            // console.clear()
             console.log(recetteSearchFilter)
 
             recipeCardsFactorie(recetteSearchFilter); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
