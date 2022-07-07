@@ -9,7 +9,7 @@ export function recipeCardsFactorie(recette)
 
         // je crée le bloc article des recettes
         const articleRecipie = `
-            <article class="col-lg-4 col-md-6">
+            <article class="col-lg-4 col-md-6 article-recette">
 
                 <img class="image" src="./assets/images/illustation-recette.jpg" alt="illustration" role="Image"/>
                 
@@ -36,6 +36,7 @@ export function recipeCardsFactorie(recette)
         recipeList.insertAdjacentHTML('beforeEnd', articleRecipie)
     }
     getRecipeCardDOM();
+
 
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1
     recette.ingredients.forEach((ingredient) => {

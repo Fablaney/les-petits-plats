@@ -1,14 +1,15 @@
 // datas
 import {recipies} from "/data/recettes.js"
 
+// creation des articles
+import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
+
 export function searchInput()
 {
-    // console.log(recipies)
+    // console.table(recipies)
 
     // je récupere le champ de recherche
-    const searchinput = document.querySelector("#searchinput")
-
-    let inputcontent = ""
+    let searchinput = document.querySelector("#searchinput")
 
     searchinput.addEventListener('keyup', function()
     {
@@ -27,13 +28,28 @@ export function searchInput()
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
-        const filterInputDOM = `${inputcontent} &nbsp; <i class="bi bi-x-circle"></i>`
+        const filterInputDOM = `${inputcontent} &nbsp; <i class="bi bi-x-circle" onclick="stopSearch()"></i>`
 
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
         document.querySelector("#filtre-input").innerHTML = filterInputDOM
 
-        
+        function stopSearch()
+        {
+            searchinput.innerHTML = ""
+        }
+
+        // recherche par nom
+        recipies.forEach((recette) => {
+
+            let recetteSearchFilter = recipies.filter(item => item.name.includes(inputcontent))
+
+            // console.clear()
+            console.log(recetteSearchFilter)
+
+            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
+            recipeCardsFactorie(recette); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+        });
     })
 }
 searchInput()
-
