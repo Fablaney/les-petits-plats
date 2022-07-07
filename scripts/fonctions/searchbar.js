@@ -39,6 +39,9 @@ export function searchInput()
         }
 
         
+        // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
         console.clear()
 
         // recherche par nom
@@ -48,8 +51,12 @@ export function searchInput()
 
             console.log(recetteSearchFilter)
 
-            recipeCardsFactorie(recetteSearchFilter); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            recipeCardsFactorie(recetteSearchFilter);
         });
+
+        // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+        // recipeCardsFactorie(recetteSearchFilter);
     })
 }
 searchInput()
