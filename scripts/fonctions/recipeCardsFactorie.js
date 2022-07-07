@@ -37,7 +37,6 @@ export function recipeCardsFactorie(recette)
     }
     getRecipeCardDOM();
 
-
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1
     recette.ingredients.forEach((ingredient) => {
         // console.log(ingredient)

@@ -1,5 +1,3 @@
-export {recipies}
-
 const recipies = [
     {
         "id": 1,
@@ -1726,3 +1724,5 @@ const recipies = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+
+export {recipies}
