@@ -38,6 +38,8 @@ export function searchInput()
             searchinput.innerHTML = ""
         }
 
+        
+
         // recherche par nom
         recipies.forEach((recette) => {
 
@@ -46,9 +48,7 @@ export function searchInput()
             // console.clear()
             console.log(recetteSearchFilter)
 
-            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-
-            recipeCardsFactorie(recette); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            recipeCardsFactorie(recetteSearchFilter); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
         });
     })
 }
