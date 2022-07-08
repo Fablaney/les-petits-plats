@@ -16,6 +16,5 @@ async function init()
         // console.log(recipies[i])
         recipeCardsFactorie(recipies[i]); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
     }
-
 }
 init();

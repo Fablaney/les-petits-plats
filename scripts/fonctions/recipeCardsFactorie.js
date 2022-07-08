@@ -41,14 +41,13 @@ export function recipeCardsFactorie(recette)
 
 
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1
-    recette.ingredients.forEach((ingredient) => {
-        // console.log(ingredient)
-
+    for (let i = 0; i < recette.ingredients.length; i++)
+    {
         let listeIngrédients = document.querySelector("#ingredients-" + recette.id)
 
-        let varIngredient = ingredient.ingredient
-        let varQuantity = ingredient.quantity
-        let varUnit = ingredient.unit
+        let varIngredient = recette.ingredients[i].ingredient
+        let varQuantity = recette.ingredients[i].quantity
+        let varUnit = recette.ingredients[i].unit
 
         if (varQuantity == undefined)
         {
@@ -65,5 +64,5 @@ export function recipeCardsFactorie(recette)
             `
 
         listeIngrédients.insertAdjacentHTML('beforeEnd', listeItem)
-    })
+    }
 }
