@@ -1,3 +1,4 @@
+// Modern
 // datas
 import {recipies} from "/data/recettes.js"
 // creation des articles
