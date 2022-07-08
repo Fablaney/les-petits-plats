@@ -37,7 +37,7 @@ export function recipeCardsFactorie(recette)
         // j'insere les blocs tant qu'il y en à l'un après l'autre
         recipeList.insertAdjacentHTML('beforeEnd', articleRecipie)
     }
-    getRecipeCardDOM();
+    getRecipeCardDOM()
 
 
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1

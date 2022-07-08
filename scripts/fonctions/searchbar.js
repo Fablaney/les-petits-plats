@@ -46,7 +46,7 @@ export function searchInput()
 
         console.clear()
 
-        // methode 2 avec un for sans le filter
+        // Je boucle sur 
         let recettesFiltered = recipies.filter(item =>
         {   
             // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
@@ -65,11 +65,13 @@ export function searchInput()
 
         console.log(recettesFiltered)
         
-        // methode 2 avec un for sans le find
-        recettesFiltered.forEach(recette => {
-            recipeCardsFactorie(recette)
-        })
-
+        
+        // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
+        for (let i = 0; i < recettesFiltered.length; i++)
+        {
+            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            recipeCardsFactorie(recettesFiltered[i])
+        }
     })
 }
 searchInput()
