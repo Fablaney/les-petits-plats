@@ -11,7 +11,7 @@ export function searchInput()
     // je récupere le champ de recherche
     let searchinput = document.querySelector("#searchinput")
 
-    searchinput.addEventListener('keyup', function()
+    searchinput.addEventListener('input', function()
     {
         // je prends le champ de recherche et si il est vide je n'affiche pas la div de filtre texte actif
         if (document.querySelector("#searchinput").value == "")
@@ -24,7 +24,7 @@ export function searchInput()
             document.querySelector("#filtre-input").classList.remove("d-none")
         }
 
-        // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        // // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
@@ -44,19 +44,30 @@ export function searchInput()
 
         console.clear()
 
-        // recherche par nom
-        recipies.forEach((recette) => {
+        // methode 2 avec un for sans le filter
+        let recettesFiltered = recipies.filter(item =>
+        {   
+            // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
+            if(
+                item.name.toLowerCase().includes(inputcontent) ||
+                item.description.toLowerCase().includes(inputcontent) ||
+                // methode 2 avec un for sans le find
+                item.ingredients.find(element => {
+                    return element.ingredient.toLowerCase().includes(inputcontent)
+                }) != undefined
+            )
+            {
+                return item
+            }
+        })
 
-            let recetteSearchFilter = recipies.filter(item => item.name.toLowerCase().includes(inputcontent))
+        console.log(recettesFiltered)
+        
+        // methode 2 avec un for sans le find
+        recettesFiltered.forEach(recette => {
+            recipeCardsFactorie(recette)
+        })
 
-            console.log(recetteSearchFilter)
-
-            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
-            recipeCardsFactorie(recetteSearchFilter);
-        });
-
-        // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
-        // recipeCardsFactorie(recetteSearchFilter);
     })
 }
 searchInput()

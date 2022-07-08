@@ -63,5 +63,5 @@ export function recipeCardsFactorie(recette)
             `
 
         listeIngrédients.insertAdjacentHTML('beforeEnd', listeItem)
-    });
+    })
 }
