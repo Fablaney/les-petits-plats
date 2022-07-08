@@ -16,8 +16,11 @@ let recette = []
 // Boucle sur les données
 async function init()
 {
-    recettesAll.forEach((recette) => {
-        recipeCardsFactorie(recette); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
-    });
+    for (let i = 0; i < recipies.length; i++)
+    {
+        // console.log(recipies[i])
+        recipeCardsFactorie(recipies[i]); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+    }
+
 }
 init();
