@@ -11,10 +11,13 @@ import {searchInput} from "/scripts/fonctions/searchbar.js";
 // Boucle sur les données
 async function init()
 {
-    for (let i = 0; i < recipies.length; i++)
+    // boucle sur les recettes
+    // for (let i = 0; i < recipies.length; i++)
+    for (let recipie in recipies)
     {
-        // console.log(recipies[i])
-        recipeCardsFactorie(recipies[i]); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+        // Affichage de toutes les recettes au chargement de la page
+        // recipeCardsFactorie(recipies[i]);
+        recipeCardsFactorie(recipies[recipie]);
     }
 }
 init()

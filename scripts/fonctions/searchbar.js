@@ -43,7 +43,7 @@ export function searchInput()
         
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-
+    
         console.clear()
 
         // Je boucle sur 
@@ -64,8 +64,7 @@ export function searchInput()
         })
 
         console.log(recettesFiltered)
-        
-        
+
         // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
         for (let i = 0; i < recettesFiltered.length; i++)
         {
