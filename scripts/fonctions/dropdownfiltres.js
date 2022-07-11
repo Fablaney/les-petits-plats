@@ -12,6 +12,7 @@ export function dropdownFilters()
 
     // console.log(recipies)
     
+    // INGREDIENTS
     // j'initialise un tableau vide qui contiendra les ingrédients
     let tabIngredients = []
     // je boucle sur chaque recette
@@ -33,52 +34,61 @@ export function dropdownFilters()
     // je sort un tableau qui contient tous les ingrédients présentas dans toutes els recettes sans doublon
     console.log(tabIngredients)
 
-    // je boucle sur chaque ingré
+    // je boucle sur chaque ingrédient
     tabIngredients.forEach(ingre => {
 
-       const listeIngredients = `<div class="col-4">${ ingre }</div>`
+       const ingredientDOM = `<div class="col-4">${ ingre }</div>`
 
-        dropIngredients.insertAdjacentHTML('beforeEnd', listeIngredients)
+        dropIngredients.insertAdjacentHTML('beforeEnd', ingredientDOM)
     })
 
-    
-    
 
-
+    // APPAREILS
     // j'initialise un tableau vide qui contiendra les appareil
-    let appareils = []
+    let tabAppareils = []
     // je boucle sur chaque recette
     recipies.forEach(recette => {
 
         // je concatene les appareils de toutes les recettes
-        appareils = appareils.concat(recette.appliance)
+        tabAppareils = tabAppareils.concat(recette.appliance)
 
         // je supprime les doublons
-        appareils = [...new Set(appareils)]
+        tabAppareils = [...new Set(tabAppareils)]
         
         // console.log("appareils : "+ appareils)
     })
     // console.log("appareils : "+ appareils)
-    const listeAppareils = `<div class="col-4">${ appareils }</div>`
 
-    dropAppareils.insertAdjacentHTML('beforeEnd', listeAppareils)
+    // je boucle sur chaque appareil
+    tabAppareils.forEach(appareil => {
 
-  
+        const appareilDOM = `<div class="col-4">${ appareil }</div>`
+
+        dropAppareils.insertAdjacentHTML('beforeEnd', appareilDOM)
+    })
+
+
+    // USTENSILES
     // j'initialise un tableau vide qui contiendra les ustensiles
-    let ustensiles = []
+    let tabUstensiles = []
     // je boucle sur chaque recette
     recipies.forEach(recette => {
 
         // je concatene les ustensiles de toutes les recettes
-        ustensiles = ustensiles.concat(recette.ustensils)
+        tabUstensiles = tabUstensiles.concat(recette.ustensils)
 
         // je supprime les doublons
-        ustensiles = [...new Set(ustensiles)]
+        tabUstensiles = [...new Set(tabUstensiles)]
 
         // console.log("ustensiles : "+ ustensiles)
     })
     // console.log("ustensiles : "+ ustensiles)
-    const listeUstensiles = `<div class="col-4">${ ustensiles }</div>`
+    
+    // je boucle sur chaque ustensile
+    tabUstensiles.forEach(ustensile => {
 
-    dropUstensiles.insertAdjacentHTML('beforeEnd', listeUstensiles)
+        const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+
+        dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
+    })
 }
