@@ -5,6 +5,8 @@ import {recipies} from "/data/recettes.js"
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
 // bare de recherche
 import {searchInput} from "/scripts/fonctions/searchbar.js";
+// dropdown filtres
+import {dropdownFilters} from "/scripts/fonctions/dropdownfiltres.js";
 
 
 // Boucle sur les données

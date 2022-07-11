@@ -6,3 +6,6 @@ import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
 
 
 export function dropdownFilters()
+{
+    
+}
