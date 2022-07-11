@@ -45,14 +45,13 @@ export function searchInput()
 
         console.clear()
 
-        // methode 2 avec un for sans le filter
+        // je filtre sur recipies
         let recettesFiltered = recipies.filter(item =>
         {   
             // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
             if(
                 item.name.toLowerCase().includes(inputcontent) ||
                 item.description.toLowerCase().includes(inputcontent) ||
-                // methode 2 avec un for sans le find
                 item.ingredients.find(element => {
                     return element.ingredient.toLowerCase().includes(inputcontent)
                 }) != undefined
@@ -64,7 +63,7 @@ export function searchInput()
 
         console.log(recettesFiltered)
         
-        // methode 2 avec un for sans le find
+        // je parcours les recettes filtrées
         recettesFiltered.forEach(recette => {
             recipeCardsFactorie(recette)
         })
