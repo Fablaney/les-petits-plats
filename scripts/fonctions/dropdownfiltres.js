@@ -1,7 +1,11 @@
-// modern
+// Modern
 
 // datas
 import {recipies} from "/data/recettes.js"
+
+// bare de recherche
+import {searchInput} from "/scripts/fonctions/searchbar.js";
+
 
 export function dropdownFilters()
 {
@@ -10,29 +14,32 @@ export function dropdownFilters()
     let dropAppareils = document.querySelector("#appareils")
     let dropUstensiles =  document.querySelector("#ustensiles")
 
-    // console.log(recipies)
-    
+    // console.log(recettesFiltered)
+
+    // si on à déja uen recherche préalable
+    // if(recettesFiltered.lenght > 0)
+    // {
+        
+    // }
+
+
     // INGREDIENTS
     // j'initialise un tableau vide qui contiendra les ingrédients
     let tabIngredients = []
     // je boucle sur chaque recette
     recipies.forEach(recette => {
 
-        // console.log(recette.ingredients)
-        // Je boucle sur les tableaux d'ingrédients pour les concatener 
+        // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
         recette.ingredients.forEach((ingredient) => {
 
+            // je concatene les ingrédients de chaque tableau
             tabIngredients = tabIngredients.concat(ingredient.ingredient)
-            // console.log(tabIngredients)
         })
         
-        // je supprime les doublons du tableau qui contient tous les ingrédients mais en double ou plus
+        // je supprime les doublons
         tabIngredients = [...new Set(tabIngredients)]
-
     })
     // console.log("ingredients : " + tabIngredients)
-    // je sort un tableau qui contient tous les ingrédients présentas dans toutes els recettes sans doublon
-    console.log(tabIngredients)
 
     // je boucle sur chaque ingrédient
     tabIngredients.forEach(ingre => {
@@ -44,7 +51,7 @@ export function dropdownFilters()
 
 
     // APPAREILS
-    // j'initialise un tableau vide qui contiendra les appareil
+    // j'initialise un tableau vide qui contiendra les appareils
     let tabAppareils = []
     // je boucle sur chaque recette
     recipies.forEach(recette => {
@@ -54,8 +61,6 @@ export function dropdownFilters()
 
         // je supprime les doublons
         tabAppareils = [...new Set(tabAppareils)]
-        
-        // console.log("appareils : "+ appareils)
     })
     // console.log("appareils : "+ appareils)
 
@@ -80,7 +85,6 @@ export function dropdownFilters()
         // je supprime les doublons
         tabUstensiles = [...new Set(tabUstensiles)]
 
-        // console.log("ustensiles : "+ ustensiles)
     })
     // console.log("ustensiles : "+ ustensiles)
     

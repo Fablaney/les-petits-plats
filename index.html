@@ -46,41 +46,69 @@
         <!-- affichage des filtres actifs -->
         <div class="filtres-actifs mb-5">
             <div class="btn btn-primary d-none" id="filtre-input"> &nbsp; <i class="bi bi-x-circle"></i></div>
-            <div class="btn btn-primary">filtre dropdown actif &nbsp; <i class="bi bi-x-circle"></i></div>
+            <div class="btn btn-primary">filtre dropdown actif en dur &nbsp; <i class="bi bi-x-circle"></i></div>
         </div>
      
         <!-- 3 dropdown de filtres -->
-        <div class=" zone-filtres mb-5">
+        <div class="d-flex zone-filtres mb-5">
+
+          
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle col" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Ingrédients</button>
+                <div class="dropdown-menu bg-primary text-white p-4" aria-labelledby="dropdownMenuButton1">
+                    <div class="row" id="ingredients">
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle col" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Ingrédients</button>
+                <div class="dropdown-menu bg-success text-white p-4" aria-labelledby="dropdownMenuButton2">
+                    <div class="row" id="appareils">
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle col" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">Ingrédients</button>
+                <div class="dropdown-menu bg-danger text-white p-4" aria-labelledby="dropdownMenuButton3">
+                    <div class="row" id="ustensiles">
+
+                    </div>
+                </div>
+            </div>
+
+
 
             <!-- boutons dropdown -->
-            <p>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-ingredients" aria-expanded="false" aria-controls="collapseExample">Ingrédients</button>
+            <!-- <p> -->
+                <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-ingredients" aria-expanded="false" aria-controls="collapseExample">Ingrédients</button> -->
 
-                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-appareils" aria-expanded="false" aria-controls="collapseExample">Appareils</button>
+                <!-- <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-appareils" aria-expanded="false" aria-controls="collapseExample">Appareils</button>
 
-                <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-ustensiles" aria-expanded="false" aria-controls="collapseExample">Ustensiles</button>
-            </p>
+                <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-ustensiles" aria-expanded="false" aria-controls="collapseExample">Ustensiles</button> -->
+            <!-- </p> -->
 
             <!-- drop ingrédients -->
-            <div class="collapse bg-primary" id="collapseExample-ingredients">
+            <!-- <div class="collapse bg-primary" id="collapseExample-ingredients">
                 <div class="row text-white p-3" id="ingredients">
                   
                 </div>
-            </div>
+            </div> -->
 
             <!-- drop appareils -->
-            <div class="collapse bg-success" id="collapseExample-appareils">
+            <!-- <div class="collapse bg-success" id="collapseExample-appareils">
                 <div class="row text-white p-3"  id="appareils">
                   
                 </div>
-            </div>
+            </div> -->
 
             <!-- drop ustensiles -->
-            <div class="collapse bg-danger" id="collapseExample-ustensiles">
+            <!-- <div class="collapse bg-danger" id="collapseExample-ustensiles">
                 <div class="row text-white p-3" id="ustensiles">
                   
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
