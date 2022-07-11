@@ -15,5 +15,9 @@ async function init()
     recipies.forEach((recette) => {
         recipeCardsFactorie(recette); // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
     });
+
+    searchInput()
+    
+    dropdownFilters()
 }
 init();

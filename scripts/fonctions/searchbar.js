@@ -70,4 +70,3 @@ export function searchInput()
 
     })
 }
-searchInput()

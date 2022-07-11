@@ -29,7 +29,7 @@
 
 <body>
 
-    <header class="d-flex justify-content-center mb-5">
+    <header class="d-flex justify-content-center mb-5" id="header">
 
         <img src="assets/images/logo.png" class="logo" alt="Les Petits Plats"/>
 
@@ -50,36 +50,36 @@
         </div>
      
         <!-- 3 dropdown de filtres -->
-        <div class="d-flex zone-filtres mb-5">
+        <div class=" zone-filtres mb-5">
 
-            <div class="dropdown">
-                <a class="btn dropdown-toggle btn-primary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Ingredients</a>
-            
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+            <!-- boutons dropdown -->
+            <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-ingredients" aria-expanded="false" aria-controls="collapseExample">Ingrédients</button>
+
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-appareils" aria-expanded="false" aria-controls="collapseExample">Appareils</button>
+
+                <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample-ustensiles" aria-expanded="false" aria-controls="collapseExample">Ustensiles</button>
+            </p>
+
+            <!-- drop ingrédients -->
+            <div class="collapse bg-primary" id="collapseExample-ingredients">
+                <div class="row text-white p-3" id="ingredients">
+                  
+                </div>
             </div>
 
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle btn-success" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Appareils</a>
-            
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+            <!-- drop appareils -->
+            <div class="collapse bg-success" id="collapseExample-appareils">
+                <div class="row text-white p-3"  id="appareils">
+                  
+                </div>
             </div>
 
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle btn-danger" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Ustensiles</a>
-            
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+            <!-- drop ustensiles -->
+            <div class="collapse bg-danger" id="collapseExample-ustensiles">
+                <div class="row text-white p-3" id="ustensiles">
+                  
+                </div>
             </div>
 
         </div>
@@ -90,6 +90,8 @@
         </div>
 
     </main>
+
+    <a class="return-top" href="#header"><i class="bi bi-arrow-up-square-fill"></i></a>
 
     <script type="module" src="scripts/app.js"></script>
  
