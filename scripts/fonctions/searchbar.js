@@ -47,49 +47,43 @@ export function searchInput()
         console.clear()
 
         // Je boucle sur 
-        // let recettesFiltered = recipies.filter(item =>
-        // {   
-        //     // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-        //     if(
-        //         item.name.toLowerCase().includes(inputcontent) ||
-        //         item.description.toLowerCase().includes(inputcontent) ||
-        //         // methode 2 avec un for sans le find
-        //         item.ingredients.find(element => {
-        //             return element.ingredient.toLowerCase().includes(inputcontent)
-        //         }) != undefined
+        let recettesFiltered = recipies.filter(item =>
+        {   
+            // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
+            if(
+                item.name.toLowerCase().includes(inputcontent) ||
+                item.description.toLowerCase().includes(inputcontent) ||
+                // methode 2 avec un for sans le find
+                item.ingredients.find(element => {
+                    return element.ingredient.toLowerCase().includes(inputcontent)
+                }) != undefined
+            )
+            {
+                return item
+            }
+        })
+
+        // let recettesFiltered = []
+      
+        // for (const recipie of recipies)
+        // {
+        //     if ( recipie.name.toLowerCase().includes(inputcontent) // ||
+        //     // recipie.description.toLowerCase().includes(inputcontent) ||
+        //     // recipie.ingredients.find(element => {return element.ingredient.toLowerCase().includes(inputcontent)}) != undefined
         //     )
         //     {
-        //         return item
+        //         return recettesFiltered
         //     }
-        // })
-        
-        for (let i; i < recipies.length; i++)
-        {
-            console.log(recipies[i])  
-            // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-            // if(
-            //     recipies.name.toLowerCase().includes(inputcontent) ||
-            //     recipies.description.toLowerCase().includes(inputcontent) ||
-            //     // methode 2 avec un for sans le find
-            //     recipies.ingredients.find(element => {
-            //         return element.ingredient.toLowerCase().includes(inputcontent)
-            //     }) != undefined
-            // )
-            // {
-            //     console.log(item)                
-            //     return item
-                
-            // }
-        }
+        // }
 
-        // console.log(recettesFiltered)
+        console.log(recettesFiltered)
 
         // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
-        // for (let i = 0; i < recettesFiltered.length; i++)
-        // {
-        //     // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
-        //     recipeCardsFactorie(recettesFiltered[i])
-        // }
+        for (let i = 0; i < recettesFiltered.length; i++)
+        {
+            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            recipeCardsFactorie(recettesFiltered[i])
+        }
     })
 }
 searchInput()
