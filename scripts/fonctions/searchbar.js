@@ -35,10 +35,10 @@ export function searchInput()
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
         document.querySelector("#filtre-input").innerHTML = filterInputDOM
 
-        function stopSearch()
-        {
-            searchinput.innerHTML = ""
-        }
+        // function stopSearch()
+        // {
+        //     searchinput.innerHTML = ""
+        // }
 
         
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
@@ -47,42 +47,94 @@ export function searchInput()
         console.clear()
 
         // Je boucle sur 
-        let recettesFiltered = recipies.filter(item =>
-        {   
-            // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-            if(
-                item.name.toLowerCase().includes(inputcontent) ||
-                item.description.toLowerCase().includes(inputcontent) ||
-                // methode 2 avec un for sans le find
-                item.ingredients.find(element => {
-                    return element.ingredient.toLowerCase().includes(inputcontent)
-                }) != undefined
-            )
-            {
-                return item
-            }
-        })
-
-        // let recettesFiltered = []
-      
-        // for (const recipie of recipies)
-        // {
-        //     if ( recipie.name.toLowerCase().includes(inputcontent) // ||
-        //     // recipie.description.toLowerCase().includes(inputcontent) ||
-        //     // recipie.ingredients.find(element => {return element.ingredient.toLowerCase().includes(inputcontent)}) != undefined
+        // let recettesFiltered = recipies.filter(item =>
+        // {   
+        //     // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
+        //     if(
+        //         item.name.toLowerCase().includes(inputcontent) ||
+        //         item.description.toLowerCase().includes(inputcontent) ||
+        //         // methode 2 avec un for sans le find
+        //         item.ingredients.find(element => {
+        //             return element.ingredient.toLowerCase().includes(inputcontent)
+        //         }) != undefined
         //     )
         //     {
-        //         return recettesFiltered
+        //         return item
         //     }
-        // }
+        // })
 
-        console.log(recettesFiltered)
+        
+        // let newTeachers = [
+        //     { firstName: "Steve", subjects: ["English", "Maths", "History"] },
+        //     { firstName: "Celia", subjects: ["Maths", "Science"] },
+        // ];
+
+        // var filterSubject = function(teachers, subject)
+        // {
+        //     var filteredTeachers = []
+
+        //     for (var i=0; i<=teachers.length-1; i++)
+        //     {
+
+        //         var teacher = teachers[i]
+
+        //         for (var j=0; j<=teacher.subjects.length-1; j++)
+        //         {
+        //             if (teacher.subjects[j].toLowerCase()== subject.toLowerCase())
+        //             {
+        //                 filteredTeachers.push(teacher)
+        //             }
+        //         }
+        //     }
+        //     return filteredTeachers
+        // }
+        // console.log(filterSubject(newTeachers, "history"));
+
+        var FilterMaison = function(recipies, inputcontent)
+        {
+            // J'initialise le tableau de recettes vide
+            var recettesFiltered = []
+
+            console.log("je cherche :")
+            console.log(inputcontent)
+            console.log("dans :")
+
+            // je parcours toutes les recettes
+            for (var i = 0; i <= recipies.length-1; i++)
+            {
+                var recipie = recipies[i]
+
+                // console.log(recipie)
+                    
+                // for ( let j = 0 ; j <= recipie.lenght - 1; j++)
+                // {
+                    console.log(recipie.name.toLowerCase())
+
+                    if( recipie.name.toLowerCase() == includes(inputcontent.toLowerCase()))
+                    {
+                    //     console.log("recettes trouvées :")
+                    //     recettesFiltered.push(recipie)
+                    //     console.log(recettesFiltered)
+                    }
+                // }
+                
+            }
+            return recettesFiltered
+        }
+
+        console.log(FilterMaison(recipies, inputcontent));
+
+
+
+
+
+        // console.log(recettesFiltered)
 
         // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
-        for (let i = 0; i < recettesFiltered.length; i++)
-        {
-            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
-            recipeCardsFactorie(recettesFiltered[i])
-        }
+        // for (let i = 0; i < recettesFiltered.length; i++)
+        // {
+        //     // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+        //     recipeCardsFactorie(recettesFiltered[i])
+        // }
     })
 }
