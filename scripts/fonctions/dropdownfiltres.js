@@ -45,7 +45,6 @@ export function dropdownFilters()
             })
             // console.log(tabIngredients)
         })
-        // console.log("ingredients : " + tabIngredients)
 
         // je supprime les doublons
         tabIngredients = [...new Set(tabIngredients)]
@@ -84,7 +83,6 @@ export function dropdownFilters()
             // je concatene les appareils de toutes les recettes
             tabAppareils = tabAppareils.concat(appareil)
         })
-        // console.log("appareils : "+ appareils)
 
         // je supprime les doublons
         tabAppareils = [...new Set(tabAppareils)]
@@ -102,37 +100,34 @@ export function dropdownFilters()
     }
     sortAppareils()
 
-
+    // USTENSILES
     function sortUstensiles()
     {
-        // USTENSILES
         // j'initialise un tableau vide qui contiendra les ustensiles
         let tabUstensiles = []
+
         // je boucle sur chaque recette
         recipies.forEach(recette => {
 
-            let ustensiles = recette.ustensils
+            let ustensiles = recette.ustensils.map(name => name.toLowerCase())
 
-            // console.log(ustensiles)
+            // je capitalise la 1ere lettre 
+            ustensiles.forEach( ustensile => {
+                            
+                let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
 
-            // ustensiles.foreach(ustensile => {
-            //     console.log(ustensile)
-            // })
-            // j'uniformise tout en minuscule
-            // ustensile = ustensile.toLowerCase()
-                        
-            // je remet seulement la 1ere lettre en majuscule
-            // ustensile = ustensile[0].toUpperCase() + ustensile.slice(1)
-
-            // je concatene les ustensiles de toutes les recettes
-            // tabUstensiles = tabUstensiles.concat(ustensile)
-
-            // je supprime les doublons
-            // tabUstensiles = [...new Set(tabUstensiles)]
-
+                tabUstensiles = tabUstensiles.concat(ustensilesCap)
+            })
         })
-        // console.log("ustensiles : "+ ustensiles)
-        
+
+        // je supprime les doublons
+        tabUstensiles = [...new Set(tabUstensiles)]
+
+        // je classe par ordre alphabétique
+        tabUstensiles = tabUstensiles.sort()
+
+        // console.log(tabUstensiles)
+
         // je boucle sur chaque ustensile
         tabUstensiles.forEach(ustensile => {
 
