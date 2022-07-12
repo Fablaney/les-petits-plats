@@ -21,78 +21,125 @@ export function dropdownFilters()
     // {
         
     // }
-
-
-    // INGREDIENTS
-    // j'initialise un tableau vide qui contiendra les ingrédients
-    let tabIngredients = []
-    // je boucle sur chaque recette
-    recipies.forEach(recette => {
-
-        // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
-        recette.ingredients.forEach((ingredient) => {
-
-            // je concatene les ingrédients de chaque tableau
-            tabIngredients = tabIngredients.concat(ingredient.ingredient)
-        })
         
+    // INGREDIENTS
+    function sortIngredients()
+    {
+        // j'initialise un tableau vide qui contiendra les ingrédients
+        let tabIngredients = []
+
+        // je boucle sur chaque recette
+        recipies.forEach(recette => {
+
+            // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
+            recette.ingredients.forEach((ingredient) => {
+
+                // j'uniformise tout en minuscule
+                ingredient = ingredient.ingredient.toLowerCase()
+        
+                // je remet seulement la 1ere lettre en majuscule
+                ingredient = ingredient[0].toUpperCase() + ingredient.slice(1)
+
+                // Je concatene dans le tableau
+                tabIngredients = tabIngredients.concat(ingredient)
+            })
+            // console.log(tabIngredients)
+        })
+        // console.log("ingredients : " + tabIngredients)
+
         // je supprime les doublons
         tabIngredients = [...new Set(tabIngredients)]
-    })
-    // console.log("ingredients : " + tabIngredients)
 
-    // je boucle sur chaque ingrédient
-    tabIngredients.forEach(ingre => {
+        // je classe par ordre alphabétique
+        tabIngredients = tabIngredients.sort()
 
-       const ingredientDOM = `<div class="col-4">${ ingre }</div>`
+        // je boucle sur chaque ingrédient
+        tabIngredients.forEach(ingre => {
 
-        dropIngredients.insertAdjacentHTML('beforeEnd', ingredientDOM)
-    })
+        const ingredientDOM = `<div class="col-4">${ ingre }</div>`
 
+            dropIngredients.insertAdjacentHTML('beforeEnd', ingredientDOM)
+        })
+
+    }
+    sortIngredients()
 
     // APPAREILS
-    // j'initialise un tableau vide qui contiendra les appareils
-    let tabAppareils = []
-    // je boucle sur chaque recette
-    recipies.forEach(recette => {
+    function sortAppareils()
+    {
+        // j'initialise un tableau vide qui contiendra les appareils
+        let tabAppareils = []
 
-        // je concatene les appareils de toutes les recettes
-        tabAppareils = tabAppareils.concat(recette.appliance)
+        // je boucle sur chaque recette
+        recipies.forEach(recette => {
+
+            let appareil = recette.appliance
+
+            // j'uniformise tout en minuscule
+            appareil = appareil.toLowerCase()
+            
+            // je remet seulement la 1ere lettre en majuscule
+            appareil = appareil[0].toUpperCase() + appareil.slice(1)
+
+            // je concatene les appareils de toutes les recettes
+            tabAppareils = tabAppareils.concat(appareil)
+        })
+        // console.log("appareils : "+ appareils)
 
         // je supprime les doublons
         tabAppareils = [...new Set(tabAppareils)]
-    })
-    // console.log("appareils : "+ appareils)
 
-    // je boucle sur chaque appareil
-    tabAppareils.forEach(appareil => {
+        // je classe par ordre alphabétique
+        tabAppareils = tabAppareils.sort()
 
-        const appareilDOM = `<div class="col-4">${ appareil }</div>`
+        // je boucle sur chaque appareil
+        tabAppareils.forEach(appareil => {
 
-        dropAppareils.insertAdjacentHTML('beforeEnd', appareilDOM)
-    })
+            const appareilDOM = `<div class="col-4">${ appareil }</div>`
+
+            dropAppareils.insertAdjacentHTML('beforeEnd', appareilDOM)
+        })
+    }
+    sortAppareils()
 
 
-    // USTENSILES
-    // j'initialise un tableau vide qui contiendra les ustensiles
-    let tabUstensiles = []
-    // je boucle sur chaque recette
-    recipies.forEach(recette => {
+    function sortUstensiles()
+    {
+        // USTENSILES
+        // j'initialise un tableau vide qui contiendra les ustensiles
+        let tabUstensiles = []
+        // je boucle sur chaque recette
+        recipies.forEach(recette => {
 
-        // je concatene les ustensiles de toutes les recettes
-        tabUstensiles = tabUstensiles.concat(recette.ustensils)
+            let ustensiles = recette.ustensils
 
-        // je supprime les doublons
-        tabUstensiles = [...new Set(tabUstensiles)]
+            // console.log(ustensiles)
 
-    })
-    // console.log("ustensiles : "+ ustensiles)
-    
-    // je boucle sur chaque ustensile
-    tabUstensiles.forEach(ustensile => {
+            // ustensiles.foreach(ustensile => {
+            //     console.log(ustensile)
+            // })
+            // j'uniformise tout en minuscule
+            // ustensile = ustensile.toLowerCase()
+                        
+            // je remet seulement la 1ere lettre en majuscule
+            // ustensile = ustensile[0].toUpperCase() + ustensile.slice(1)
 
-        const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+            // je concatene les ustensiles de toutes les recettes
+            // tabUstensiles = tabUstensiles.concat(ustensile)
 
-        dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
-    })
+            // je supprime les doublons
+            // tabUstensiles = [...new Set(tabUstensiles)]
+
+        })
+        // console.log("ustensiles : "+ ustensiles)
+        
+        // je boucle sur chaque ustensile
+        tabUstensiles.forEach(ustensile => {
+
+            const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+
+            dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
+        })
+    }
+    sortUstensiles()
 }
