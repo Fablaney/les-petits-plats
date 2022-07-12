@@ -117,11 +117,10 @@ body
 }
 
 
-.dropdown-menu
+.dropdown-menu > div
 {
-    width: 100% !important;
+    width: 50vw;
 }
-
 
 
 

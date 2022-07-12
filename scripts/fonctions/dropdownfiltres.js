@@ -4,7 +4,7 @@
 import {recipies} from "/data/recettes.js"
 
 // bare de recherche
-import {searchInput} from "/scripts/fonctions/searchbar.js";
+// import {searchInput, recettesFiltered} from "/scripts/fonctions/searchbar.js";
 
 
 export function dropdownFilters()
@@ -14,7 +14,7 @@ export function dropdownFilters()
     let dropAppareils = document.querySelector("#appareils")
     let dropUstensiles =  document.querySelector("#ustensiles")
 
-    // console.log(recettesFiltered)
+    // console.log("recete filtrée" + recettesFiltered)
 
     // si on à déja uen recherche préalable
     // if(recettesFiltered.lenght > 0)
