@@ -13,7 +13,8 @@ import {dropdownFilters} from "/scripts/fonctions/dropdownfiltres.js";
 async function init()
 {
     // boucle sur les recettes
-    for (let i = 0; i < recipies.length; i++)
+    // for (let i = 0; i < recipies.length; i++)
+    for (let recipie in recipies)
     {
         // Affichage de toutes les recettes au chargement de la page
         // recipeCardsFactorie(recipies[i]);
