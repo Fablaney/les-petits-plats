@@ -115,3 +115,26 @@ body
 {
    
 }
+
+
+.dropdown-menu > div
+{
+    width: 50vw;
+}
+
+
+
+
+
+/* boutton en bas à droite pour remonter en haut de la page */
+.return-top
+{
+    position: fixed;
+    right: 1%;
+    bottom: 1%;
+}
+.return-top > i
+{
+    font-size: 50px;
+    color: grey;
+}
