@@ -63,33 +63,6 @@ export function searchInput()
         //     }
         // })
 
-        
-        // let newTeachers = [
-        //     { firstName: "Steve", subjects: ["English", "Maths", "History"] },
-        //     { firstName: "Celia", subjects: ["Maths", "Science"] },
-        // ];
-
-        // var filterSubject = function(teachers, subject)
-        // {
-        //     var filteredTeachers = []
-
-        //     for (var i=0; i<=teachers.length-1; i++)
-        //     {
-
-        //         var teacher = teachers[i]
-
-        //         for (var j=0; j<=teacher.subjects.length-1; j++)
-        //         {
-        //             if (teacher.subjects[j].toLowerCase()== subject.toLowerCase())
-        //             {
-        //                 filteredTeachers.push(teacher)
-        //             }
-        //         }
-        //     }
-        //     return filteredTeachers
-        // }
-        // console.log(filterSubject(newTeachers, "history"));
-
         // j'initialise les recettes filtrées en tableau vide
         var recettesFiltered = []
 
@@ -105,10 +78,15 @@ export function searchInput()
                 var recipie = recipies[i]
 
                 // console.log(recipie)
-                    
-                // for ( let j = 0 ; j <= recipie.name.lenght - 1; j++)
-                // {
-                if( recipie.name.toLowerCase().includes(inputcontent) || recipie.description.toLowerCase().includes(inputcontent))
+
+                if
+                ( 
+                    recipie.name.toLowerCase().includes(inputcontent)
+                    ||
+                    recipie.description.toLowerCase().includes(inputcontent)
+                    || 
+                    recipie.ingredients.find(element => { return element.ingredient.toLowerCase().includes(inputcontent) }) != undefined 
+                )
                 {
                     console.log("recettes trouvée :")
                     console.log(recipie)
@@ -116,13 +94,13 @@ export function searchInput()
                     recettesFiltered.push(recipie)
                     // console.log(recettesFiltered)
                 }
-                // }
+                
                     
             }
             return recettesFiltered
         }
         FilterMaison(recipies, inputcontent)
-        // console.log(FilterMaison(recipies, inputcontent))
+
 
         // console.log(recettesFiltered)
 
