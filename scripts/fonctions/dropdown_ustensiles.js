@@ -20,8 +20,6 @@ export function dropdownUstensilles()
         // je récupere le champ de recherche ingredient
         let inputUstensiles = document.querySelector("#input-ustensiles")
 
-        console.log(inputUstensiles)
-
         inputUstensiles.addEventListener('input', function()
         {
             // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
@@ -38,15 +36,15 @@ export function dropdownUstensilles()
             let recettesFiltered = recipies.filter(item =>
             {   
                 // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
-                console.log(item.ustensils)
-                if( item.ustensils.find(element => {return element.ustensils.toLowerCase().includes(searchUstensiles)}) != undefined )
+                // console.log(item.ustensils)
+                if( item.ustensils.map(name => name.toLowerCase().includes(searchUstensiles)) != undefined )
                 {
                     console.log(item)
 
                     return item
                 }
             })
-            console.log(recettesFiltered)
+            // console.log(recettesFiltered)
 
             // je parcours les recettes filtrées par ustensiles
             recettesFiltered.forEach(recette => {
