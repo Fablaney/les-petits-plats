@@ -22,12 +22,16 @@ body
     margin: 0;
 }
 
+
+/* --------------------------------------------------------------------------------- */
 .logo
 {
     height: 93px;
     margin-top: 42px;
 }
 
+
+/* --------------------------------------------------------------------------------- */
 /* barre de recherche */
 .search-bar
 {
@@ -60,34 +64,45 @@ body
 }
 
 
-
-
-
-
-
-
-
-
-
-
+/* --------------------------------------------------------------------------------- */
 /* Zone Filtres */
+.zone-filtres
+{
+    display: flex;
+    flex-direction: row;
+}
+.dropdown
+{
+    margin-right: 2em !important;
+}
 .dropdown > form > input
 {
     outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+.dropdown > form > input::placeholder
+{
+    color: white;
+}
+.dropdown-menu
+{
+    width: 50vw;
+}
+@media (max-width: 992px)
+{
+    .zone-filtres
+    {
+        flex-direction: column;
+    }
+    .dropdown-menu
+    {
+        width: 90vw;
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* --------------------------------------------------------------------------------- */
 /* articles des recettes */
 .image
 {
@@ -136,11 +151,7 @@ body
 }
 
 
-
-
-
-
-
+/* --------------------------------------------------------------------------------- */
 /* boutton en bas à droite pour remonter en haut de la page */
 .return-top
 {
