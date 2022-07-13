@@ -90,11 +90,11 @@ export function searchInput()
         // }
         // console.log(filterSubject(newTeachers, "history"));
 
+        // j'initialise les recettes filtrées en tableau vide
+        var recettesFiltered = []
+
         function FilterMaison(recipies, inputcontent)
         {
-            // J'initialise le tableau de recettes vide
-            var recettesFiltered = []
-
             console.log("je cherche :")
             console.log(inputcontent)
             console.log("dans :")
@@ -108,31 +108,28 @@ export function searchInput()
                     
                 // for ( let j = 0 ; j <= recipie.name.lenght - 1; j++)
                 // {
-                    if( recipie.name.toLowerCase().includes(inputcontent))
-                    {
-                        console.log(recipie)
-                        //     console.log("recettes trouvées :")
-                        //     recettesFiltered.push(recipie)
-                        //     console.log(recettesFiltered)
-                    }
+                if( recipie.name.toLowerCase().includes(inputcontent) || recipie.description.toLowerCase().includes(inputcontent))
+                {
+                    console.log("recettes trouvée :")
+                    console.log(recipie)
+                        
+                    recettesFiltered.push(recipie)
+                    // console.log(recettesFiltered)
+                }
                 // }
-                
+                    
             }
             return recettesFiltered
         }
         FilterMaison(recipies, inputcontent)
         // console.log(FilterMaison(recipies, inputcontent))
 
-
-
-
-
-        console.log(recettesFiltered)
+        // console.log(recettesFiltered)
 
         // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
         for (let i = 0; i < recettesFiltered.length; i++)
         {
-            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            // Affichage de toutes les recettes trouvées
             recipeCardsFactorie(recettesFiltered[i])
         }
     })
