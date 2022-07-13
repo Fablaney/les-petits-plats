@@ -7,10 +7,15 @@ import {recipies} from "/data/recettes.js"
 
 export function dropdownFilters()
 {
-    // je selectionne les dropdown
+    // // je selectionne les inputs des dropdown
+    // let inputIngredients =  document.querySelector("#input-ingredient")
+    // let inputAppareils   =  document.querySelector("#input-appareils")
+    // let inputUstensiles  =  document.querySelector("#input-ustensiles")
+
+    // je selectionne les dropdown qui afficherons les elements filtrables
     let dropIngredients = document.querySelector("#ingredients")
-    let dropAppareils = document.querySelector("#appareils")
-    let dropUstensiles =  document.querySelector("#ustensiles")
+    let dropAppareils   = document.querySelector("#appareils")
+    let dropUstensiles  = document.querySelector("#ustensiles")
 
     // console.log("recete filtrée" + recettesFiltered)
 
@@ -57,7 +62,6 @@ export function dropdownFilters()
 
             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientDOM)
         })
-
     }
     sortIngredients()
 
