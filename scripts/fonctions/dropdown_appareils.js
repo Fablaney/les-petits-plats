@@ -12,7 +12,6 @@ export function dropdownAppareils()
     // je selectionne les dropdown qui afficherons les elements filtrables
     let dropAppareils   = document.querySelector("#appareils")
 
-    // Appareils
     function sortAppareils()
     {
         // j'initialise un tableau vide qui contiendra les appareils
@@ -21,7 +20,6 @@ export function dropdownAppareils()
         // je récupere le champ de recherche ingredient
         let inputAppareils = document.querySelector("#input-appareils")
 
-        console.log(inputAppareils)
         inputAppareils.addEventListener('input', function()
         {
             // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
@@ -38,7 +36,7 @@ export function dropdownAppareils()
             let recettesFiltered = recipies.filter(item =>
             {   
                 // si dans ingredient je trouve ce qui à été tapé je retourne item
-                if( item.appliance.find(element => {return element.appliance.toLowerCase().includes(searchAppareils)}) != undefined )
+                if( item.appliance.toLowerCase().includes(searchAppareils) )
                 {
                     console.log(item)
 
@@ -47,7 +45,7 @@ export function dropdownAppareils()
             })
             console.log(recettesFiltered)
 
-            // je parcours les recettes filtrées
+            // je parcours les recettes filtrées par appareil
             recettesFiltered.forEach(recette => {
                 recipeCardsFactorie(recette)
             })

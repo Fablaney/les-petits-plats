@@ -10,36 +10,36 @@ import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 export function dropdownUstensilles()
 {
     // je selectionne les dropdown qui afficherons les elements filtrables
-    let dropUstensiles = document.querySelector("#ustensiles")
+    let dropUstensiles  = document.querySelector("#ustensiles")
 
-    // INGREDIENTS
     function sortUstensiles()
     {
         // j'initialise un tableau vide qui contiendra les ingrédients
-        let tabIngredients = []
-
-        // let recettesFiltered = []
+        let tabUstensiles = []
 
         // je récupere le champ de recherche ingredient
-        let inputIngredient = document.querySelector("#input-ingredient")
+        let inputUstensiles = document.querySelector("#input-ustensiles")
 
-        inputIngredient.addEventListener('input', function()
+        console.log(inputUstensiles)
+
+        inputUstensiles.addEventListener('input', function()
         {
             // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
-            let searchIngredient = inputIngredient.value.toLowerCase()
+            let searchUstensiles = inputUstensiles.value.toLowerCase()
 
             // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
+            document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
             
             // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-            console.clear()
+            // console.clear()
 
             // je filtre sur recipies
             let recettesFiltered = recipies.filter(item =>
             {   
-                // si dans ingredient je trouve ce qui à été tapé je retourne item
-                if( item.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
+                // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
+                console.log(item.ustensils)
+                if( item.ustensils.find(element => {return element.ustensils.toLowerCase().includes(searchUstensiles)}) != undefined )
                 {
                     console.log(item)
 
@@ -48,7 +48,7 @@ export function dropdownUstensilles()
             })
             console.log(recettesFiltered)
 
-            // je parcours les recettes filtrées
+            // je parcours les recettes filtrées par ustensiles
             recettesFiltered.forEach(recette => {
                 recipeCardsFactorie(recette)
             })
@@ -57,33 +57,31 @@ export function dropdownUstensilles()
         // je boucle sur chaque recette
         recipies.forEach(recette => {
 
-            // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
-            recette.ingredients.forEach((ingredient) => {
+            let ustensiles = recette.ustensils.map(name => name.toLowerCase())
 
-                // j'uniformise tout en minuscule
-                ingredient = ingredient.ingredient.toLowerCase()
-        
-                // je remet seulement la 1ere lettre en majuscule
-                ingredient = ingredient[0].toUpperCase() + ingredient.slice(1)
+            // je capitalise la 1ere lettre 
+            ustensiles.forEach( ustensile => {
+                            
+                let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
 
-                // Je concatene dans le tableau
-                tabIngredients = tabIngredients.concat(ingredient)
+                tabUstensiles = tabUstensiles.concat(ustensilesCap)
             })
-            // console.log(tabIngredients)
         })
 
         // je supprime les doublons
-        tabIngredients = [...new Set(tabIngredients)]
+        tabUstensiles = [...new Set(tabUstensiles)]
 
         // je classe par ordre alphabétique
-        tabIngredients = tabIngredients.sort()
+        tabUstensiles = tabUstensiles.sort()
 
-        // je boucle sur chaque ingrédient
-        tabIngredients.forEach(ingre => {
+        // console.log(tabUstensiles)
 
-        const ingredientDOM = `<div class="col-4">${ ingre }</div>`
-        
-            dropUstensiles.insertAdjacentHTML('beforeEnd', ingredientDOM)
+        // je boucle sur chaque ustensile
+        tabUstensiles.forEach(ustensile => {
+
+            const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+
+            dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
         })
     }
     sortUstensiles()

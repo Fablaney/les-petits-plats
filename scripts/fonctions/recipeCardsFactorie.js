@@ -29,6 +29,8 @@ export function recipeCardsFactorie(recette)
 
                     <p class="col-md-6 texte">${recette.description}</p>
 
+                    <p class="col-md-6 texte">Appareil recommandé ${recette.appliance}</p>
+
                 </div>
 
             </article>`

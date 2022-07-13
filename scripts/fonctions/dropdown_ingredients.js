@@ -12,7 +12,6 @@ export function dropdownIngredients()
     // je selectionne les dropdown qui afficherons les elements filtrables
     let dropIngredients = document.querySelector("#ingredients")
 
-    // INGREDIENTS
     function sortIngredients()
     {
         // j'initialise un tableau vide qui contiendra les ingrédients
@@ -46,7 +45,7 @@ export function dropdownIngredients()
             })
             console.log(recettesFiltered)
 
-            // je parcours les recettes filtrées
+            // je parcours les recettes filtrées par ingrédient
             recettesFiltered.forEach(recette => {
                 recipeCardsFactorie(recette)
             })
@@ -79,9 +78,9 @@ export function dropdownIngredients()
         // je boucle sur chaque ingrédient
         tabIngredients.forEach(ingre => {
 
-        const ingredientDOM = `<div class="col-4">${ ingre }</div>`
+        const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
 
-            dropIngredients.insertAdjacentHTML('beforeEnd', ingredientDOM)
+            dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
         })
     }
     sortIngredients()
