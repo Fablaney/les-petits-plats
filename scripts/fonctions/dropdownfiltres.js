@@ -4,9 +4,6 @@
 import {recipies} from "/data/recettes.js"
 
 // bare de recherche
-// import {searchInput, recettesFiltered} from "/scripts/fonctions/searchbar.js";
-
-
 export function dropdownFilters()
 {
     // je selectionne les dropdown

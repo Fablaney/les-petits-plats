@@ -63,39 +63,91 @@ export function searchInput()
         //     }
         // })
 
+
+
+        // const newTeachers = [
+        //     { firstName: "Steve", subjects: ["English", "Maths", "History"] },
+        //     { firstName: "Celia", subjects: ["Maths", "Science"] },
+        //   ];
+          
+        //   var filterSubject = function(teachers, subject) {
+        //     var filteredTeachers = [];
+        //     for (var i=0; i<=teachers.length-1; i++) {
+        //       var teacher = teachers[i];
+        //       for (var j=0; j<=teacher.subjects.length-1; j++) {
+        //         if (teacher.subjects[j].toLowerCase()== subject.toLowerCase()) {
+        //           filteredTeachers.push(teacher);
+        //         }
+        //       }
+        //     }
+        //     return filteredTeachers;
+        //   }
+        //   console.log(filterSubject(newTeachers, "science"));
+
+
+
+
         // j'initialise les recettes filtrées en tableau vide
         var recettesFiltered = []
 
         function FilterMaison(recipies, inputcontent)
         {
-            console.log("je cherche :")
-            console.log(inputcontent)
-            console.log("dans :")
+            // console.log("je cherche :")
+            // console.log(inputcontent)
+            // console.log("dans :")
 
             // je parcours toutes les recettes
-            for (var i = 0; i <= recipies.length - 1; i++)
+            console.log("dans le 1er for")
+            for ( var i = 0; i <= recipies.length - 1; i++ )
             {
                 var recipie = recipies[i]
+       
+                let ingredients = recipie.ingredients
+                
+                console.log(ingredients)
+    
+                // for ( var j = 0; j <= recipie.ingredients.length - 1; j++ )
+                console.log("dans le 2eme for")
+                let ingredient
+                for ( let item in ingredients )
+                {
+                    item = ingredients[item]
+                    // console.log(item.ingredient.toLowerCase())
 
-                // console.log(recipie)
+                    ingredient = item.ingredient.toLowerCase()
+
+                    console.log(ingredient)
+
+                    // return ingredient
+
+                    // console.log("dans le if")
+                    // if ( ingredient.ingredient.toLowerCase().includes(inputcontent) )
+                    // {
+                        // console.log("recettes trouvée :")
+                        // console.log(ingredient.ingredient)
+                       
+                        // recettesFiltered.push(recipie)
+                        // console.log(recettesFiltered)
+                        // return ingredient.ingredient.toLowerCase().includes(inputcontent)
+                    // }  
+                }
 
                 if
                 ( 
-                    recipie.name.toLowerCase().includes(inputcontent)
-                    ||
-                    recipie.description.toLowerCase().includes(inputcontent)
-                    || 
-                    recipie.ingredients.find(element => { return element.ingredient.toLowerCase().includes(inputcontent) }) != undefined 
+                    // recipie.name.toLowerCase().includes(inputcontent) 
+                    // || 
+                    // recipie.description.toLowerCase().includes(inputcontent) 
+                    // || 
+                    ingredient.includes(inputcontent) 
                 )
                 {
-                    console.log("recettes trouvée :")
-                    console.log(recipie)
+                    // console.log("recettes trouvée :")
+                    // console.log(recipie)
                         
                     recettesFiltered.push(recipie)
                     // console.log(recettesFiltered)
-                }
+                }   
                 
-                    
             }
             return recettesFiltered
         }
