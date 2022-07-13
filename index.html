@@ -50,8 +50,8 @@
         </div>
      
         <!-- 3 dropdown de filtres -->
-        <div class="d-flex zone-filtres mb-5">
-            <!-- 
+        <div class="zone-filtres mb-5">
+<!--             
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle p-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Ingrédients</button>
                 <div class="dropdown-menu bg-primary text-white p-4" aria-labelledby="dropdownMenuButton1">
@@ -77,15 +77,98 @@
                 </div>
             </div> -->
 
-             <!-- bare de recherche ingrédients-->
-            <form class="search-bar d-flex mb-5" role="search">
-                <input id="searchinput" type="search" placeholder="Rechercher une recette" aria-label="Search">
-                <i class="bi bi-caret-down"></i>
-            </form>
-   
+            <div class="dropdown">
+                <form class="btn btn-primary dropdown-toggle p-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <input type="text" placeholder="Ingrédients">
+                </form>
+                <div class="dropdown-menu bg-primary text-white p-4" aria-labelledby="dropdownMenuButton1">
+                    <div class="row" id="ingredients">
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle p-4" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Appareils</button>
+                <div class="dropdown-menu bg-success text-white p-4" aria-labelledby="dropdownMenuButton2">
+                    <div class="row" id="appareils">
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle p-4" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">Ustensiles</button>
+                <div class="dropdown-menu bg-danger text-white p-4" aria-labelledby="dropdownMenuButton3">
+                    <div class="row" id="ustensiles">
+
+                    </div>
+                </div>
+            </div>
 
 
-            
+
+
+
+
+            <!-- bare de recherche ingrédients -->
+            <!-- <form class="search-dropdown mb-5" role="search">
+
+                <div class="btn btn-primary bouton-recherche-par">
+
+                    <input id="search-ingredient" type="search" placeholder="Ingredient" aria-label="Search">
+
+                    <div class="arrow test d-flex justify-content-center align-items-center">
+                        <i class="bi bi-caret-down"></i>
+                        <i class="bi bi-caret-up d-none"></i>
+                    </div>
+
+                </div>
+                
+                <div class="btn btn-primary row dropdown-appear d-none" id="ingredients">
+
+                </div>
+
+            </form> -->
+
+            <!-- bare de recherche appareils -->
+            <!-- <form class="search-dropdown mb-5" role="search">
+
+                <div class="btn btn-success bouton-recherche-par">
+
+                    <input id="search-appareils" type="search" placeholder="Appareil" aria-label="Search">
+
+                    <div class="arrow test d-flex justify-content-center align-items-center">
+                        <i class="bi bi-caret-down"></i>
+                        <i class="bi bi-caret-up d-none"></i>
+                    </div>
+
+                </div>
+                
+                <div class="btn btn-success row dropdown-appear d-none" id="appareils">
+
+                </div>
+
+            </form> -->
+
+            <!-- bare de recherche ustensiles -->
+            <!-- <form class="search-dropdown mb-5" role="search">
+
+                <div class="btn btn-danger bouton-recherche-par">
+
+                    <input id="search-ustensiles" type="search" placeholder="Ustensile" aria-label="Search">
+
+                    <div class="arrow test d-flex justify-content-center align-items-center">
+                        <i class="bi bi-caret-down"></i>
+                        <i class="bi bi-caret-up d-none"></i>
+                    </div>
+
+                </div>
+                
+                <div class="btn btn-danger row dropdown-appear d-none" id="ustensiles">
+
+                </div>
+
+            </form> -->
+
         </div>
 
         <!-- articles recettes -->

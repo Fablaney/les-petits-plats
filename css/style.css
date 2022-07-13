@@ -59,15 +59,34 @@ body
     border-radius: 8px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /* Zone Filtres */
-.zone-filtres > div
+.dropdown > form > input
 {
-    margin-right: 2em;
+    outline: none;
 }
-.zone-filtres > div > a
-{
-    padding: 24px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* articles des recettes */
 .image
@@ -117,10 +136,6 @@ body
 }
 
 
-.dropdown-menu > div
-{
-    width: 50vw;
-}
 
 
 

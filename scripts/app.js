@@ -7,7 +7,8 @@ import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
 import {searchInput} from "/scripts/fonctions/searchbar.js";
 // dropdown filtres
 import {dropdownFilters} from "/scripts/fonctions/dropdownfiltres.js";
-
+// dropdown buttons
+import {dropdownButtons} from "/scripts/fonctions/dropdown.js";
 
 // Boucle sur les données
 async function init()
@@ -19,5 +20,7 @@ async function init()
     searchInput()
     
     dropdownFilters()
+
+    dropdownButtons()
 }
 init()
