@@ -116,9 +116,9 @@ export function searchInput()
 
                     ingredient = item.ingredient.toLowerCase()
 
-                    console.log(ingredient)
+                    console.log("ingredients trouvés : " + ingredient)
 
-                    // return ingredient
+                    
 
                     // console.log("dans le if")
                     // if ( ingredient.ingredient.toLowerCase().includes(inputcontent) )
@@ -131,7 +131,7 @@ export function searchInput()
                         // return ingredient.ingredient.toLowerCase().includes(inputcontent)
                     // }  
                 }
-
+                
                 if
                 ( 
                     // recipie.name.toLowerCase().includes(inputcontent) 
