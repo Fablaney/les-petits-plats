@@ -31,6 +31,40 @@ export function dropdownFilters()
         // j'initialise un tableau vide qui contiendra les ingrédients
         let tabIngredients = []
 
+        // let recettesFiltered = []
+
+        // je récupere le champ de recherche ingredient
+        let inputIngredient = document.querySelector("#input-ingredient")
+
+        inputIngredient.addEventListener('input', function()
+        {
+            // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+            let searchIngredient = inputIngredient.value.toLowerCase()
+
+            // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
+            document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
+
+            console.clear()
+
+            // je filtre sur recipies
+            let recettesFiltered = recipies.filter(item =>
+            {   
+                // si dans ingredient je trouve ce qui à été tapé je retourne item
+                if( item.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
+                {
+                    console.log(item)
+
+                    return item
+                }
+            })
+            console.log(recettesFiltered)
+
+            // je parcours les recettes filtrées
+            recettesFiltered.forEach(recette => {
+                recipeCardsFactorie(recette)
+            })
+        })
+
         // je boucle sur chaque recette
         recipies.forEach(recette => {
 
@@ -64,6 +98,35 @@ export function dropdownFilters()
         })
     }
     sortIngredients()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // APPAREILS
     function sortAppareils()
@@ -102,6 +165,8 @@ export function dropdownFilters()
     }
     sortAppareils()
 
+
+    
     // USTENSILES
     function sortUstensiles()
     {

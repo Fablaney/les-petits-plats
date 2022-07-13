@@ -8,9 +8,6 @@ import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 
 export function searchInput()
 {
-    // console.table(recipies)
-    let recettesFiltered = recipies
-
     // je récupere le champ de recherche
     let searchinput = document.querySelector("#searchinput")
 
@@ -27,7 +24,7 @@ export function searchInput()
             document.querySelector("#filtre-input").classList.remove("d-none")
         }
 
-        // // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
@@ -47,7 +44,7 @@ export function searchInput()
         console.clear()
 
         // je filtre sur recipies
-        recettesFiltered = recipies.filter(item =>
+        let recettesFiltered = recipies.filter(item =>
         {   
             // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
             if(
@@ -68,18 +65,5 @@ export function searchInput()
         recettesFiltered.forEach(recette => {
             recipeCardsFactorie(recette)
         })
-    })
-
-
-    // je selectionne les inputs des dropdown
-    let inputIngredients =  document.querySelector("#input-ingredient")
-    let inputAppareils   =  document.querySelector("#input-appareils")
-    let inputUstensiles  =  document.querySelector("#input-ustensiles")
-
-    console.log(recettesFiltered)
-
-    // je parcours les recettes filtrées
-    recettesFiltered.forEach(recette => {
-        recipeCardsFactorie(recette)
     })
 }
