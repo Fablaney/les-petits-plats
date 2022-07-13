@@ -26,7 +26,7 @@ export function searchInput()
             document.querySelector("#filtre-input").classList.remove("d-none")
         }
 
-        // // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
@@ -90,7 +90,7 @@ export function searchInput()
         // }
         // console.log(filterSubject(newTeachers, "history"));
 
-        var FilterMaison = function(recipies, inputcontent)
+        function FilterMaison(recipies, inputcontent)
         {
             // J'initialise le tableau de recettes vide
             var recettesFiltered = []
@@ -100,41 +100,40 @@ export function searchInput()
             console.log("dans :")
 
             // je parcours toutes les recettes
-            for (var i = 0; i <= recipies.length-1; i++)
+            for (var i = 0; i <= recipies.length - 1; i++)
             {
                 var recipie = recipies[i]
 
                 // console.log(recipie)
                     
-                // for ( let j = 0 ; j <= recipie.lenght - 1; j++)
+                // for ( let j = 0 ; j <= recipie.name.lenght - 1; j++)
                 // {
-                    console.log(recipie.name.toLowerCase())
-
-                    if( recipie.name.toLowerCase() == includes(inputcontent.toLowerCase()))
+                    if( recipie.name.toLowerCase().includes(inputcontent))
                     {
-                    //     console.log("recettes trouvées :")
-                    //     recettesFiltered.push(recipie)
-                    //     console.log(recettesFiltered)
+                        console.log(recipie)
+                        //     console.log("recettes trouvées :")
+                        //     recettesFiltered.push(recipie)
+                        //     console.log(recettesFiltered)
                     }
                 // }
                 
             }
             return recettesFiltered
         }
-
-        console.log(FilterMaison(recipies, inputcontent));
-
-
+        FilterMaison(recipies, inputcontent)
+        // console.log(FilterMaison(recipies, inputcontent))
 
 
 
-        // console.log(recettesFiltered)
+
+
+        console.log(recettesFiltered)
 
         // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
-        // for (let i = 0; i < recettesFiltered.length; i++)
-        // {
-        //     // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
-        //     recipeCardsFactorie(recettesFiltered[i])
-        // }
+        for (let i = 0; i < recettesFiltered.length; i++)
+        {
+            // Affichage de toutes les recettes au chargement de la page et lors des réinitialisations
+            recipeCardsFactorie(recettesFiltered[i])
+        }
     })
 }
