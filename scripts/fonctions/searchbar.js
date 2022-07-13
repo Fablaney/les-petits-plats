@@ -39,7 +39,6 @@ export function searchInput()
         {
             searchinput.innerHTML = ""
         }
-
         
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )

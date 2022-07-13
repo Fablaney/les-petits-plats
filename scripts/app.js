@@ -20,4 +20,4 @@ async function init()
     
     dropdownFilters()
 }
-init();
+init()
