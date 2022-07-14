@@ -29,7 +29,8 @@ export function recipeCardsFactorie(recette)
 
                     <p class="col-md-6 texte">${recette.description}</p>
 
-                    <p class="col-md-6 texte">Appareil recommandé ${recette.appliance}</p>
+                    <p class="col-md-12 texte">Appareil recommandé ${recette.appliance}</p>
+                    <p class="col-md-12 texte">Ustensile recommandé ${recette.ustensils}</p>
 
                 </div>
 
@@ -38,7 +39,7 @@ export function recipeCardsFactorie(recette)
         // j'insere les blocs tant qu'il y en à l'un après l'autre
         recipeList.insertAdjacentHTML('beforeEnd', articleRecipie)
     }
-    getRecipeCardDOM();
+    getRecipeCardDOM()
 
 
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1

@@ -36,10 +36,10 @@ export function dropdownUstensilles()
             let recettesFiltered = recipies.filter(item =>
             {   
                 // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
-                // console.log(item.ustensils)
-                if( item.ustensils.map(name => name.toLowerCase().includes(searchUstensiles)) != undefined )
+                console.log(item.ustensils)
+                if( item.ustensils.forEach(name => name.toLowerCase().includes(searchUstensiles)) != undefined )
                 {
-                    console.log(item)
+                    // console.log(item)
 
                     return item
                 }

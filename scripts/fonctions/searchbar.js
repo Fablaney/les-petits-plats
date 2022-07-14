@@ -59,7 +59,7 @@ export function searchInput()
             }
         })
 
-        console.log(recettesFiltered)
+        // console.log(recettesFiltered)
 
         // je parcours les recettes filtrées
         recettesFiltered.forEach(recette => {
