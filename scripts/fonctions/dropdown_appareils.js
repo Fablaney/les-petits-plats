@@ -6,6 +6,7 @@ import {recipies} from "/data/recettes.js"
 // creation des articles
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 
+
 // Boutons dropdown
 export function dropdownAppareils()
 {

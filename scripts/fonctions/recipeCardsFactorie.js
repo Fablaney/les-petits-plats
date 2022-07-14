@@ -10,7 +10,7 @@ export function recipeCardsFactorie(recette)
 
         // je crée le bloc article des recettes
         const articleRecipie = `
-            <article class="col-lg-4 col-md-6 article-recette">
+            <article class="col-xl-4 col-md-6 article-recette">
 
                 <img class="image" src="./assets/images/illustation-recette.jpg" alt="illustration" role="Image"/>
                 

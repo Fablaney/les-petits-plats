@@ -18,7 +18,6 @@ import {dropdownAppareils} from "/scripts/fonctions/dropdown_appareils.js";
 // dropdown buttons
 import {dropdownUstensilles} from "/scripts/fonctions/dropdown_ustensiles.js";
 
-
 // Boucle sur les données
 async function init()
 {

@@ -6,6 +6,8 @@ import {recipies} from "/data/recettes.js"
 // creation des articles
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 
+let recettesFilteredByUstensile = []
+
 // Boutons dropdown
 export function dropdownUstensilles()
 {
@@ -33,24 +35,31 @@ export function dropdownUstensilles()
             // console.clear()
 
             // je filtre sur recipies
-            let recettesFiltered = recipies.filter(item =>
+            recettesFilteredByUstensile = recipies.filter(item =>
             {   
                 // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
-                console.log(item.ustensils)
-                if( item.ustensils.forEach(name => name.toLowerCase().includes(searchUstensiles)) != undefined )
+                if( item.ustensils.find(ustensils => ustensils.toLowerCase().includes(searchUstensiles)) )
                 {
                     // console.log(item)
-
+                    // console.log(item.ustensils)
                     return item
                 }
             })
-            // console.log(recettesFiltered)
+            // console.log(recettesFilteredByUstensile)
 
             // je parcours les recettes filtrées par ustensiles
-            recettesFiltered.forEach(recette => {
+            recettesFilteredByUstensile.forEach(recette => {
                 recipeCardsFactorie(recette)
             })
         })
+
+        console.log(recettesFilteredByUstensile.lenght)
+
+        if (recettesFilteredByUstensile.lenght > 0)
+        {
+            recipies = recettesFilteredByUstensile
+            console.log(recipies)
+        }
 
         // je boucle sur chaque recette
         recipies.forEach(recette => {
