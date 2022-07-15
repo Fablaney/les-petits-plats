@@ -6,90 +6,115 @@ import {recipies} from "/data/recettes.js"
 // creation des articles
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 
-let recettesFilteredByUstensile = []
+let recettesFilteredByUstensile
 
 // Boutons dropdown
-export function dropdownUstensilles()
+function dropdownUstensilles()
 {
     // je selectionne les dropdown qui afficherons les elements filtrables
     let dropUstensiles  = document.querySelector("#ustensiles")
 
+    // je récupere le champ de recherche ingredient
+    let inputUstensiles = document.querySelector("#input-ustensiles")
+
     function sortUstensiles()
     {
-        // j'initialise un tableau vide qui contiendra les ingrédients
-        let tabUstensiles = []
-
-        // je récupere le champ de recherche ingredient
-        let inputUstensiles = document.querySelector("#input-ustensiles")
-
-        inputUstensiles.addEventListener('input', function()
+        function recettesFilteredByUstensiles()
         {
-            // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
-            let searchUstensiles = inputUstensiles.value.toLowerCase()
+            // par défaut recettesFilteredByAppareil = recipies
+            recettesFilteredByUstensile = recipies
 
-            // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
-            
-            // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-            // console.clear()
+            // En cherchant un ustensile j'afficher les recettes qui contiennent cet ustensile
+            inputUstensiles.addEventListener('input', function()
+            {
+                // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+                let searchUstensiles = inputUstensiles.value.toLowerCase()
 
-            // je filtre sur recipies
-            recettesFilteredByUstensile = recipies.filter(item =>
-            {   
-                // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
-                if( item.ustensils.find(ustensils => ustensils.toLowerCase().includes(searchUstensiles)) )
-                {
-                    // console.log(item)
-                    // console.log(item.ustensils)
-                    return item
-                }
+                // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+                document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
+                // je filtre sur recipies
+                recettesFilteredByUstensile = recipies.filter(item =>
+                {   
+                    // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
+                    if( item.ustensils.find(ustensils => ustensils.toLowerCase().includes(searchUstensiles)) )
+                    {
+                        return item
+                    }
+                })
+
+                // je parcours les recettes filtrées par ustensiles
+                recettesFilteredByUstensile.forEach(recette => {
+                    recipeCardsFactorie(recette)
+                })
             })
-            // console.log(recettesFilteredByUstensile)
-
-            // je parcours les recettes filtrées par ustensiles
-            recettesFilteredByUstensile.forEach(recette => {
-                recipeCardsFactorie(recette)
-            })
-        })
-
-        // console.log(recettesFilteredByUstensile.lenght)
-
-        if (recettesFilteredByUstensile.lenght > 0)
-        {
-            recipies = recettesFilteredByUstensile
-            // console.log(recipies)
         }
+        
 
-        // je boucle sur chaque recette
-        recipies.forEach(recette => {
+        function affichageUstensile()
+        {
+            // j'initialise un tableau vide qui contiendra les ustensiles
+            let tabUstensiles = []
 
-            let ustensiles = recette.ustensils.map(name => name.toLowerCase())
+             // je boucle sur chaque recette
+            recipies.forEach(recette => {
 
-            // je capitalise la 1ere lettre 
-            ustensiles.forEach( ustensile => {
+                let ustensiles = recette.ustensils.map(name => name.toLowerCase())
+
+                // je capitalise la 1ere lettre 
+                ustensiles.forEach( ustensile => {
                             
-                let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
+                    let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
 
-                tabUstensiles = tabUstensiles.concat(ustensilesCap)
+                    tabUstensiles = tabUstensiles.concat(ustensilesCap)
+                })
             })
-        })
 
-        // je supprime les doublons
-        tabUstensiles = [...new Set(tabUstensiles)]
+            // je supprime les doublons
+            tabUstensiles = [...new Set(tabUstensiles)]
 
-        // je classe par ordre alphabétique
-        tabUstensiles = tabUstensiles.sort()
+            // je classe par ordre alphabétique
+            tabUstensiles = tabUstensiles.sort()
 
-        // console.log(tabUstensiles)
+            // à l'input dans le dropdown ustensiles
+            inputUstensiles.addEventListener('input', function()
+            {
+                // je récupere la valeur de l'input et je passe en minuscule
+                let searchUstensile = inputUstensiles.value.toLowerCase()
 
-        // je boucle sur chaque ustensile
-        tabUstensiles.forEach(ustensile => {
+                // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
+                document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
 
-            const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+                // je filtre sur tabUstensiles
+                let ustensilesFiltered = tabUstensiles.filter(item =>
+                {   
+                    if ( item.toLowerCase().includes(searchUstensile) )
+                    {
+                        return item
+                    }
+                    console.log(item)
+                })
 
-            dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
-        })
+                // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
+                ustensilesFiltered.forEach(ustensil => {
+
+                const ustensilesDOM = `<div class="col-4">${ ustensil }</div>`
+    
+                    dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
+                })
+            })
+
+            // je boucle sur chaque ustensile
+            tabUstensiles.forEach(ustensile => {
+
+                const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+
+                dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
+            })
+        }
+        affichageUstensile() 
     }
     sortUstensiles()
 }
+
+export {recettesFilteredByUstensile, dropdownUstensilles}

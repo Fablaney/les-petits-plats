@@ -19,9 +19,9 @@ function dropdownIngredients()
 
     function sortIngredients()
     {
-        // par défaut recettesFilteredByIngredient = recipies
         function recettesFilteredByIngredients()
         {
+            // par défaut recettesFilteredByIngredient = recipies
             recettesFilteredByIngredient = recipies
 
             // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
@@ -33,8 +33,6 @@ function dropdownIngredients()
                 // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
                 document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
-                console.clear()
-
                 // je filtre sur recipies
                 recettesFilteredByIngredient = recipies.filter(recette =>
                 {   
@@ -45,9 +43,6 @@ function dropdownIngredients()
                     }
                 })
 
-                console.log(recettesFilteredByIngredient)
-
-                
                 // je parcours et re-affiche les recettes filtrées par ingrédient
                 recettesFilteredByIngredient.forEach(recette => {
                     recipeCardsFactorie(recette)
@@ -87,31 +82,22 @@ function dropdownIngredients()
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
 
-            // console.log(tabIngredients)
-
-            // à l'input dans le dropdown
+            // à l'input dans le dropdown ingrédients
             inputIngredient.addEventListener('input', function()
             {
-                console.log(tabIngredients)
-                //  let tabIngredientsSorted
-                // je récupere la valeur de l'input et je pass en minuscule
+                // je récupere la valeur de l'input et je passe en minuscule
                 let searchIngredient = inputIngredient.value.toLowerCase()
 
                 // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
                 document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
-                console.clear()
-                
-                // je filtre sur recipies
+                // je filtre sur tabingredients
                 let ingredientsFiltered = tabIngredients.filter(item =>
-                {   
-                    console.log(item)
-                    if (    item.toLowerCase().includes(searchIngredient)  )
+                {
+                    if ( item.toLowerCase().includes(searchIngredient) )
                     {
                         return item
                     }
-                    // console.log(item)
-                    
                 })
 
                 // je boucle sur chaque ingrédient
@@ -123,7 +109,7 @@ function dropdownIngredients()
                 })
             })
 
-            // je boucle sur chaque ingrédient
+            // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {
 
             const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
