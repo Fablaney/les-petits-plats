@@ -38,5 +38,12 @@ async function init()
     // tri par ustensiles
     dropdownUstensilles()
 
+    stopSearch(arg)
 }
 init()
+
+function stopSearch(arg)
+{
+    console.log(arg)
+    // searchinput.innerHTML = ""
+}

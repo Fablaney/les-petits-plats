@@ -28,16 +28,11 @@ export function searchInput()
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
-        const filterInputDOM = `${inputcontent} &nbsp; <i class="bi bi-x-circle" onclick="stopSearch()"></i>`
+        const filterInputDOM = `${inputcontent} &nbsp; <i class="bi bi-x-circle" onclick="stopSearch(text)"></i>`
 
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
         document.querySelector("#filtre-input").innerHTML = filterInputDOM
 
-        function stopSearch()
-        {
-            searchinput.innerHTML = ""
-        }
-        
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
