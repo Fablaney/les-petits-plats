@@ -6,8 +6,10 @@ import {recipies} from "/data/recettes.js"
 // creation des articles
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 
+let recettesFilteredByIngredient
+
 // Boutons dropdown
-export function dropdownIngredients()
+function dropdownIngredients()
 {
     // je récupere le champ de recherche ingredient
     let inputIngredient = document.querySelector("#input-ingredient")
@@ -18,44 +20,49 @@ export function dropdownIngredients()
     function sortIngredients()
     {
         // par défaut recettesFilteredByIngredient = recipies
-        let recettesFilteredByIngredient = recipies
-
-        // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
-        inputIngredient.addEventListener('input', function()
+        function recettesFilteredByIngredients()
         {
-            // je récupere la valeur de l'input et je pass en minuscule
-            let searchIngredient = inputIngredient.value.toLowerCase()
+            recettesFilteredByIngredient = recipies
 
-            // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+            // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
+            inputIngredient.addEventListener('input', function()
+            {
+                // je récupere la valeur de l'input et je pass en minuscule
+                let searchIngredient = inputIngredient.value.toLowerCase()
 
-            console.clear()
+                // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+                document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
-            // je filtre sur recipies
-            recettesFilteredByIngredient = recipies.filter(recette =>
-            {   
-                // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
-                if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
-                {
-                    return recette
-                }
+                console.clear()
+
+                // je filtre sur recipies
+                recettesFilteredByIngredient = recipies.filter(recette =>
+                {   
+                    // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
+                    if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
+                    {
+                        return recette
+                    }
+                })
+
+                console.log(recettesFilteredByIngredient)
+
+                
+                // je parcours et re-affiche les recettes filtrées par ingrédient
+                recettesFilteredByIngredient.forEach(recette => {
+                    recipeCardsFactorie(recette)
+                })
             })
-
-            console.log(recettesFilteredByIngredient)
-
-            // je parcours et re-affiche les recettes filtrées par ingrédient
-            recettesFilteredByIngredient.forEach(recette => {
-                recipeCardsFactorie(recette)
-            })
-        })
+        }
+       
 
         function afficheIngredients()
         {
             // j'initialise un tableau vide qui contiendra la liste des ingrédients
-            let tabIngredients = recipies
+            let tabIngredients = []
 
             // je boucle sur chaque recette
-            tabIngredients.forEach(recette => {
+            recipies.forEach(recette => {
 
                 // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
                 recette.ingredients.forEach((ingredient) => {
@@ -66,13 +73,16 @@ export function dropdownIngredients()
                     // je remet seulement la 1ere lettre en majuscule
                     ingredient = ingredient[0].toUpperCase() + ingredient.slice(1)
 
-                    // Je concatene dans le tableau
-                    tabIngredients = tabIngredients.concat(ingredient)
+                    // Je remplis le tableau et ça supprime les doublons
+                    if ( tabIngredients.includes(ingredient) == false )
+                    {
+                        tabIngredients.push(ingredient)
+                    }
                 })
             })
 
             // je supprime les doublons
-            tabIngredients = [...new Set(tabIngredients)]
+            // tabIngredients = [...new Set(tabIngredients)]
 
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
@@ -90,22 +100,27 @@ export function dropdownIngredients()
                 // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
                 document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
-                // console.clear()
+                console.clear()
                 
                 // je filtre sur recipies
                 let ingredientsFiltered = tabIngredients.filter(item =>
                 {   
                     console.log(item)
-                    // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-                    // if( item.ingrédient.find( element => { return element.toLowerCase().includes(searchIngredient) } ) != undefined
-                    // )
-                    // {
-                    //     return item
-                    // }
+                    if (    item.toLowerCase().includes(searchIngredient)  )
+                    {
+                        return item
+                    }
+                    // console.log(item)
+                    
                 })
 
-                console.log(ingredientsFiltered)
+                // je boucle sur chaque ingrédient
+                ingredientsFiltered.forEach(ingre => {
 
+                const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
+    
+                    dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
+                })
             })
 
             // je boucle sur chaque ingrédient
@@ -120,3 +135,5 @@ export function dropdownIngredients()
     }
     sortIngredients()
 }
+
+export {recettesFilteredByIngredient, dropdownIngredients }
