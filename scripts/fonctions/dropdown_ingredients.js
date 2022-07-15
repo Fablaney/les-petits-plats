@@ -79,10 +79,9 @@ export function dropdownIngredients()
 
             console.log(tabIngredients)
 
-            
-
-            // inputIngredient.addEventListener('input', function()
-            // {
+            // à l'input dans le dropdown
+            inputIngredient.addEventListener('input', function()
+            {
             //     let tabIngredientsSorted
             //     // je récupere la valeur de l'input et je pass en minuscule
             //     let searchIngredient = inputIngredient.value.toLowerCase()
@@ -104,7 +103,7 @@ export function dropdownIngredients()
             //         dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
             //     })
    
-            // })
+            })
 
             // je boucle sur chaque ingrédient
             tabIngredients.forEach(ingre => {
