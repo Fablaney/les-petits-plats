@@ -46,25 +46,6 @@ export function searchInput()
     
         console.clear()
 
-        // Je boucle sur 
-        // let recettesFiltered = recipies.filter(item =>
-        // {   
-        //     // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-        //     if(
-        //         item.name.toLowerCase().includes(inputcontent) ||
-        //         item.description.toLowerCase().includes(inputcontent) ||
-        //         // methode 2 avec un for sans le find
-        //         item.ingredients.find(element => {
-        //             return element.ingredient.toLowerCase().includes(inputcontent)
-        //         }) != undefined
-        //     )
-        //     {
-        //         return item
-        //     }
-        // })
-
-
-
         // j'initialise les recettes filtrées en tableau vide
         var recettesFiltered = []
 
