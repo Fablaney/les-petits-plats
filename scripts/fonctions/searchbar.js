@@ -67,7 +67,7 @@ export function searchInput()
 
                     if ( 
                         recipie.name.toLowerCase().includes(inputcontent )
-                        || 
+                        ||
                         recipie.description.toLowerCase().includes(inputcontent )
                         ||
                         item.ingredient.toLowerCase().includes(inputcontent )
