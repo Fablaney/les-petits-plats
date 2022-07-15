@@ -1,3 +1,5 @@
+// old
+
 // datas
 import {recipies} from "/data/recettes.js"
 
@@ -24,7 +26,7 @@ export function searchInput()
             document.querySelector("#filtre-input").classList.remove("d-none")
         }
 
-        // // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
@@ -33,41 +35,61 @@ export function searchInput()
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
         document.querySelector("#filtre-input").innerHTML = filterInputDOM
 
-        function stopSearch()
-        {
-            searchinput.innerHTML = ""
-        }
+        // function stopSearch()
+        // {
+        //     searchinput.innerHTML = ""
+        // }
 
         
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-
+    
         console.clear()
 
-        // methode 2 avec un for sans le filter
-        let recettesFiltered = recipies.filter(item =>
-        {   
-            // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-            if(
-                item.name.toLowerCase().includes(inputcontent) ||
-                item.description.toLowerCase().includes(inputcontent) ||
-                // methode 2 avec un for sans le find
-                item.ingredients.find(element => {
-                    return element.ingredient.toLowerCase().includes(inputcontent)
-                }) != undefined
-            )
+        // j'initialise les recettes filtrées en tableau vide
+        var recettesFiltered = []
+
+        function FilterMaison(recipies, inputcontent)
+        {
+            // je parcours toutes les recettes
+            console.log("dans le 1er for")
+            for ( var i = 0; i < recipies.length; i++ )
             {
-                return item
+                var recipie = recipies[i]
+       
+                let ingredients = recipie.ingredients
+
+                console.log("dans le 2eme for")
+
+                for ( var j = 0; j < ingredients.length ; j ++ )
+                {
+                    var item = ingredients[j]
+
+                    if ( 
+                        recipie.name.toLowerCase().includes(inputcontent )
+                        ||
+                        recipie.description.toLowerCase().includes(inputcontent )
+                        ||
+                        item.ingredient.toLowerCase().includes(inputcontent )
+                    )
+                    {
+                        recettesFiltered.push(recipie)
+                        break
+                    }
+                }    
             }
-        })
 
-        console.log(recettesFiltered)
-        
-        // methode 2 avec un for sans le find
-        recettesFiltered.forEach(recette => {
-            recipeCardsFactorie(recette)
-        })
+            return recettesFiltered
+        }
+        FilterMaison(recipies, inputcontent)
 
+        // console.log(recettesFiltered)
+
+        // je boucle sur les recettes filtrées et je rappelle la factory pour afficher les recettes filtrées
+        for (let i = 0; i < recettesFiltered.length; i++)
+        {
+            // Affichage de toutes les recettes trouvées
+            recipeCardsFactorie(recettesFiltered[i])
+        }
     })
 }
-searchInput()

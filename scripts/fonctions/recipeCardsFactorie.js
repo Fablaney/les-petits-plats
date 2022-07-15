@@ -1,3 +1,5 @@
+// old
+
 export function recipeCardsFactorie(recette)
 {
     // console.log(recette)
@@ -35,18 +37,17 @@ export function recipeCardsFactorie(recette)
         // j'insere les blocs tant qu'il y en à l'un après l'autre
         recipeList.insertAdjacentHTML('beforeEnd', articleRecipie)
     }
-    getRecipeCardDOM();
+    getRecipeCardDOM()
 
 
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1
-    recette.ingredients.forEach((ingredient) => {
-        // console.log(ingredient)
-
+    for (let i = 0; i < recette.ingredients.length; i++)
+    {
         let listeIngrédients = document.querySelector("#ingredients-" + recette.id)
 
-        let varIngredient = ingredient.ingredient
-        let varQuantity = ingredient.quantity
-        let varUnit = ingredient.unit
+        let varIngredient = recette.ingredients[i].ingredient
+        let varQuantity = recette.ingredients[i].quantity
+        let varUnit = recette.ingredients[i].unit
 
         if (varQuantity == undefined)
         {
@@ -63,5 +64,5 @@ export function recipeCardsFactorie(recette)
             `
 
         listeIngrédients.insertAdjacentHTML('beforeEnd', listeItem)
-    })
+    }
 }
