@@ -6,6 +6,8 @@ import {recipies} from "/data/recettes.js"
 // creation des articles
 import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 
+let recettesFilteredByText
+
 export function searchInput()
 {
     // je récupere le champ de recherche
@@ -28,16 +30,19 @@ export function searchInput()
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
-        const filterInputDOM = `${inputcontent} &nbsp; <i class="bi bi-x-circle" onclick="stopSearch(text)"></i>`
+        const filterInputDOM = `<div id="display-tag">${inputcontent}</div>`
+
+        // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll("#tag-texte div").forEach( (elt)=>{ elt.remove() } )
 
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
-        document.querySelector("#tag-texte").innerHTML = filterInputDOM
-
+        document.querySelector("#tag-texte").insertAdjacentHTML('afterbegin', filterInputDOM)
+        
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
         // je filtre sur recipies
-        let recettesFiltered = recipies.filter(item =>
+        recettesFilteredByText = recipies.filter(item =>
         {   
             // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
             if(
@@ -53,8 +58,10 @@ export function searchInput()
         })
 
         // je parcours les recettes filtrées
-        recettesFiltered.forEach(recette => {
+        recettesFilteredByText.forEach(recette => {
             recipeCardsFactorie(recette)
         })
     })
 }
+
+export {recettesFilteredByText}

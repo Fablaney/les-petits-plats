@@ -18,6 +18,9 @@ import {dropdownAppareils} from "/scripts/fonctions/dropdown_appareils.js";
 // dropdown buttons
 import {dropdownUstensilles} from "/scripts/fonctions/dropdown_ustensiles.js";
 
+// j'importe les variables des tableaux triés
+import {recettesFilteredByText} from "/scripts/fonctions/searchbar.js";
+
 
 // Boucle sur les données
 async function init()
@@ -37,19 +40,35 @@ async function init()
     dropdownAppareils()
 
     // tri par ustensiles
-    dropdownUstensilles()    
+    dropdownUstensilles()
+
+    stopSearch()
 }
 init()
 
 
 
-let stopSearchBy = document.querySelector("#searchinput")
+
 
 function stopSearch()
 {
-    stopSearchBy.addEventListener('click', function()
+    let stopSearchByText = document.querySelector("#erase-text")
+
+    stopSearchByText.addEventListener('click', function()
     {
-        
+        stopSearch()
     })
+    
+    console.log("test")
+
+    document.querySelector("#searchinput").value = ""
+
+    if (document.querySelector("#searchinput").value = "")
+    {
+        recettesFilteredByText = recipies
+        console.log(recettesFilteredByText)
+    }
+
+
 }
-stopSearch()
+export {stopSearch}

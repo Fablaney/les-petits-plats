@@ -65,12 +65,28 @@ body
 
 
 /* --------------------------------------------------------------------------------- */
-/* Zone Filtres */
+/* Zone Filtres TAGS*/
 .zone-filtres
 {
     display: flex;
     flex-direction: row;
 }
+.filtres-actifs > div
+{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1em;
+}
+.filtres-actifs > div > button
+{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+
+/* Zone Filtres DROPDOWNS*/
 .dropdown
 {
     margin-right: 2em !important;
