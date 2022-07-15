@@ -16,12 +16,12 @@ export function searchInput()
         // je prends le champ de recherche et si il est vide je n'affiche pas la div de filtre texte actif
         if (document.querySelector("#searchinput").value == "")
         {
-            document.querySelector("#filtre-input").classList.add("d-none")
+            document.querySelector("#tag-texte").classList.add("d-none")
         }
         // sinon j'affiche la div
         else
         {
-            document.querySelector("#filtre-input").classList.remove("d-none")
+            document.querySelector("#tag-texte").classList.remove("d-none")
         }
 
         // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
@@ -31,12 +31,10 @@ export function searchInput()
         const filterInputDOM = `${inputcontent} &nbsp; <i class="bi bi-x-circle" onclick="stopSearch(text)"></i>`
 
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
-        document.querySelector("#filtre-input").innerHTML = filterInputDOM
+        document.querySelector("#tag-texte").innerHTML = filterInputDOM
 
         // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-
-        console.clear()
 
         // je filtre sur recipies
         let recettesFiltered = recipies.filter(item =>
@@ -53,8 +51,6 @@ export function searchInput()
                 return item
             }
         })
-
-        // console.log(recettesFiltered)
 
         // je parcours les recettes filtrées
         recettesFiltered.forEach(recette => {

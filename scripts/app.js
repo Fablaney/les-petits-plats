@@ -18,6 +18,7 @@ import {dropdownAppareils} from "/scripts/fonctions/dropdown_appareils.js";
 // dropdown buttons
 import {dropdownUstensilles} from "/scripts/fonctions/dropdown_ustensiles.js";
 
+
 // Boucle sur les données
 async function init()
 {
@@ -36,14 +37,19 @@ async function init()
     dropdownAppareils()
 
     // tri par ustensiles
-    dropdownUstensilles()
-
-    stopSearch(arg)
+    dropdownUstensilles()    
 }
 init()
 
-function stopSearch(arg)
+
+
+let stopSearchBy = document.querySelector("#searchinput")
+
+function stopSearch()
 {
-    console.log(arg)
-    // searchinput.innerHTML = ""
+    stopSearchBy.addEventListener('click', function()
+    {
+        
+    })
 }
+stopSearch()
