@@ -40,28 +40,14 @@ export function dropdownIngredients()
                 // si dans ingredient je trouve ce qui à été tapé je retourne item
                 if( item.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
                 {
-                    // console.log(item)
+                    // console.log("recette trouvées " + item)
 
                     return item
                 }
             })
 
-            // console.log(recettesFilteredByIngredient)
-            // console.log(tabIngredients = recettesFilteredByIngredient)
-
-            if (recettesFilteredByIngredient.lenght > 0)
-            {
-                tabIngredients = recettesFilteredByIngredient
-                // console.log("recettes triées par ingrédients")
-                // console.log(recettesFilteredByIngredient)
-                // console.log(tabIngredients)
-                afficheIngredients(tabIngredients)
-            }
-            else
-            {
-                afficheIngredients(recettesFilteredByIngredient)
-            }
-
+            afficheIngredients(tabIngredients)
+            
             // je parcours les recettes filtrées par ingrédient
             recettesFilteredByIngredient.forEach(recette => {
                 recipeCardsFactorie(recette)
@@ -72,11 +58,8 @@ export function dropdownIngredients()
 
         function afficheIngredients(tabIngredients)
         {
-            // tabIngredients = recettesFilteredByIngredient
             console.log("tabIngredients")
             console.log(tabIngredients)
-            console.log("recettesFilteredByIngredient")
-            console.log(recettesFilteredByIngredient)
 
             // je boucle sur chaque recette
             tabIngredients.forEach(recette => {
@@ -102,6 +85,8 @@ export function dropdownIngredients()
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
 
+            console.log(tabIngredients)
+            
             // je boucle sur chaque ingrédient
             tabIngredients.forEach(ingre => {
 
