@@ -77,32 +77,35 @@ export function dropdownIngredients()
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
 
-            console.log(tabIngredients)
+            // console.log(tabIngredients)
 
             // à l'input dans le dropdown
             inputIngredient.addEventListener('input', function()
             {
-            //     let tabIngredientsSorted
-            //     // je récupere la valeur de l'input et je pass en minuscule
-            //     let searchIngredient = inputIngredient.value.toLowerCase()
+                console.log(tabIngredients)
+                //  let tabIngredientsSorted
+                // je récupere la valeur de l'input et je pass en minuscule
+                let searchIngredient = inputIngredient.value.toLowerCase()
 
-            //     // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
-            //     document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
+                // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
+                document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
-            //     // console.log(tabIngredients)
-            //     // je filtre sur tabIngredients
-            //     tabIngredientsStorted = tabIngredients.filter(ingredient => ingredient === searchIngredient)
-        
+                // console.clear()
                 
-            //     console.log(tabIngredientsStorted)
-            //     // je boucle sur chaque ingrédient
-            //     tabIngredientsSorted.forEach(ingre => {
+                // je filtre sur recipies
+                let ingredientsFiltered = tabIngredients.filter(item =>
+                {   
+                    console.log(item)
+                    // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
+                    // if( item.ingrédient.find( element => { return element.toLowerCase().includes(searchIngredient) } ) != undefined
+                    // )
+                    // {
+                    //     return item
+                    // }
+                })
 
-            //     const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
-    
-            //         dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
-            //     })
-   
+                console.log(ingredientsFiltered)
+
             })
 
             // je boucle sur chaque ingrédient
