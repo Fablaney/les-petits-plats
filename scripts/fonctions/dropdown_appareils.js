@@ -39,12 +39,12 @@ export function dropdownAppareils()
                 // si dans ingredient je trouve ce qui à été tapé je retourne item
                 if( item.appliance.toLowerCase().includes(searchAppareils) )
                 {
-                    console.log(item)
+                    // console.log(item)
 
                     return item
                 }
             })
-            console.log(recettesFiltered)
+            // console.log(recettesFiltered)
 
             // je parcours les recettes filtrées par appareil
             recettesFiltered.forEach(recette => {

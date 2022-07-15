@@ -9,57 +9,50 @@ import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
 // Boutons dropdown
 export function dropdownIngredients()
 {
+    // je récupere le champ de recherche ingredient
+    let inputIngredient = document.querySelector("#input-ingredient")
+
     // je selectionne les dropdown qui afficherons les elements filtrables
     let dropIngredients = document.querySelector("#ingredients")
 
     function sortIngredients()
     {
-        // je récupere le champ de recherche ingredient
-        let inputIngredient = document.querySelector("#input-ingredient")
+        // par défaut recettesFilteredByIngredient = recipies
+        let recettesFilteredByIngredient = recipies
 
-        let recettesFilteredByIngredient = []
-
-        // j'initialise un tableau vide qui contiendra les ingrédients
-        let tabIngredients = recipies
-
+        // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
         inputIngredient.addEventListener('input', function()
         {
-            // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+            // je récupere la valeur de l'input et je pass en minuscule
             let searchIngredient = inputIngredient.value.toLowerCase()
 
-            // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
-            
             // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-            // console.clear()
+
+            console.clear()
 
             // je filtre sur recipies
-            recettesFilteredByIngredient = recipies.filter(item =>
+            recettesFilteredByIngredient = recipies.filter(recette =>
             {   
-                // si dans ingredient je trouve ce qui à été tapé je retourne item
-                if( item.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
+                // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
+                if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
                 {
-                    // console.log("recette trouvées " + item)
-
-                    return item
+                    return recette
                 }
             })
 
-            afficheIngredients(tabIngredients)
-            
-            // je parcours les recettes filtrées par ingrédient
+            console.log(recettesFilteredByIngredient)
+
+            // je parcours et re-affiche les recettes filtrées par ingrédient
             recettesFilteredByIngredient.forEach(recette => {
                 recipeCardsFactorie(recette)
             })
         })
 
-        // console.log(recettesFilteredByIngredient)
-
-        function afficheIngredients(tabIngredients)
+        function afficheIngredients()
         {
-            console.log("tabIngredients")
-            console.log(tabIngredients)
+            // j'initialise un tableau vide qui contiendra la liste des ingrédients
+            let tabIngredients = recipies
 
             // je boucle sur chaque recette
             tabIngredients.forEach(recette => {
@@ -76,7 +69,6 @@ export function dropdownIngredients()
                     // Je concatene dans le tableau
                     tabIngredients = tabIngredients.concat(ingredient)
                 })
-                // console.log(tabIngredients)
             })
 
             // je supprime les doublons
@@ -86,7 +78,34 @@ export function dropdownIngredients()
             tabIngredients = tabIngredients.sort()
 
             console.log(tabIngredients)
+
             
+
+            // inputIngredient.addEventListener('input', function()
+            // {
+            //     let tabIngredientsSorted
+            //     // je récupere la valeur de l'input et je pass en minuscule
+            //     let searchIngredient = inputIngredient.value.toLowerCase()
+
+            //     // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
+            //     document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
+
+            //     // console.log(tabIngredients)
+            //     // je filtre sur tabIngredients
+            //     tabIngredientsStorted = tabIngredients.filter(ingredient => ingredient === searchIngredient)
+        
+                
+            //     console.log(tabIngredientsStorted)
+            //     // je boucle sur chaque ingrédient
+            //     tabIngredientsSorted.forEach(ingre => {
+
+            //     const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
+    
+            //         dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
+            //     })
+   
+            // })
+
             // je boucle sur chaque ingrédient
             tabIngredients.forEach(ingre => {
 
@@ -95,7 +114,7 @@ export function dropdownIngredients()
                 dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
             })
         }
-        afficheIngredients(tabIngredients)
+        afficheIngredients()
     }
     sortIngredients()
 }

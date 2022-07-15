@@ -53,12 +53,12 @@ export function dropdownUstensilles()
             })
         })
 
-        console.log(recettesFilteredByUstensile.lenght)
+        // console.log(recettesFilteredByUstensile.lenght)
 
         if (recettesFilteredByUstensile.lenght > 0)
         {
             recipies = recettesFilteredByUstensile
-            console.log(recipies)
+            // console.log(recipies)
         }
 
         // je boucle sur chaque recette
