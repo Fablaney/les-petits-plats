@@ -11,45 +11,77 @@ let recettesFilteredByIngredient
 // Boutons dropdown
 function dropdownIngredients()
 {
-    // je récupere le champ de recherche ingredient
-    let inputIngredient = document.querySelector("#input-ingredient")
-
     // je selectionne les dropdown qui afficherons les elements filtrables
     let dropIngredients = document.querySelector("#ingredients")
 
+    // je récupere le champ de recherche ingredient
+    let inputIngredient = document.querySelector("#input-ingredient")
+
     function sortIngredients()
     {
-        function recettesFilteredByIngredients()
+        
+        // par défaut recettesFilteredByIngredient = recipies
+        recettesFilteredByIngredient = recipies
+
+        // dans le champ du dropdown
+        // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
+        inputIngredient.addEventListener('input', function()
         {
-            // par défaut recettesFilteredByIngredient = recipies
-            recettesFilteredByIngredient = recipies
+            // je récupere la valeur de l'input et je pass en minuscule
+            let searchIngredient = inputIngredient.value.toLowerCase()
 
-            // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
-            inputIngredient.addEventListener('input', function()
-            {
-                // je récupere la valeur de l'input et je pass en minuscule
-                let searchIngredient = inputIngredient.value.toLowerCase()
+            // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
-                // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
-                document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-
-                // je filtre sur recipies
-                recettesFilteredByIngredient = recipies.filter(recette =>
-                {   
-                    // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
-                    if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
-                    {
-                        return recette
-                    }
-                })
-
-                // je parcours et re-affiche les recettes filtrées par ingrédient
-                recettesFilteredByIngredient.forEach(recette => {
-                    recipeCardsFactorie(recette)
-                })
+            // je filtre sur recipies
+            recettesFilteredByIngredient = recipies.filter(recette =>
+            {   
+                // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
+                if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
+                {
+                    return recette
+                }
             })
-        }
-       
+
+            // je parcours et re-affiche les recettes filtrées par ingrédient
+            recettesFilteredByIngredient.forEach(recette => {
+                recipeCardsFactorie(recette)
+            })
+        })
+            
+
+        // au click sur un ingredient
+        // je récupere l'ingredient cliqué
+        let clickIngredient = document.querySelectorAll(".item-ingre")
+
+        console.log(clickIngredient.dataset.value)
+
+        // // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
+        // clickIngredient.addEventListener('click', function()
+        // {
+        //     // je récupere la valeur de l'input et je pass en minuscule
+        //     let searchIngredient = inputIngredient.value.toLowerCase()
+
+        //     // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        //     document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
+        //     // je filtre sur recipies
+        //     recettesFilteredByIngredient = recipies.filter(recette =>
+        //     {   
+        //         // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
+        //         if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
+        //         {
+        //             return recette
+        //         }
+        //     })
+
+        //     // je parcours et re-affiche les recettes filtrées par ingrédient
+        //     recettesFilteredByIngredient.forEach(recette => {
+        //         recipeCardsFactorie(recette)
+        //     })
+        // })
+        
+
 
         function afficheIngredients()
         {
@@ -103,7 +135,7 @@ function dropdownIngredients()
                 // je boucle sur chaque ingrédient
                 ingredientsFiltered.forEach(ingre => {
 
-                const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
+                const ingredientsDOM = `<div class="col-4 item-ingre" data-ingre="${ ingre }">${ ingre }</div>`
     
                     dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
                 })
@@ -112,7 +144,7 @@ function dropdownIngredients()
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {
 
-            const ingredientsDOM = `<div class="col-4">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-4 item-ingre" data-ingre="${ ingre }">${ ingre }</div>`
 
                 dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
             })
@@ -122,4 +154,14 @@ function dropdownIngredients()
     sortIngredients()
 }
 
-export {recettesFilteredByIngredient, dropdownIngredients }
+
+
+
+
+
+
+
+
+export {recettesFilteredByIngredient, dropdownIngredients}
+
+

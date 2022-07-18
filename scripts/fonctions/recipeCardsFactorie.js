@@ -27,7 +27,7 @@ export function recipeCardsFactorie(recette)
 
                     </ul>
 
-                    <p class="col-md-6 texte">${recette.description}</p>
+                    <p class="col-md-6 texte">${recette.description.substring(0, 160) + "..."}</p>
 
                     <p class="col-md-12 texte">Appareil recommandé ${recette.appliance}</p>
                     <p class="col-md-12 texte">Ustensile recommandé ${recette.ustensils}</p>
@@ -35,6 +35,7 @@ export function recipeCardsFactorie(recette)
                 </div>
 
             </article>`
+            /* <p class="col-md-6 texte">${recette.description}</p> */
 
         // j'insere les blocs tant qu'il y en à l'un après l'autre
         recipeList.insertAdjacentHTML('beforeEnd', articleRecipie)
@@ -44,7 +45,6 @@ export function recipeCardsFactorie(recette)
 
     // Je boucle sur le tableau d'ingrédients pour les afficher 1 par 1
     recette.ingredients.forEach((ingredient) => {
-        // console.log(ingredient)
 
         let listeIngrédients = document.querySelector("#ingredients-" + recette.id)
 
