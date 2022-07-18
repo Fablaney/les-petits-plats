@@ -52,31 +52,36 @@ async function init()
 init()
 
 
-
-
-
 function stopSearch()
 {
     let stopSearchByText = document.querySelector("#erase-text")
 
     stopSearchByText.addEventListener('click', function()
     {
-        stopSearch()
+        document.querySelector("#searchinput").value = ""
+        document.querySelector("#display-tag-text").remove()
+        document.querySelector("#tag-texte").classList.add("d-none")
+        // Affichage par défaut de toutes les recettes
+        recipies.forEach((recette) => {
+            recipeCardsFactorie(recette)
+        })
+    })
+
+    let stopSearchByIngredient = document.querySelector("#erase-ingredient")
+
+    stopSearchByIngredient.addEventListener('click', function()
+    {
+        document.querySelector("#input-ingredient").value = ""
+        document.querySelector("#display-tag-ingredient").remove()
+        document.querySelector("#tag-ingredient").classList.add("d-none")
+        // Affichage par défaut de toutes les recettes
+        recipies.forEach((recette) => {
+            recipeCardsFactorie(recette)
+        })
     })
     
     
 
-    document.querySelector("#searchinput").value = ""
-
-    if (document.querySelector("#searchinput").value = "")
-    {
-        console.log("test")
-        recettesFilteredByText = recipies
-        recettesFilteredByText.forEach((recette) => {
-            recipeCardsFactorie(recette)
-        })
-        
-    }
 
 
 }

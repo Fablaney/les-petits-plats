@@ -30,7 +30,7 @@ export function searchInput()
         const inputcontent = searchinput.value.toLowerCase()
 
         // Je crée le texte recherché
-        const filterInputDOM = `<div id="display-tag">${inputcontent}</div>`
+        const filterInputDOM = `<div id="display-tag-text">${inputcontent}</div>`
 
         // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll("#tag-texte div").forEach( (elt)=>{ elt.remove() } )
