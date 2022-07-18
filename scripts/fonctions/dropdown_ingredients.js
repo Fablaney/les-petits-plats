@@ -120,7 +120,7 @@ function dropdownIngredients()
                 // je boucle sur chaque ingrédient
                 ingredientsFiltered.forEach(ingre => {
 
-                const ingredientsDOM = `<div class="col-4 item-ingre" data-ingre="${ ingre }" onclick="chooseIngredient(${ ingre })">${ ingre }</div>`
+                const ingredientsDOM = `<div class="col-4 item-ingre" data-ingre="${ ingre }">${ ingre }</div>`
     
                     dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
                 })
@@ -129,7 +129,7 @@ function dropdownIngredients()
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {
 
-            const ingredientsDOM = `<div class="col-4 item-ingre" data-ingre="${ ingre }" onclick="chooseIngredient(${ ingre })">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-4 item-ingre" data-ingre="${ ingre }">${ ingre }</div>`
 
                 dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
             })
@@ -140,14 +140,14 @@ function dropdownIngredients()
 
         // au click sur un ingredient
         // je récupere l'ingredient cliqué
-        function chooseIngredient()
-        {
-            console.log("test")
-        }
+        // function chooseIngredient()
+        // {
+        //     console.log("test")
+        // }
 
-        let clickIngredient = document.querySelectorAll(".item-ingre")
+        // let clickIngredient = document.querySelectorAll(".item-ingre")
 
-        console.log(clickIngredient.dataset.value)
+        // console.log(clickIngredient.dataset.value)
 
 
         // // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
