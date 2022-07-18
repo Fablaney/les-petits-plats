@@ -139,12 +139,12 @@ function dropdownIngredients()
 
 
         // au click sur un ingredient
-        // // je récupere l'ingredient cliqué
-        // function chooseIngredient(ingre)
-        // {
+        // je récupere l'ingredient cliqué
+        function chooseIngredient(ingre)
+        {
 
-        //     console.log(ingre)
-        // }
+            console.log(ingre)
+        }
 
         // let clickIngredient = document.querySelectorAll(".item-ingre")
 
@@ -175,12 +175,6 @@ function dropdownIngredients()
         //         recipeCardsFactorie(recette)
         //     })
         // })
-
-
-
-
-
-
     }
     sortIngredients()
 }
