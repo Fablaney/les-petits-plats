@@ -51,6 +51,20 @@ async function init()
 }
 init()
 
+// au click sur un ingredient
+// je récupere l'item cliqué
+function addTag(itemTag)
+{
+    console.log("je recupere la valeur du champ")
+    console.log(itemTag)
+
+    // Je crée le texte recherché
+    const tagIngredientDOM = `<div class="btn btn-secondary d-none" id="tag-texte"> `+ itemTag + ` &nbsp;<button id="erase-text"><i class="bi bi-x-circle"></i></button></div>`
+    
+    document.querySelector(".filtres-actifs")
+
+    dropIngredients.insertAdjacentHTML('beforeEnd', tagIngredientDOM )
+}
 
 function stopSearch()
 {

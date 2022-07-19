@@ -114,7 +114,7 @@ function afficheIngredients()
         // je boucle sur chaque ingrédient
         ingredientsFiltered.forEach(ingre => {
 
-            const ingredientsDOM = `<div class="col-4 item-ingre" onclick="chooseIngredient(${ ingre })">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-4 item-ingre" onclick="addTag(${ingre})">${ ingre }</div>`
 
             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
         })
@@ -123,16 +123,24 @@ function afficheIngredients()
     // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
     tabIngredients.forEach(ingre => {
 
-        const ingredientsDOM = `<div class="col-4 item-ingre" onclick="chooseIngredient(${ ingre })">${ ingre }</div>`
+        const ingredientsDOM = `<div class="col-4 item-ingre" onclick="addTag(${ingre})">${ ingre }</div>`
 
         dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
     })
 }
 afficheIngredients()
 
- // au click sur un ingredient
-// // je récupere l'ingredient cliqué
-function chooseIngredient(ingre)
+// au click sur un ingredient
+// je récupere l'item cliqué
+function addTag(itemTag)
 {
-    console.log(ingre)
+    console.log("je recupere la valeur du champ")
+    console.log(itemTag)
+
+    // Je crée le texte recherché
+    const tagIngredientDOM = `<div class="btn btn-secondary d-none" id="tag-texte"> `+ itemTag + ` &nbsp;<button id="erase-text"><i class="bi bi-x-circle"></i></button></div>`
+    
+    document.querySelector(".filtres-actifs")
+
+    dropIngredients.insertAdjacentHTML('beforeEnd', tagIngredientDOM )
 }
