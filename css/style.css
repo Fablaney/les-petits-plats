@@ -77,13 +77,7 @@ body
     justify-content: space-between;
     margin-right: 1em;
 }
-.filtres-actifs > div > button
-{
-    outline: none;
-    background-color: transparent;
-    border: none;
-    color: white;
-}
+
 
 
 /* Zone Filtres DROPDOWNS*/

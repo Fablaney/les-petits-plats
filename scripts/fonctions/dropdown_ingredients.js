@@ -17,28 +17,30 @@ function sortIngredients()
     // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
     inputIngredient.addEventListener('input', function()
     {
-        // je prends le champ de recherche et si il est vide je n'affiche pas la div de filtre texte actif
-        if (document.querySelector("#input-ingredient").value == "")
-        {
-            document.querySelector("#tag-ingredient").classList.add("d-none")
-        }
-        // sinon j'affiche la div
-        else
-        {
-            document.querySelector("#tag-ingredient").classList.remove("d-none")
-        }
+        // // je prends le champ de recherche et si il est vide je n'affiche pas la div de filtre texte actif
+        // if (document.querySelector("#input-ingredient").value == "")
+        // {
+        //     document.querySelector("#tag-ingredient").classList.add("d-none")
+        // }
+        // // sinon j'affiche la div
+        // else
+        // {
+        //     document.querySelector("#tag-ingredient").classList.remove("d-none")
+        // }
 
         // // je récupere la valeur de l'input et je pass en minuscule
         let searchIngredient = inputIngredient.value.toLowerCase()
 
         // Je crée le texte recherché
-        const filterIngredientsDOM = `<div id="display-tag-ingredient">${searchIngredient}</div>`
+        // const filterIngredientsDOM = `<div id="display-tag-ingredient">${searchIngredient}</div>`
 
         // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
-        document.querySelectorAll("#tag-ingredient div").forEach( (elt)=>{ elt.remove() } )
+        // document.querySelectorAll("#tag-ingredient div").forEach( (elt)=>{ elt.remove() } )
 
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
-        document.querySelector("#tag-ingredient").insertAdjacentHTML('afterbegin', filterIngredientsDOM)
+        // document.querySelector("#tag-ingredient").insertAdjacentHTML('afterbegin', filterIngredientsDOM)
+
+        addTagingredient(searchIngredient)
 
         // // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
@@ -114,7 +116,7 @@ function afficheIngredients()
         // je boucle sur chaque ingrédient
         ingredientsFiltered.forEach(ingre => {
 
-            const ingredientsDOM = `<div class="item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
 
             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
         })
@@ -123,7 +125,7 @@ function afficheIngredients()
     // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
     tabIngredients.forEach(ingre => {
 
-        const ingredientsDOM = `<div class="item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
+        const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
 
         dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
     })
@@ -139,7 +141,7 @@ function addTagingredient(itemTag)
     console.log(itemTag)
 
     // Je crée le texte recherché
-    const tagIngredientDOM = `<div class="btn btn-primary" id="tag-ingredient"> ${itemTag} &nbsp;<button id="erase-text"><i class="bi bi-x-circle"></i></button></div>`
+    const tagIngredientDOM = `<div class="btn btn-primary tag-ingredient">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="stopSearch('${itemTag}')"></i></div>`
 
     let tagsFilter = document.querySelector(".filtres-actifs")
 

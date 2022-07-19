@@ -47,35 +47,12 @@ async function init()
     // tri par ustensiles
     dropdownUstensilles()
 
-    stopSearch()
 }
 init()
 
-function stopSearch()
+
+
+function stopSearch(param)
 {
-    let stopSearchByText = document.querySelector("#erase-text")
-
-    stopSearchByText.addEventListener('click', function()
-    {
-        document.querySelector("#searchinput").value = ""
-        document.querySelector("#display-tag-text").remove()
-        document.querySelector("#tag-texte").classList.add("d-none")
-        // Affichage par défaut de toutes les recettes
-        recipies.forEach((recette) => {
-            recipeCardsFactorie(recette)
-        })
-    })
-
-    let stopSearchByIngredient = document.querySelector("#erase-ingredient")
-
-    stopSearchByIngredient.addEventListener('click', function()
-    {
-        document.querySelector("#input-ingredient").value = ""
-        document.querySelector("#display-tag-ingredient").remove()
-        document.querySelector("#tag-ingredient").classList.add("d-none")
-        // Affichage par défaut de toutes les recettes
-        recipies.forEach((recette) => {
-            recipeCardsFactorie(recette)
-        })
-    })
+    console.log(param)
 }
