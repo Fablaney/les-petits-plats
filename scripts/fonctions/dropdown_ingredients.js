@@ -51,39 +51,40 @@ function afficheIngredients()
 afficheIngredients()
 
 
-// recherche avec le champ de texrte du dropdown
-// function inputSearchIngredient()
-// {
-//     // à l'input dans le dropdown ingrédients
-//     inputIngredient.addEventListener('input', function()
-//     {
-//         // je récupere la valeur de l'input et je passe en minuscule
-//         let searchIngredient = inputIngredient.value.toLowerCase()
+// rafraichi les ingredients en chechant par mot clé dans le dropdown
+function inputSearchIngredient()
+{
+    // à l'input dans le dropdown ingrédients
+    inputIngredient.addEventListener('input', function()
+    {
+        // je récupere la valeur de l'input et je passe en minuscule
+        let searchIngredient = inputIngredient.value.toLowerCase()
 
-//         // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
-//         document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
+        // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
-//         // je filtre sur tabingredients
-//         let ingredientsFiltered = tabIngredients.filter(item =>
-//         {
-//             if ( item.toLowerCase().includes(searchIngredient) )
-//             {
-//                 return item
-//             }
-//         })
+        // je filtre sur tabingredients
+        let ingredientsFiltered = tabIngredients.filter(item =>
+        {
+            if ( item.toLowerCase().includes(searchIngredient) )
+            {
+                return item
+            }
+        })
 
-//         // je boucle sur chaque ingrédient
-//         ingredientsFiltered.forEach(ingre => {
+        // je boucle sur chaque ingrédient
+        ingredientsFiltered.forEach(ingre => {
 
-//             const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
 
-//             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
-//         })
-//     })
-// }
-// inputSearchIngredient()
+            dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
+        })
+    })
+}
+inputSearchIngredient()
 
-// recherche au clic sur un 
+
+// recherche en validant le mot clé dans le dropdown
 function sortIngredients()
 {
     // par défaut on boucle sur tous les ingrédients de recipies
