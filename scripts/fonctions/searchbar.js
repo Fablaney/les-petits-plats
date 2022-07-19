@@ -12,7 +12,7 @@ function searchInput()
         // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
         const inputcontent = searchinput.value.toLowerCase()
 
-        // Je crée le texte recherché
+        // Je crée le tag texte recherché
         const filterInputDOM = `<div class="btn btn-secondary tag-texte">${inputcontent} &nbsp;<i class="bi bi-x-circle" onclick="stopSearch('${inputcontent}')"></i></div>`
 
         // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
