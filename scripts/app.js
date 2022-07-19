@@ -1,29 +1,29 @@
 // Modern
 
 // datas
-import {recipies} from "/data/recettes.js"
+// import {recipies} from "/data/recettes.js"
 
 // creation des articles
-import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
+// import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js";
 
 // bare de recherche
-import {searchInput} from "/scripts/fonctions/searchbar.js";
+// import {searchInput} from "/scripts/fonctions/searchbar.js";
 
 // dropdown ingredients
-import {recettesFilteredByIngredient, dropdownIngredients } from "/scripts/fonctions/dropdown_ingredients.js";
+// import {recettesFilteredByIngredient, dropdownIngredients } from "/scripts/fonctions/dropdown_ingredients.js";
 // import {recettesFilteredByIngredients } from "/scripts/fonctions/dropdown_ingredients.js";
 
 // dropdown buttons
-import {dropdownAppareils} from "/scripts/fonctions/dropdown_appareils.js";
+// import {dropdownAppareils} from "/scripts/fonctions/dropdown_appareils.js";
 
 // dropdown buttons
-import {dropdownUstensilles} from "/scripts/fonctions/dropdown_ustensiles.js";
+// import {dropdownUstensilles} from "/scripts/fonctions/dropdown_ustensiles.js";
 
 // j'importe les variables des tableaux triés
-import {recettesFilteredByText} from "/scripts/fonctions/searchbar.js";
+// import {recettesFilteredByText} from "/scripts/fonctions/searchbar.js";
 
-import {recettesFilteredByAppareil} from "/scripts/fonctions/dropdown_appareils.js";
-import {recettesFilteredByUstensile} from "/scripts/fonctions/dropdown_ustensiles.js";
+// import {recettesFilteredByAppareil} from "/scripts/fonctions/dropdown_appareils.js";
+// import {recettesFilteredByUstensile} from "/scripts/fonctions/dropdown_ustensiles.js";
 
 
 
@@ -79,10 +79,4 @@ function stopSearch()
             recipeCardsFactorie(recette)
         })
     })
-    
-    
-
-
-
 }
-export {stopSearch}

@@ -1,8 +1,14 @@
 // Modern
 
+// datas
+import {recipies} from "/data/recettes.js"
+
+// creation des articles
+import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
+
 let recettesFilteredByText
 
-function searchInput()
+export function searchInput()
 {
     // je récupere le champ de recherche
     let searchinput = document.querySelector("#searchinput")
@@ -57,3 +63,5 @@ function searchInput()
         })
     })
 }
+
+export {recettesFilteredByText}

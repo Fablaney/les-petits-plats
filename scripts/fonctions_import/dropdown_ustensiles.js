@@ -1,5 +1,11 @@
 // Modern
 
+// datas
+import {recipies} from "/data/recettes.js"
+
+// creation des articles
+import {recipeCardsFactorie} from "/scripts/fonctions/recipecardsfactorie.js"
+
 let recettesFilteredByUstensile
 
 // Boutons dropdown
@@ -110,3 +116,5 @@ function dropdownUstensilles()
     }
     sortUstensiles()
 }
+
+export {recettesFilteredByUstensile, dropdownUstensilles}

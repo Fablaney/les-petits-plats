@@ -1,6 +1,8 @@
 // Modern
-function recipeCardsFactorie(recette)
+export function recipeCardsFactorie(recette)
 {
+    // console.log(recette)
+
     function getRecipeCardDOM()
     {
         // Je prends la div qui va contenir mes cards
