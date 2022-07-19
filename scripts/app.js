@@ -39,7 +39,7 @@ async function init()
     searchInput()
 
     // tri par ingredients
-    dropdownIngredients()
+    // dropdownIngredients()
 
     // tri par appareils
     dropdownAppareils()
