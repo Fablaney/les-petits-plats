@@ -1724,3 +1724,17 @@ const recipies = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+
+let currentRecipies = 0
+
+if (currentRecipies == 0)
+{
+    currentRecipies = recipies
+}
+else
+{
+    currentRecipies = currentRecipies
+}
+
+// console.log("depuis recipies :")
+// console.log(currentRecipies)
