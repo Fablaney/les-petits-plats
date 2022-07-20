@@ -5,26 +5,24 @@ let recettesFilteredByIngredient
 
 // je selectionne les dropdown qui afficherons les elements filtrables
 let dropIngredients = document.querySelector("#ingredients")
+let dropUstensiles  = document.querySelector("#ustensiles")
+let dropAppareils   = document.querySelector("#appareils")
+
+
 // je récupere le champ de recherche ingredient
 let inputIngredient = document.querySelector("#input-ingredient")
 
-
-// je selectionne les dropdown qui afficherons les elements filtrables
-let dropAppareils   = document.querySelector("#appareils")
-// je récupere le champ de recherche ingredient
+// je récupere le champ de recherche appareil
 let inputAppareils = document.querySelector("#input-appareils")
 
-
-// je selectionne les dropdown qui afficherons les elements filtrables
-let dropUstensiles  = document.querySelector("#ustensiles")
-// je récupere le champ de recherche ingredient
+// je récupere le champ de recherche ustensile
 let inputUstensiles = document.querySelector("#input-ustensiles")
 
 
 // j'initialise un tableau vide qui contiendra la liste des ingrédients
 let tabIngredients = []
-// j'initialise un tableau vide qui contiendra les appareils
 
+// j'initialise un tableau vide qui contiendra les appareils
 let tabAppareils = []
 
 // j'initialise un tableau vide qui contiendra les ustensiles
@@ -34,10 +32,13 @@ let tabUstensiles = []
 // affichage les ingrédients dans leur dropdown
 function afficheDropdownItems(currentRecipies, types)
 {
+    // console.log("currentRecipies")
+    // console.log(currentRecipies)
+
     switch(types)
     {
         case "ingredients":
-            // console.log("depuis le drop down ingredient :")
+            console.log("currentRecipies")
             console.log(currentRecipies)
 
             // je boucle sur chaque recette
@@ -198,7 +199,6 @@ function afficheDropdownItems(currentRecipies, types)
         break
     }
 }
-afficheDropdownItems(currentRecipies)
 
 
 // rafraichi les ingredients en entonoir en chechant par mot clé dans le dropdown 

@@ -51,7 +51,11 @@ function searchInput()
                 recipeCardsFactorie(recette)
             }) 
 
-            afficheDropdownItems(currentRecipies)
+            afficheDropdownItems( currentRecipies, "ingredients")
+
+            afficheDropdownItems( currentRecipies, "appareils")
+
+            afficheDropdownItems( currentRecipies, "ustensiles")
         }
         else
         {
@@ -61,6 +65,6 @@ function searchInput()
             }) 
         }
 
-        return {currentRecipies, searchInput}
+        // return {currentRecipies, searchInput}
     })
 }
