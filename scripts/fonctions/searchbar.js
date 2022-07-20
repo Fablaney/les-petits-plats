@@ -22,7 +22,6 @@ function searchInput()
 
         // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
         document.querySelector(".filtres-actifs").insertAdjacentHTML('afterbegin', filterInputDOM)
-        
 
         // je filtre sur recipies
         currentRecipies = recipies.filter(item =>
@@ -38,7 +37,6 @@ function searchInput()
             {
                 return item
             }
-            
         })
 
         if( inputcontent.length > 2 )
@@ -56,6 +54,8 @@ function searchInput()
             afficheDropdownItems( currentRecipies, "appareils")
 
             afficheDropdownItems( currentRecipies, "ustensiles")
+
+            return currentRecipies
         }
         else
         {
@@ -63,8 +63,8 @@ function searchInput()
             currentRecipies.forEach(recette => {
                 recipeCardsFactorie(recette)
             }) 
-        }
-
-        // return {currentRecipies, searchInput}
+        } 
+        return currentRecipies
     })
+    return currentRecipies
 }

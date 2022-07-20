@@ -12,11 +12,12 @@ async function init()
     searchInput()
 
     // tri des items
-    afficheDropdownItems( currentRecipies, "ingredients")
+    afficheDropdownItems( recipies, "ingredients")
 
-    afficheDropdownItems( currentRecipies, "appareils")
+    afficheDropdownItems( recipies, "appareils")
 
-    afficheDropdownItems( currentRecipies, "ustensiles")
+    afficheDropdownItems( recipies, "ustensiles")
+
     // tri par appareils
     // dropdownAppareils()
 
@@ -32,8 +33,6 @@ function stopSearch(param)
 {
     console.log(param)
 
-    
-   
 }
 
 function normalizeString(string)

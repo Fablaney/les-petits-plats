@@ -37,6 +37,7 @@ function afficheDropdownItems(currentRecipies, types)
 
     switch(types)
     {
+        // affichage des ingredients
         case "ingredients":
             console.log("currentRecipies")
             console.log(currentRecipies)
@@ -53,7 +54,7 @@ function afficheDropdownItems(currentRecipies, types)
                     // je remet seulement la 1ere lettre en majuscule
                     ingredient = ingredient[0].toUpperCase() + ingredient.slice(1)
 
-                    // Je remplis le tableau et ça supprime les doublons
+                    // Je remplis le tableau et evit4 les doublons
                     if ( tabIngredients.includes(ingredient) == false )
                     {
                         tabIngredients.push(ingredient)
@@ -67,7 +68,7 @@ function afficheDropdownItems(currentRecipies, types)
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
 
-            console.log("tabIngredients")
+            // console.log("tabIngredients")
             console.log(tabIngredients)
 
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
@@ -79,8 +80,8 @@ function afficheDropdownItems(currentRecipies, types)
             })
         break
 
+        // affichage des appareils
         case "appareils":
-
             // je boucle sur chaque recette
             currentRecipies.forEach(recette => {
 
@@ -103,31 +104,31 @@ function afficheDropdownItems(currentRecipies, types)
             tabAppareils = tabAppareils.sort()
 
             // à l'input dans le dropdown appareils
-            inputAppareils.addEventListener('input', function()
-            {
-                // je récupere la valeur de l'input et je passe en minuscule
-                let searchAppareils = inputAppareils.value.toLowerCase()
+            // inputAppareils.addEventListener('input', function()
+            // {
+            //     // je récupere la valeur de l'input et je passe en minuscule
+            //     let searchAppareils = inputAppareils.value.toLowerCase()
 
-                // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
-                document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
+            //     // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
+            //     document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
                 
-                // je filtre sur tabAppareils
-                let AppareilsFiltered = tabAppareils.filter(item =>
-                {   
-                    if ( item.toLowerCase().includes(searchAppareils) )
-                    {
-                        return item
-                    }     
-                })
+            //     // je filtre sur tabAppareils
+            //     let AppareilsFiltered = tabAppareils.filter(item =>
+            //     {   
+            //         if ( item.toLowerCase().includes(searchAppareils) )
+            //         {
+            //             return item
+            //         }     
+            //     })
 
-                // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
-                AppareilsFiltered.forEach(ingre => {
+            //     // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
+            //     AppareilsFiltered.forEach(ingre => {
 
-                const appareilsDOM = `<div class="col-4">${ ingre }</div>`
+            //     const appareilsDOM = `<div class="col-4">${ ingre }</div>`
     
-                    dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
-                })
-            })
+            //         dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
+            //     })
+            // })
 
             // je boucle sur chaque appareil
             tabAppareils.forEach(appareil => {
@@ -138,9 +139,8 @@ function afficheDropdownItems(currentRecipies, types)
             })
         break
 
+        // affichage des ustensiles
         case "ustensiles":
-            
-
             // je boucle sur chaque recette
             recipies.forEach(recette => {
 
@@ -162,37 +162,37 @@ function afficheDropdownItems(currentRecipies, types)
             tabUstensiles = tabUstensiles.sort()
 
             // à l'input dans le dropdown ustensiles
-            inputUstensiles.addEventListener('input', function()
-            {
-                // je récupere la valeur de l'input et je passe en minuscule
-                let searchUstensile = inputUstensiles.value.toLowerCase()
+            // inputUstensiles.addEventListener('input', function()
+            // {
+            //     // je récupere la valeur de l'input et je passe en minuscule
+            //     let searchUstensile = inputUstensiles.value.toLowerCase()
 
-                // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
-                document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
+            //     // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
+            //     document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
 
-                // je filtre sur tabUstensiles
-                let ustensilesFiltered = tabUstensiles.filter(item =>
-                {   
-                    if ( item.toLowerCase().includes(searchUstensile) )
-                    {
-                        return item
-                    }
-                    console.log(item)
-                })
+            //     // je filtre sur tabUstensiles
+            //     let ustensilesFiltered = tabUstensiles.filter(item =>
+            //     {   
+            //         if ( item.toLowerCase().includes(searchUstensile) )
+            //         {
+            //             return item
+            //         }
+            //         console.log(item)
+            //     })
 
-                // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
-                ustensilesFiltered.forEach(ustensil => {
+            //     // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
+            //     ustensilesFiltered.forEach(ustensil => {
 
-                const ustensilesDOM = `<div class="col-4">${ ustensil }</div>`
+            //     const ustensilesDOM = `<div class="col-3">${ ustensil }</div>`
 
-                    dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
-                })
-            })
+            //         dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
+            //     })
+            // })
 
             // je boucle sur chaque ustensile
             tabUstensiles.forEach(ustensile => {
 
-                const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+                const ustensileDOM = `<div class="col-3">${ ustensile }</div>`
 
                 dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
             })
