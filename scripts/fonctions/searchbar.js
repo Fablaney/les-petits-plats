@@ -43,7 +43,7 @@ function searchInput()
         {
             // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
-
+   
             // je parcours les recettes filtrées
             currentRecipies.forEach(recette => {
                 recipeCardsFactorie(recette)
@@ -54,8 +54,6 @@ function searchInput()
             afficheDropdownItems( currentRecipies, "appareils")
 
             afficheDropdownItems( currentRecipies, "ustensiles")
-
-            return currentRecipies
         }
         else
         {
@@ -63,8 +61,6 @@ function searchInput()
             currentRecipies.forEach(recette => {
                 recipeCardsFactorie(recette)
             }) 
-        } 
-        return currentRecipies
+        }
     })
-    return currentRecipies
 }

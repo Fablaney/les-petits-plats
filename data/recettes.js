@@ -1725,9 +1725,10 @@ const recipies = [
     }
 ]
 
-let currentRecipies = 0
 
-if (currentRecipies == 0)
+let currentRecipies = []
+
+if (currentRecipies.length == 0)
 {
     currentRecipies = recipies
 }
@@ -1735,6 +1736,3 @@ else
 {
     currentRecipies = currentRecipies
 }
-
-// console.log("depuis recipies :")
-// console.log(currentRecipies)

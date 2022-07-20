@@ -39,12 +39,13 @@ function afficheDropdownItems(currentRecipies, types)
     {
         // affichage des ingredients
         case "ingredients":
-            console.log("currentRecipies")
+            // console.log("currentRecipies")
             console.log(currentRecipies)
+            console.log(currentRecipies.length)
 
             // je boucle sur chaque recette
             currentRecipies.forEach(recette => {
-            
+
                 // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
                 recette.ingredients.forEach((ingredient) => {
 

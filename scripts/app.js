@@ -12,11 +12,11 @@ async function init()
     searchInput()
 
     // tri des items
-    afficheDropdownItems( recipies, "ingredients")
+    afficheDropdownItems( currentRecipies, "ingredients")
 
-    afficheDropdownItems( recipies, "appareils")
+    afficheDropdownItems( currentRecipies, "appareils")
 
-    afficheDropdownItems( recipies, "ustensiles")
+    afficheDropdownItems( currentRecipies, "ustensiles")
 
     // tri par appareils
     // dropdownAppareils()
@@ -25,9 +25,6 @@ async function init()
     // dropdownUstensilles()
 }
 init()
-
-// console.log("depuis apps.js :")
-// console.log(currentRecipies)
 
 function stopSearch(param)
 {
