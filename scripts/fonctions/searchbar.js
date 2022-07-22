@@ -47,7 +47,11 @@ function searchInput()
             // je parcours les recettes filtrées
             currentRecipies.forEach(recette => {
                 recipeCardsFactorie(recette)
-            }) 
+            })
+
+            // currentRecipies.find(result => {
+            //     afficheDropdownItems( result, "ingredients")
+            // })
 
             afficheDropdownItems( currentRecipies, "ingredients")
 
@@ -57,7 +61,7 @@ function searchInput()
         }
         else
         {
-            // je parcours les recettes filtrées
+            // je parcours les recettes
             currentRecipies.forEach(recette => {
                 recipeCardsFactorie(recette)
             }) 

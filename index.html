@@ -49,51 +49,64 @@
         </div>
      
         <!-- 3 dropdown de filtres -->
-        <div class="zone-filtres mb-5">
+        <div class="mb-5 row">
+           
+            <!-- INGREDIENTS -->
+            <div class="dropdowns bg-primary rounded-top col-xl-2 col-lg-3">
 
-            <div class="dropdown mr-2">
-
-                <div class="btn btn-primary dropdown-toggle p-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <input id="input-ingredient" type="text" placeholder="Ingrédients">
+                <div class="dropbtn px-1 dropdown-input">
+                    <input class="dropbtn py-4 " id="input-ingredients" type="text" placeholder="Ingredients">
+                    <i class="bi bi-caret-down"></i>
                 </div>
-
-                <div class="dropdown-menu bg-primary text-white p-4" aria-labelledby="dropdownMenuButton1">
-
-                    <div class="row" id="ingredients">
-
-                    </div>
-                    
+    
+                <div class="dropdown-content rounded-bottom row bg-primary" id="ingredients">
+                    <!-- items ingredients -->
                 </div>
-
+    
             </div>
-
-            <div class="dropdown mr-2">
-                <div class="btn btn-success dropdown-toggle p-4" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <input id="input-appareils" type="text" placeholder="Appareils">
+    
+            <!-- APPAREILS -->
+            <div class="dropdowns bg-success rounded-top col-xl-2 col-lg-3">
+    
+                <div class="dropbtn px-1  dropdown-input">
+                    <input class="dropbtn py-4" id="input-appareils" type="text" placeholder="Appareils">
+                    <i class="bi bi-caret-down"></i>
                 </div>
-                <div class="dropdown-menu bg-success text-white p-4" aria-labelledby="dropdownMenuButton2">
-                    <div class="row" id="appareils">
-
-                    </div>
+    
+                <div class="dropdown-content rounded-bottom row bg-success" id="appareils">
+                    <!-- items appareils -->
                 </div>
+    
             </div>
-
-            <div class="dropdown mr-2">
-                <div class="btn btn-danger dropdown-toggle p-4" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                    <input id="input-ustensiles" type="text" placeholder="Ustensiles">
+    
+            <!-- USTENSILES -->
+            <div class="dropdowns bg-danger rounded-top col-xl-2 col-lg-3">
+    
+                <div class="dropbtn px-1  dropdown-input">
+                    <input class="dropbtn py-4" id="input-ustensiles" type="text" placeholder="Ustensiles">
+                    <i class="bi bi-caret-down"></i>
                 </div>
-                <div class="dropdown-menu bg-danger text-white p-4" aria-labelledby="dropdownMenuButton3">
-                    <div class="row" id="ustensiles">
-
-                    </div>
+    
+                <div class="dropdown-content rounded-bottom row bg-danger" id="ustensiles">
+                    <!-- items ustensiles -->
                 </div>
+    
             </div>
 
         </div>
+        
 
         <!-- articles recettes -->
         <div class="row mb-5 justify-content-center g-4" id="wrapper-recettes">
             <!-- les articles s'affichent ici -->
+        </div>
+
+        <!-- pas de recette trouvée -->
+        <div class="no-recipies">
+            <!-- <p>
+                Aucune recette ne correspond à votre critère... vous pouvez
+                chercher « tarte aux pommes », « poisson », etc.
+            </p> -->
         </div>
 
     </main>

@@ -39,9 +39,9 @@ function afficheDropdownItems(currentRecipies, types)
     {
         // affichage des ingredients
         case "ingredients":
-            // console.log("currentRecipies")
+            console.log("currentRecipies")
             console.log(currentRecipies)
-            console.log(currentRecipies.length)
+            // console.log(currentRecipies.length)
 
             // je boucle sur chaque recette
             currentRecipies.forEach(recette => {
@@ -71,6 +71,9 @@ function afficheDropdownItems(currentRecipies, types)
 
             // console.log("tabIngredients")
             console.log(tabIngredients)
+
+            // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
+            document.querySelectorAll(".item-ingre").forEach( (elt)=>{ elt.remove() } )
 
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {

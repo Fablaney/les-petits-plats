@@ -96,32 +96,59 @@ body
 {
     color: white;
 } */
-.dropdown > div > input
+.dropdowns > div > input
 {
     outline: none;
     border: none;
     background-color: transparent;
     color: white;
 }
-.dropdown > div > input::placeholder
+
+
+
+
+.dropdowns
+{
+    position: relative;
+    display: inline-block;
+    color: white;
+    margin-right: 2%;
+}
+.dropdown-content
+{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+.dropdown-input
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropdown-input > input::placeholder
 {
     color: white;
 }
-.dropdown-menu
+.dropdown-content
 {
-    width: 50vw;
+    width: 100%;
 }
-@media (max-width: 992px)
+
+
+.show
 {
-    .zone-filtres
-    {
-        flex-direction: column;
-    }
-    .dropdown-menu
-    {
-        width: 90vw;
-    }
+    display: block;
 }
+.expand
+{
+    /* width: 50%; */
+}
+
+
+
+
 
 /* --------------------------------------------------------------------------------- */
 /* articles des recettes */

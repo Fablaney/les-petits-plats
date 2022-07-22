@@ -42,3 +42,47 @@ function normalizeString(string)
       .toLowerCase()
       .replace(spaceRegex, ""); // remove all spaces
 }
+
+
+
+window.addEventListener('load', function()
+{
+    // wait until the page loads before working with HTML elements
+    document.addEventListener('click', function(event)
+    {
+        // l'enleve col-md-7 à ceux qui ne sont pas cliqués
+        document.querySelectorAll('.dropdowns').forEach(function(el)
+        {
+            if (el !== event.target)
+            {
+                el.classList.remove('col-lg-7')
+                el.classList.add('col-lg-3')
+                el.classList.add('col-xl-2')
+
+                el.classList.add('rounded-bottom')
+            }
+            // close any showing dropdown that isn't the one just clicked
+        })
+        // je montre le dropdown à ceux qui ne sont pas cliqués
+        document.querySelectorAll('.dropdown-content').forEach(function(el)
+        {
+            if (el !== event.target)
+            {
+                el.classList.remove('show')
+            }     
+        })
+  
+        if (event.target.matches('.dropbtn'))
+        {
+            // je display le dropdown
+            event.target.closest('.dropdowns').querySelector('.dropdown-content').classList.toggle('show')
+
+            //Je rajoute la class expand au dropdown pour l'agrandir  
+
+            event.target.closest('.dropdowns').classList.add('col-lg-7')
+            event.target.closest('.dropdowns').classList.remove('col-xl-2')
+            event.target.closest('.dropdowns').classList.remove('col-lg-3')
+            event.target.closest('.dropdowns').classList.remove('rounded-bottom')
+        }
+    })
+})
