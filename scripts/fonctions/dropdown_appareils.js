@@ -13,7 +13,6 @@ function dropdownAppareils()
 
     function sortAppareils()
     {
-        
         // par défaut recettesFilteredByAppareil = recipies
         recettesFilteredByAppareil = recipies
 

@@ -131,8 +131,6 @@ function tagFilter()
                     return recette   
                 }
             }
-
-            // if (tag.type == "ingredients" )
         })
     })
 
