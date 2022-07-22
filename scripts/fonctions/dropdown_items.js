@@ -10,7 +10,7 @@ let dropAppareils   = document.querySelector("#appareils")
 
 
 // je récupere le champ de recherche ingredient
-let inputIngredient = document.querySelector("#input-ingredient")
+let inputIngredient = document.querySelector("#input-ingredients")
 
 // je récupere le champ de recherche appareil
 let inputAppareils = document.querySelector("#input-appareils")
@@ -39,13 +39,16 @@ function afficheDropdownItems(currentRecipies, types)
     {
         // affichage des ingredients
         case "ingredients":
-            console.log("currentRecipies")
-            console.log(currentRecipies)
+            // console.log("currentRecipies")
+            // console.log(currentRecipies)
             // console.log(currentRecipies.length)
+
+            tabIngredients = []
 
             // je boucle sur chaque recette
             currentRecipies.forEach(recette => {
 
+                // console.log(recette)
                 // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
                 recette.ingredients.forEach((ingredient) => {
 
@@ -70,7 +73,7 @@ function afficheDropdownItems(currentRecipies, types)
             tabIngredients = tabIngredients.sort()
 
             // console.log("tabIngredients")
-            console.log(tabIngredients)
+            // console.log(tabIngredients)
 
             // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".item-ingre").forEach( (elt)=>{ elt.remove() } )
@@ -86,6 +89,8 @@ function afficheDropdownItems(currentRecipies, types)
 
         // affichage des appareils
         case "appareils":
+            tabAppareils = []
+
             // je boucle sur chaque recette
             currentRecipies.forEach(recette => {
 
@@ -145,6 +150,8 @@ function afficheDropdownItems(currentRecipies, types)
 
         // affichage des ustensiles
         case "ustensiles":
+
+            tabUstensiles = []
             // je boucle sur chaque recette
             recipies.forEach(recette => {
 
@@ -225,11 +232,11 @@ function inputSearchIngredient()
                 return item
             }
         })
-
+        
         // je boucle sur chaque ingrédient
         ingredientsFiltered.forEach(ingre => {
 
-            const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}', 'ingredients')">${ ingre }</div>`
 
             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
         })
@@ -278,15 +285,22 @@ sortIngredients()
 
 // au click sur un ingredient
 // je récupere l'item cliqué
-function addTagingredient(itemTag)
+function addTagingredient(itemTag, type)
 {
     console.log("je recupere la valeur du champ")
     console.log(itemTag)
 
     // Je crée le texte recherché
-    const tagIngredientDOM = `<div class="btn btn-primary tag-ingredient">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="stopSearch('${itemTag}')"></i></div>`
+    const tagItemDOM = `<div class="btn tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="stopSearch('${itemTag}')"></i></div>`
 
     let tagsFilter = document.querySelector(".filtres-actifs")
 
-    tagsFilter.insertAdjacentHTML('beforeEnd', tagIngredientDOM )
+    tagsFilter.insertAdjacentHTML('beforeEnd', tagItemDOM )
+
+    tagFiltered.push({
+        type: type,
+        value: itemTag
+    })
+
+    tagFilter()
 }

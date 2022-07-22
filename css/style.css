@@ -81,30 +81,6 @@ body
 
 
 /* Zone Filtres DROPDOWNS*/
-.dropdown
-{
-    margin-right: 2em !important;
-}
-/* .dropdown > form > input
-{
-    outline: none;
-    border: none;
-    background-color: transparent;
-    color: white;
-}
-.dropdown > form > input::placeholder
-{
-    color: white;
-} */
-.dropdowns > div > input
-{
-    outline: none;
-    border: none;
-    background-color: transparent;
-    color: white;
-}
-
-
 
 
 .dropdowns
@@ -127,6 +103,13 @@ body
     justify-content: space-between;
     align-items: center;
 }
+.dropdown-input > input
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
 .dropdown-input > input::placeholder
 {
     color: white;
@@ -136,10 +119,11 @@ body
     width: 100%;
 }
 
-
 .show
 {
     display: block;
+    display: flex;
+    
 }
 .expand
 {

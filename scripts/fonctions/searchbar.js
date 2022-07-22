@@ -49,10 +49,6 @@ function searchInput()
                 recipeCardsFactorie(recette)
             })
 
-            // currentRecipies.find(result => {
-            //     afficheDropdownItems( result, "ingredients")
-            // })
-
             afficheDropdownItems( currentRecipies, "ingredients")
 
             afficheDropdownItems( currentRecipies, "appareils")

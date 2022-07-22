@@ -26,11 +26,6 @@ async function init()
 }
 init()
 
-function stopSearch(param)
-{
-    console.log(param)
-
-}
 
 function normalizeString(string)
 {
@@ -53,6 +48,7 @@ window.addEventListener('load', function()
         // l'enleve col-md-7 à ceux qui ne sont pas cliqués
         document.querySelectorAll('.dropdowns').forEach(function(el)
         {
+            // close any showing dropdown that isn't the one just clicked
             if (el !== event.target)
             {
                 el.classList.remove('col-lg-7')
@@ -61,28 +57,100 @@ window.addEventListener('load', function()
 
                 el.classList.add('rounded-bottom')
             }
-            // close any showing dropdown that isn't the one just clicked
+            
         })
         // je montre le dropdown à ceux qui ne sont pas cliqués
         document.querySelectorAll('.dropdown-content').forEach(function(el)
         {
+            // close any showing dropdown that isn't the one just clicked
             if (el !== event.target)
             {
                 el.classList.remove('show')
             }     
         })
   
+        // si je suis bien sur le dropdown cliqué
         if (event.target.matches('.dropbtn'))
         {
             // je display le dropdown
             event.target.closest('.dropdowns').querySelector('.dropdown-content').classList.toggle('show')
 
-            //Je rajoute la class expand au dropdown pour l'agrandir  
-
+            // j'ajoute col-lg-7
             event.target.closest('.dropdowns').classList.add('col-lg-7')
+
+            // je supprime col xl 2 et lg 3 et la bordure en dessous 
             event.target.closest('.dropdowns').classList.remove('col-xl-2')
             event.target.closest('.dropdowns').classList.remove('col-lg-3')
             event.target.closest('.dropdowns').classList.remove('rounded-bottom')
         }
     })
 })
+
+
+
+
+
+let tagFiltered = []
+
+function tagFilter()
+{
+
+    // je filtre sur recipies
+    // currentRecipies = recipies.filter(item =>
+    // {   
+    //     // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
+    //     if(
+    //         item.name.toLowerCase().trim().includes(inputcontent) ||
+    //         item.description.toLowerCase().trim().includes(inputcontent) ||
+    //         item.ingredients.find(element => {
+    //             return element.ingredient.toLowerCase().trim().includes(inputcontent)
+    //         }) != undefined
+    //     )
+    //     {
+    //         return item
+    //     }
+    // })
+
+    let recipiesFiltered = []
+
+    tagFiltered.forEach(tag => {
+        recipiesFiltered = currentRecipies.filter(recette =>{
+            if ( tag.type == "ingredients" )
+            {
+                let ingredientfounded = false
+
+                for (let i = 0 ; i < recette.ingredients.length ; i++)
+                {
+                    if ( recette.ingredients[i].ingredient == tag.value )
+                    {
+                        ingredientfounded = true
+                        break
+                    }
+                }
+                if ( ingredientfounded == true )
+                {
+                    return recette   
+                }
+            }
+
+            // if (tag.type == "ingredients" )
+        })
+    })
+
+    console.log(recipiesFiltered)
+
+    // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+    document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
+    // je parcours les recettes
+    recipiesFiltered.forEach(recette => {
+        recipeCardsFactorie(recette)
+    })
+}
+
+function removeTag(type, value)
+{
+    console.log(type)
+    console.log(value)
+
+}
