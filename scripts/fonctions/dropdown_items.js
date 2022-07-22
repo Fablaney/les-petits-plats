@@ -1,7 +1,5 @@
 // Modern
 
-let recettesFilteredByIngredient
-
 
 // je selectionne les dropdown qui afficherons les elements filtrables
 let dropIngredients = document.querySelector("#ingredients")
@@ -353,30 +351,6 @@ function sortUstensiles()
     })
 }
 sortUstensiles()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // au click sur un item
