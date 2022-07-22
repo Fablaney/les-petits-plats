@@ -37,64 +37,66 @@
 
     <main class="container">
 
-        <!-- bare de recherche -->
+        <!-- barre de recherche -->
         <div class="search-bar d-flex mb-5">
             <input id="searchinput" type="search" placeholder="Rechercher une recette" aria-label="Search">
             <button type="submit"><i class="bi bi-search"></i></button>
         </div>
-        
+
         <!-- affichage des filtres actifs -->
         <div class="filtres-actifs mb-5 d-flex">
             <!-- ici s'affichent les tags -->
         </div>
-     
+
         <!-- 3 dropdown de filtres -->
         <div class="mb-5 px-3 row ">
            
             <!-- INGREDIENTS -->
-            <div class="dropdowns bg-primary rounded-top rounded-bottom col-xl-2 col-lg-3">
+            <div class="dropdowns bg-bleu rounded-top rounded-bottom col-xl-2 col-lg-3">
 
-                <div class="dropbtn px-1 dropdown-input">
-                    <input class="dropbtn py-4 " id="input-ingredients" type="text" placeholder="Ingredients">
+                <div class="dropbtn dropdown-input">
+                    <input class="dropbtn py-4 test" id="input-ingredients" type="text" placeholder="Ingredients">
                     <i class="bi bi-caret-down"></i>
+                    <i class="bi bi-caret-up d-none"></i>
                 </div>
     
-                <div class="dropdown-content rounded-bottom row bg-primary pb-3" id="ingredients">
+                <div class="dropdown-content rounded-bottom row bg-bleu pb-3" id="ingredients">
                     <!-- items ingredients -->
                 </div>
     
             </div>
     
             <!-- APPAREILS -->
-            <div class="dropdowns bg-success rounded-top rounded-bottom col-xl-2 col-lg-3">
+            <div class="dropdowns bg-vert rounded-top rounded-bottom col-xl-2 col-lg-3">
     
-                <div class="dropbtn px-1  dropdown-input">
+                <div class="dropbtn dropdown-input">
                     <input class="dropbtn py-4" id="input-appareils" type="text" placeholder="Appareils">
                     <i class="bi bi-caret-down"></i>
+                    <i class="bi bi-caret-up d-none"></i>
                 </div>
     
-                <div class="dropdown-content rounded-bottom row bg-success pb-3" id="appareils">
+                <div class="dropdown-content rounded-bottom row bg-vert pb-3" id="appareils">
                     <!-- items appareils -->
                 </div>
     
             </div>
     
             <!-- USTENSILES -->
-            <div class="dropdowns bg-danger rounded-top rounded-bottom col-xl-2 col-lg-3">
+            <div class="dropdowns bg-rouge rounded-top rounded-bottom col-xl-2 col-lg-3">
     
-                <div class="dropbtn px-1  dropdown-input">
+                <div class="dropbtn dropdown-input">
                     <input class="dropbtn py-4" id="input-ustensiles" type="text" placeholder="Ustensiles">
                     <i class="bi bi-caret-down"></i>
+                    <i class="bi bi-caret-up d-none"></i>
                 </div>
     
-                <div class="dropdown-content rounded-bottom row bg-danger pb-3" id="ustensiles">
+                <div class="dropdown-content rounded-bottom row bg-rouge pb-3" id="ustensiles">
                     <!-- items ustensiles -->
                 </div>
     
             </div>
 
         </div>
-        
 
         <!-- articles recettes -->
         <div class="row mb-5 justify-content-center g-4" id="wrapper-recettes">

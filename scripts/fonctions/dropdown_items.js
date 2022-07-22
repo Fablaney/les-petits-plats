@@ -81,7 +81,7 @@ function afficheDropdownItems(currentRecipies, types)
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {
 
-                const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}')">${ ingre }</div>`
+                const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTag('${ingre}', 'ingredients')">${ ingre }</div>`
 
                 dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
             })
@@ -236,7 +236,7 @@ function inputSearchIngredient()
         // je boucle sur chaque ingrédient
         ingredientsFiltered.forEach(ingre => {
 
-            const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTagingredient('${ingre}', 'ingredients')">${ ingre }</div>`
+            const ingredientsDOM = `<div class="col-3 item-ingre" onclick="addTag('${ingre}', 'ingredients')">${ ingre }</div>`
 
             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
         })
@@ -285,17 +285,18 @@ sortIngredients()
 
 // au click sur un ingredient
 // je récupere l'item cliqué
-function addTagingredient(itemTag, type)
+function addTag(itemTag, type)
 {
     console.log("je recupere la valeur du champ")
     console.log(itemTag)
+    console.log(type)
 
     // Je crée le texte recherché
-    const tagItemDOM = `<div class="btn tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="stopSearch('${itemTag}')"></i></div>`
+    const tagItemDOM = `<div class="rounded p-2 tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
 
-    let tagsFilter = document.querySelector(".filtres-actifs")
+    let currentTag = document.querySelector(".filtres-actifs")
 
-    tagsFilter.insertAdjacentHTML('beforeEnd', tagItemDOM )
+    currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
 
     tagFiltered.push({
         type: type,

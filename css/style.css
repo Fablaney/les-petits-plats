@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all ease-in-out 300ms;
 }
 
 body
@@ -78,6 +79,37 @@ body
     margin-right: 1em;
 }
 
+.tag-ingredients, .tag-appareils, .tag-ustensiles
+{
+    color: white;
+}
+.bg-bleu, .tag-ingredients
+{
+    background-color: #3282F7;
+}
+.bg-vert, .tag-appareils
+{
+    background-color: #68D9A4;
+}
+.bg-rouge, .tag-ustensiles
+{
+    background-color: #ED6454;
+}
+.bg-bleu:hover, .tag-ingredients:hover
+{
+    background-color: #2c75e2;
+}
+.bg-vert:hover, .tag-appareils:hover
+{
+    background-color: #59bd8e;
+}
+.bg-rouge:hover, .tag-ustensiles:hover
+{
+    background-color: #d65a4c;
+}
+
+
+
 
 
 /* Zone Filtres DROPDOWNS*/
@@ -118,7 +150,6 @@ body
 {
     width: 100%;
 }
-
 .show
 {
     display: block;

@@ -17,12 +17,6 @@ async function init()
     afficheDropdownItems( currentRecipies, "appareils")
 
     afficheDropdownItems( currentRecipies, "ustensiles")
-
-    // tri par appareils
-    // dropdownAppareils()
-
-    // tri par ustensiles
-    // dropdownUstensilles()
 }
 init()
 
@@ -39,7 +33,7 @@ function normalizeString(string)
 }
 
 
-
+// Gestion des annimations sur les dropdown
 window.addEventListener('load', function()
 {
     // wait until the page loads before working with HTML elements
@@ -56,8 +50,8 @@ window.addEventListener('load', function()
                 el.classList.add('col-xl-2')
 
                 el.classList.add('rounded-bottom')
+                el.classList.add('rounded-bottom')
             }
-            
         })
         // je montre le dropdown à ceux qui ne sont pas cliqués
         document.querySelectorAll('.dropdown-content').forEach(function(el)
@@ -68,7 +62,25 @@ window.addEventListener('load', function()
                 el.classList.remove('show')
             }     
         })
-  
+        // je cache la fleche haut
+        document.querySelectorAll('.dropbtn .bi-caret-up').forEach(function(el)
+        {
+            // close any showing dropdown that isn't the one just clicked
+            if (el !== event.target)
+            {
+                el.classList.add('d-none')
+            }     
+        })
+        // je cache montre
+        document.querySelectorAll('.dropbtn .bi-caret-down').forEach(function(el)
+        {
+            // close any showing dropdown that isn't the one just clicked
+            if (el !== event.target)
+            {
+                el.classList.remove('d-none')
+            }     
+        })
+   
         // si je suis bien sur le dropdown cliqué
         if (event.target.matches('.dropbtn'))
         {
@@ -82,6 +94,10 @@ window.addEventListener('load', function()
             event.target.closest('.dropdowns').classList.remove('col-xl-2')
             event.target.closest('.dropdowns').classList.remove('col-lg-3')
             event.target.closest('.dropdowns').classList.remove('rounded-bottom')
+
+            // je change la fleche
+            event.target.closest('.dropdowns').querySelector('.dropbtn .bi-caret-up').classList.remove('d-none')
+            event.target.closest('.dropdowns').querySelector('.dropbtn .bi-caret-down').classList.add('d-none')
         }
     })
 })
@@ -89,28 +105,11 @@ window.addEventListener('load', function()
 
 
 
-
+// gestion des Tags
 let tagFiltered = []
 
 function tagFilter()
 {
-
-    // je filtre sur recipies
-    // currentRecipies = recipies.filter(item =>
-    // {   
-    //     // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-    //     if(
-    //         item.name.toLowerCase().trim().includes(inputcontent) ||
-    //         item.description.toLowerCase().trim().includes(inputcontent) ||
-    //         item.ingredients.find(element => {
-    //             return element.ingredient.toLowerCase().trim().includes(inputcontent)
-    //         }) != undefined
-    //     )
-    //     {
-    //         return item
-    //     }
-    // })
-
     let recipiesFiltered = []
 
     tagFiltered.forEach(tag => {
@@ -150,7 +149,11 @@ function tagFilter()
 
 function removeTag(type, value)
 {
-    console.log(type)
-    console.log(value)
+    // console.log(type)
+    // console.log(value)
 
+    // let tagToErase = document.querySelectorAll(".tag-" + type)
+    // console.log(tagToErase.dataset)
+
+   
 }
