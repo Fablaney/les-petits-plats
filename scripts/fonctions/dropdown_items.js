@@ -105,33 +105,6 @@ function afficheDropdownItems(currentRecipies, types)
             // je classe par ordre alphabétique
             tabAppareils = tabAppareils.sort()
 
-            // à l'input dans le dropdown appareils
-            // inputAppareils.addEventListener('input', function()
-            // {
-            //     // je récupere la valeur de l'input et je passe en minuscule
-            //     let searchAppareils = inputAppareils.value.toLowerCase()
-
-            //     // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
-            //     document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
-                
-            //     // je filtre sur tabAppareils
-            //     let AppareilsFiltered = tabAppareils.filter(item =>
-            //     {   
-            //         if ( item.toLowerCase().includes(searchAppareils) )
-            //         {
-            //             return item
-            //         }     
-            //     })
-
-            //     // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
-            //     AppareilsFiltered.forEach(ingre => {
-
-            //     const appareilsDOM = `<div class="col-4">${ ingre }</div>`
-    
-            //         dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
-            //     })
-            // })
-
             // je boucle sur chaque appareil
             tabAppareils.forEach(appareil => {
 
@@ -164,34 +137,6 @@ function afficheDropdownItems(currentRecipies, types)
 
             // je classe par ordre alphabétique
             tabUstensiles = tabUstensiles.sort()
-
-            // à l'input dans le dropdown ustensiles
-            // inputUstensiles.addEventListener('input', function()
-            // {
-            //     // je récupere la valeur de l'input et je passe en minuscule
-            //     let searchUstensile = inputUstensiles.value.toLowerCase()
-
-            //     // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
-            //     document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
-
-            //     // je filtre sur tabUstensiles
-            //     let ustensilesFiltered = tabUstensiles.filter(item =>
-            //     {   
-            //         if ( item.toLowerCase().includes(searchUstensile) )
-            //         {
-            //             return item
-            //         }
-            //         console.log(item)
-            //     })
-
-            //     // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
-            //     ustensilesFiltered.forEach(ustensil => {
-
-            //     const ustensilesDOM = `<div class="col-3">${ ustensil }</div>`
-
-            //         dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
-            //     })
-            // })
 
             // je boucle sur chaque ustensile
             tabUstensiles.forEach(ustensile => {
@@ -236,6 +181,106 @@ function inputSearchIngredient()
     })
 }
 inputSearchIngredient()
+
+
+// rafraichi les appareils en entonoir en chechant par mot clé dans le dropdown 
+function inputSearchAppareils()
+{
+    // à l'input dans le dropdown appareils
+    inputAppareils.addEventListener('input', function()
+    {
+        // je récupere la valeur de l'input et je passe en minuscule
+        let searchAppareils = inputAppareils.value.toLowerCase()
+
+        // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
+        
+        // je filtre sur tabAppareils
+        let AppareilsFiltered = tabAppareils.filter(item =>
+        {   
+            if ( item.toLowerCase().includes(searchAppareils) )
+            {
+                return item
+            }     
+        })
+
+        // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
+        AppareilsFiltered.forEach(ingre => {
+
+        const appareilsDOM = `<div class="col-4">${ ingre }</div>`
+
+            dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
+        })
+    })
+}
+inputSearchAppareils()
+
+
+// rafraichi les ustensiles en entonoir en chechant par mot clé dans le dropdown 
+function inputSearchUstensiles()
+{
+    //  à l'input dans le dropdown ustensiles
+    inputUstensiles.addEventListener('input', function()
+    {
+        // je récupere la valeur de l'input et je passe en minuscule
+        let searchUstensile = inputUstensiles.value.toLowerCase()
+
+        // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
+
+        // je filtre sur tabUstensiles
+        let ustensilesFiltered = tabUstensiles.filter(item =>
+        {   
+            if ( item.toLowerCase().includes(searchUstensile) )
+            {
+                return item
+            }
+            console.log(item)
+        })
+
+        // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
+        ustensilesFiltered.forEach(ustensil => {
+
+        const ustensilesDOM = `<div class="col-3">${ ustensil }</div>`
+
+            dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
+        })
+    })
+}
+inputSearchUstensiles()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // recherche en validant le mot clé dans le dropdown

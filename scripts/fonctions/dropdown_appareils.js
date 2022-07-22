@@ -43,68 +43,68 @@ function dropdownAppareils()
         
        
 
-        function afficheAppareil()
-        {
-            // j'initialise un tableau vide qui contiendra les appareils
-            let tabAppareils = []
+        // function afficheAppareil()
+        // {
+        //     // j'initialise un tableau vide qui contiendra les appareils
+        //     let tabAppareils = []
 
-            // je boucle sur chaque recette
-            recipies.forEach(recette => {
+        //     // je boucle sur chaque recette
+        //     recipies.forEach(recette => {
 
-                let appareil = recette.appliance
+        //         let appareil = recette.appliance
 
-                // j'uniformise tout en minuscule
-                appareil = appareil.toLowerCase()
+        //         // j'uniformise tout en minuscule
+        //         appareil = appareil.toLowerCase()
                 
-                // je remet seulement la 1ere lettre en majuscule
-                appareil = appareil[0].toUpperCase() + appareil.slice(1)
+        //         // je remet seulement la 1ere lettre en majuscule
+        //         appareil = appareil[0].toUpperCase() + appareil.slice(1)
 
-                // je concatene les appareils de toutes les recettes
-                tabAppareils = tabAppareils.concat(appareil)
-            })
+        //         // je concatene les appareils de toutes les recettes
+        //         tabAppareils = tabAppareils.concat(appareil)
+        //     })
 
-            // je supprime les doublons
-            tabAppareils = [...new Set(tabAppareils)]
+        //     // je supprime les doublons
+        //     tabAppareils = [...new Set(tabAppareils)]
 
-            // je classe par ordre alphabétique
-            tabAppareils = tabAppareils.sort()
+        //     // je classe par ordre alphabétique
+        //     tabAppareils = tabAppareils.sort()
 
-            // à l'input dans le dropdown appareils
-            inputAppareils.addEventListener('input', function()
-            {
-                // je récupere la valeur de l'input et je passe en minuscule
-                let searchAppareils = inputAppareils.value.toLowerCase()
+        //     // à l'input dans le dropdown appareils
+        //     inputAppareils.addEventListener('input', function()
+        //     {
+        //         // je récupere la valeur de l'input et je passe en minuscule
+        //         let searchAppareils = inputAppareils.value.toLowerCase()
 
-                // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
-                document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
+        //         // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
+        //         document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
                 
-                // je filtre sur tabAppareils
-                let AppareilsFiltered = tabAppareils.filter(item =>
-                {   
-                    if ( item.toLowerCase().includes(searchAppareils) )
-                    {
-                        return item
-                    }     
-                })
+        //         // je filtre sur tabAppareils
+        //         let AppareilsFiltered = tabAppareils.filter(item =>
+        //         {   
+        //             if ( item.toLowerCase().includes(searchAppareils) )
+        //             {
+        //                 return item
+        //             }     
+        //         })
 
-                // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
-                AppareilsFiltered.forEach(ingre => {
+        //         // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
+        //         AppareilsFiltered.forEach(ingre => {
 
-                const appareilsDOM = `<div class="col-4">${ ingre }</div>`
+        //         const appareilsDOM = `<div class="col-4">${ ingre }</div>`
     
-                    dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
-                })
-            })
+        //             dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
+        //         })
+        //     })
 
-            // je boucle sur chaque appareil
-            tabAppareils.forEach(appareil => {
+        //     // je boucle sur chaque appareil
+        //     tabAppareils.forEach(appareil => {
 
-                const appareilsDOM = `<div class="col-4">${ appareil }</div>`
+        //         const appareilsDOM = `<div class="col-4">${ appareil }</div>`
 
-                dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
-            })
-        }
-        afficheAppareil()
+        //         dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
+        //     })
+        // }
+        // afficheAppareil()
     }
     sortAppareils()
 }
