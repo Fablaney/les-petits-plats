@@ -103,7 +103,7 @@ window.addEventListener('load', function()
 })
 
 
-// gestion des Tags
+// GESTION DES TAGS
 let tagFiltered = []
 
 function tagFilter()
@@ -162,6 +162,34 @@ function tagFilter()
     }
 }
 
+// AJOUT DU TAG
+// au click sur un item
+// je récupere l'item cliqué
+function addTag(itemTag, type)
+{
+    // console.log("je recupere la valeur du champ")
+    // console.log(itemTag)
+    // console.log(type)
+
+    // Je crée le texte recherché
+    const tagItemDOM = `<div class="rounded p-2 tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
+
+    let currentTag = document.querySelector(".filtres-actifs")
+
+    currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
+
+    tagFiltered.push({
+        type: type,
+        value: itemTag
+    })
+
+    console.log("currentRecipies")
+    console.log(currentRecipies)
+    console.log(itemTag)
+    console.log(type)
+    tagFilter()
+}
+
 function removeTag(type, value)
 {
     // console.log(type)
@@ -169,6 +197,4 @@ function removeTag(type, value)
 
     // let tagToErase = document.querySelectorAll(".tag-" + type)
     // console.log(tagToErase.dataset)
-
-   
 }

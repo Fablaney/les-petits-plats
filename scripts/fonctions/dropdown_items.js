@@ -50,16 +50,13 @@ function afficheDropdownItems(currentRecipies, types)
                     // je remet seulement la 1ere lettre en majuscule
                     ingredient = ingredient[0].toUpperCase() + ingredient.slice(1)
 
-                    // Je remplis le tableau et evit4 les doublons
+                    // Je remplis le tableau et evite les doublons
                     if ( tabIngredients.includes(ingredient) == false )
                     {
                         tabIngredients.push(ingredient)
                     }
                 })
             })
-
-            // je supprime les doublons
-            // tabIngredients = [...new Set(tabIngredients)]
 
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
@@ -92,12 +89,12 @@ function afficheDropdownItems(currentRecipies, types)
                 // je remet seulement la 1ere lettre en majuscule
                 appareil = appareil[0].toUpperCase() + appareil.slice(1)
 
-                // je concatene les appareils de toutes les recettes
-                tabAppareils = tabAppareils.concat(appareil)
+                // Je remplis le tableau et evite les doublons
+                if ( tabAppareils.includes(appareil) == false )
+                {
+                    tabAppareils.push(appareil)
+                }
             })
-
-            // je supprime les doublons
-            tabAppareils = [...new Set(tabAppareils)]
 
             // je classe par ordre alphabétique
             tabAppareils = tabAppareils.sort()
@@ -127,14 +124,15 @@ function afficheDropdownItems(currentRecipies, types)
                 // je capitalise la 1ere lettre 
                 ustensiles.forEach( ustensile => {
                             
-                    let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
+                    ustensile = ustensile[0].toUpperCase() + ustensile.slice(1) 
 
-                    tabUstensiles = tabUstensiles.concat(ustensilesCap)
+                    // Je remplis le tableau et evite les doublons
+                    if ( tabUstensiles.includes(ustensile) == false )
+                    {
+                        tabUstensiles.push(ustensile)
+                    }
                 })
             })
-
-            // je supprime les doublons
-            tabUstensiles = [...new Set(tabUstensiles)]
 
             // je classe par ordre alphabétique
             tabUstensiles = tabUstensiles.sort()
@@ -359,27 +357,3 @@ function sortUstensiles()
     })
 }
 sortUstensiles()
-
-
-// au click sur un item
-// je récupere l'item cliqué
-function addTag(itemTag, type)
-{
-    console.log("je recupere la valeur du champ")
-    console.log(itemTag)
-    console.log(type)
-
-    // Je crée le texte recherché
-    const tagItemDOM = `<div class="rounded p-2 tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
-
-    let currentTag = document.querySelector(".filtres-actifs")
-
-    currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
-
-    tagFiltered.push({
-        type: type,
-        value: itemTag
-    })
-
-    tagFilter()
-}
