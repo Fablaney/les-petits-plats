@@ -35,12 +35,12 @@ function afficheDropdownItems(currentRecipies, types)
     {
         // affichage des ingredients
         case "ingredients":
+
             tabIngredients = []
 
             // je boucle sur chaque recette
             currentRecipies.forEach(recette => {
 
-                // console.log(recette)
                 // Je re-boucle sur les tableaux d'ingrédients pour les concatener 
                 recette.ingredients.forEach((ingredient) => {
 
@@ -65,7 +65,7 @@ function afficheDropdownItems(currentRecipies, types)
             tabIngredients = tabIngredients.sort()
 
             // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll(".item-ingre").forEach( (elt)=>{ elt.remove() } )
+            document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {
@@ -78,6 +78,7 @@ function afficheDropdownItems(currentRecipies, types)
 
         // affichage des appareils
         case "appareils":
+
             tabAppareils = []
 
             // je boucle sur chaque recette
@@ -101,6 +102,9 @@ function afficheDropdownItems(currentRecipies, types)
             // je classe par ordre alphabétique
             tabAppareils = tabAppareils.sort()
 
+            // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
+            document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
+
             // je boucle sur chaque appareil
             tabAppareils.forEach(appareil => {
 
@@ -114,8 +118,9 @@ function afficheDropdownItems(currentRecipies, types)
         case "ustensiles":
 
             tabUstensiles = []
+
             // je boucle sur chaque recette
-            recipies.forEach(recette => {
+            currentRecipies.forEach(recette => {
 
                 let ustensiles = recette.ustensils.map(name => name.toLowerCase())
 
@@ -133,6 +138,9 @@ function afficheDropdownItems(currentRecipies, types)
 
             // je classe par ordre alphabétique
             tabUstensiles = tabUstensiles.sort()
+
+            // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
+            document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
 
             // je boucle sur chaque ustensile
             tabUstensiles.forEach(ustensile => {
@@ -250,7 +258,7 @@ inputSearchUstensiles()
 function sortIngredients()
 {
     // par défaut on boucle sur tous les ingrédients de recipies
-    currentRecipies = recipies
+    // currentRecipies = recipies
 
     // dans le champ du dropdown
     // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
@@ -286,7 +294,7 @@ sortIngredients()
 function sortAppareils()
 {
     // par défaut recettesFilteredByAppareil = recipies
-    currentRecipies = recipies
+    // currentRecipies = recipies
 
     // En cherchant un appareil j'afficher les recettes qui contiennent cet appareil
     inputAppareils.addEventListener('change', function()
@@ -321,7 +329,7 @@ sortAppareils()
 function sortUstensiles()
 {
     // par défaut recettesFilteredByAppareil = recipies
-    recettesFilteredByUstensile = recipies
+    // recettesFilteredByUstensile = recipies
 
     // En cherchant un ustensile j'afficher les recettes qui contiennent cet ustensile
     inputUstensiles.addEventListener('change', function()

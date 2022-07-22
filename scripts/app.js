@@ -11,7 +11,7 @@ async function init()
     // tri par mot clé
     searchInput()
 
-    // tri des items
+    // initialisation du tri des items
     afficheDropdownItems( currentRecipies, "ingredients")
 
     afficheDropdownItems( currentRecipies, "appareils")
@@ -103,8 +103,6 @@ window.addEventListener('load', function()
 })
 
 
-
-
 // gestion des Tags
 let tagFiltered = []
 
@@ -134,7 +132,7 @@ function tagFilter()
         })
     })
 
-    console.log(recipiesFiltered)
+    // console.log(recipiesFiltered)
 
     // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
     document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
@@ -146,10 +144,21 @@ function tagFilter()
 
     console.log(recipiesFiltered)
 
+    // currentRecipies = recipiesFiltered
+
+    // afficheDropdownItems( currentRecipies, "ingredients")
+
+    // afficheDropdownItems( currentRecipies, "appareils")
+
+    // afficheDropdownItems( currentRecipies, "ustensiles")
+
     if (recipiesFiltered.length == 0)
     {
         document.querySelector(".no-recipies").classList.remove("d-none")
-
+    }
+    else
+    {
+        document.querySelector(".no-recipies").classList.add("d-none")
     }
 }
 
