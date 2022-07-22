@@ -80,7 +80,7 @@ body
     margin-right: 1em;
 }
 
-.tag-ingredients, .tag-appareils, .tag-ustensiles
+.tag-ingredients, .tag-appareils, .tag-ustensils
 {
     color: white;
 }
@@ -90,9 +90,9 @@ body
 }
 .bg-vert, .tag-appareils
 {
-    background-color: #68D9A4;
+    background-color: #5ec796;
 }
-.bg-rouge, .tag-ustensiles
+.bg-rouge, .tag-ustensils
 {
     background-color: #ED6454;
 }
@@ -102,9 +102,9 @@ body
 }
 .bg-vert:hover, .tag-appareils:hover
 {
-    background-color: #59bd8e;
+    background-color: #4a9e77;
 }
-.bg-rouge:hover, .tag-ustensiles:hover
+.bg-rouge:hover, .tag-ustensils:hover
 {
     background-color: #d65a4c;
 }

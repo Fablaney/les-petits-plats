@@ -45,68 +45,68 @@ function dropdownUstensilles()
         }
         
 
-        function affichageUstensile()
-        {
-            // j'initialise un tableau vide qui contiendra les ustensiles
-            let tabUstensiles = []
+        // function affichageUstensile()
+        // {
+        //     // j'initialise un tableau vide qui contiendra les ustensiles
+        //     let tabUstensiles = []
 
-             // je boucle sur chaque recette
-            recipies.forEach(recette => {
+        //      // je boucle sur chaque recette
+        //     recipies.forEach(recette => {
 
-                let ustensiles = recette.ustensils.map(name => name.toLowerCase())
+        //         let ustensiles = recette.ustensils.map(name => name.toLowerCase())
 
-                // je capitalise la 1ere lettre 
-                ustensiles.forEach( ustensile => {
+        //         // je capitalise la 1ere lettre 
+        //         ustensiles.forEach( ustensile => {
                             
-                    let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
+        //             let ustensilesCap = ustensile[0].toUpperCase() + ustensile.slice(1) 
 
-                    tabUstensiles = tabUstensiles.concat(ustensilesCap)
-                })
-            })
+        //             tabUstensiles = tabUstensiles.concat(ustensilesCap)
+        //         })
+        //     })
 
-            // je supprime les doublons
-            tabUstensiles = [...new Set(tabUstensiles)]
+        //     // je supprime les doublons
+        //     tabUstensiles = [...new Set(tabUstensiles)]
 
-            // je classe par ordre alphabétique
-            tabUstensiles = tabUstensiles.sort()
+        //     // je classe par ordre alphabétique
+        //     tabUstensiles = tabUstensiles.sort()
 
-            // à l'input dans le dropdown ustensiles
-            inputUstensiles.addEventListener('input', function()
-            {
-                // je récupere la valeur de l'input et je passe en minuscule
-                let searchUstensile = inputUstensiles.value.toLowerCase()
+        //     // à l'input dans le dropdown ustensiles
+        //     inputUstensiles.addEventListener('input', function()
+        //     {
+        //         // je récupere la valeur de l'input et je passe en minuscule
+        //         let searchUstensile = inputUstensiles.value.toLowerCase()
 
-                // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
-                document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
+        //         // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        //         document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
 
-                // je filtre sur tabUstensiles
-                let ustensilesFiltered = tabUstensiles.filter(item =>
-                {   
-                    if ( item.toLowerCase().includes(searchUstensile) )
-                    {
-                        return item
-                    }
-                    console.log(item)
-                })
+        //         // je filtre sur tabUstensiles
+        //         let ustensilesFiltered = tabUstensiles.filter(item =>
+        //         {   
+        //             if ( item.toLowerCase().includes(searchUstensile) )
+        //             {
+        //                 return item
+        //             }
+        //             console.log(item)
+        //         })
 
-                // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
-                ustensilesFiltered.forEach(ustensil => {
+        //         // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
+        //         ustensilesFiltered.forEach(ustensil => {
 
-                const ustensilesDOM = `<div class="col-4">${ ustensil }</div>`
+        //         const ustensilesDOM = `<div class="col-4">${ ustensil }</div>`
     
-                    dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
-                })
-            })
+        //             dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
+        //         })
+        //     })
 
-            // je boucle sur chaque ustensile
-            tabUstensiles.forEach(ustensile => {
+        //     // je boucle sur chaque ustensile
+        //     tabUstensiles.forEach(ustensile => {
 
-                const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
+        //         const ustensileDOM = `<div class="col-4">${ ustensile }</div>`
 
-                dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
-            })
-        }
-        affichageUstensile() 
+        //         dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
+        //     })
+        // }
+        // affichageUstensile() 
     }
     sortUstensiles()
 }
