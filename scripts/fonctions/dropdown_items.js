@@ -233,10 +233,7 @@ function inputSearchIngredient()
 
             dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
         })
-
-        addTag(ingre, 'ingredient')
     })
-    
 }
 inputSearchIngredient()
 
