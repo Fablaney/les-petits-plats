@@ -25,6 +25,7 @@ body
 
 
 /* --------------------------------------------------------------------------------- */
+/* LOGO */
 .logo
 {
     height: 93px;
@@ -33,7 +34,7 @@ body
 
 
 /* --------------------------------------------------------------------------------- */
-/* barre de recherche */
+/* BARRE DE RECHERCHE */
 .search-bar
 {
     height: 70px;
@@ -113,8 +114,6 @@ body
 
 
 /* Zone Filtres DROPDOWNS*/
-
-
 .dropdowns
 {
     position: relative;
@@ -153,16 +152,8 @@ body
 .show
 {
     display: block;
-    display: flex;
-    
+    display: flex;  
 }
-.expand
-{
-    /* width: 50%; */
-}
-
-
-
 
 
 /* --------------------------------------------------------------------------------- */
