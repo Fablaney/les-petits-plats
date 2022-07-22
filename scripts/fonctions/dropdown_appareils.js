@@ -13,33 +13,33 @@ function dropdownAppareils()
 
     function sortAppareils()
     {
-        // par défaut recettesFilteredByAppareil = recipies
-        recettesFilteredByAppareil = recipies
+        // // par défaut recettesFilteredByAppareil = recipies
+        // recettesFilteredByAppareil = recipies
 
-        // En cherchant un appareil j'afficher les recettes qui contiennent cet appareil
-        inputAppareils.addEventListener('input', function()
-        {
-            // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
-            let searchAppareils = inputAppareils.value.toLowerCase()
+        // // En cherchant un appareil j'afficher les recettes qui contiennent cet appareil
+        // inputAppareils.addEventListener('input', function()
+        // {
+        //     // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        //     let searchAppareils = inputAppareils.value.toLowerCase()
 
-            // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
-            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+        //     // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        //     document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
-            // je filtre sur recipies
-            recettesFilteredByAppareil = recipies.filter(item =>
-            {   
-                // si dans ingredient je trouve ce qui à été tapé je retourne item
-                if( item.appliance.toLowerCase().includes(searchAppareils) )
-                {
-                    return item
-                }
-            })
+        //     // je filtre sur recipies
+        //     recettesFilteredByAppareil = recipies.filter(item =>
+        //     {   
+        //         // si dans ingredient je trouve ce qui à été tapé je retourne item
+        //         if( item.appliance.toLowerCase().includes(searchAppareils) )
+        //         {
+        //             return item
+        //         }
+        //     })
 
-            // je parcours les recettes filtrées par appareil
-            recettesFilteredByAppareil.forEach(recette => {
-                recipeCardsFactorie(recette)
-            })
-        })
+        //     // je parcours les recettes filtrées par appareil
+        //     recettesFilteredByAppareil.forEach(recette => {
+        //         recipeCardsFactorie(recette)
+        //     })
+        // })
         
        
 

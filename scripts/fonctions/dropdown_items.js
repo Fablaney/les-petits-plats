@@ -29,7 +29,8 @@ let tabAppareils = []
 let tabUstensiles = []
 
 
-// affichage les ingrédients dans leur dropdown
+// AFFICHAGE INITIAL
+// affichage des items dans leurs dropdown respectifs
 function afficheDropdownItems(currentRecipies, types)
 {
     switch(types)
@@ -64,9 +65,6 @@ function afficheDropdownItems(currentRecipies, types)
 
             // je classe par ordre alphabétique
             tabIngredients = tabIngredients.sort()
-
-            // console.log("tabIngredients")
-            // console.log(tabIngredients)
 
             // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".item-ingre").forEach( (elt)=>{ elt.remove() } )
@@ -149,7 +147,7 @@ function afficheDropdownItems(currentRecipies, types)
     }
 }
 
-
+// ENTONOIR DE RECHERCHE INGREDIENT APPAREIL USTENSILES DANS LE DROPDOWN
 // rafraichi les ingredients en entonoir en chechant par mot clé dans le dropdown 
 function inputSearchIngredient()
 {
@@ -249,40 +247,8 @@ function inputSearchUstensiles()
 inputSearchUstensiles()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// recherche en validant le mot clé dans le dropdown
+// EN CHECHANT ET EN VALIDANT UN MOT DANS LE DROPDOWN
+// INGREDIENTS
 function sortIngredients()
 {
     // par défaut on boucle sur tous les ingrédients de recipies
@@ -317,6 +283,100 @@ function sortIngredients()
     })
 }
 sortIngredients()
+
+// APPAREILS
+function sortAppareils()
+{
+    // par défaut recettesFilteredByAppareil = recipies
+    currentRecipies = recipies
+
+    // En cherchant un appareil j'afficher les recettes qui contiennent cet appareil
+    inputAppareils.addEventListener('change', function()
+    {
+        // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        let searchAppareils = inputAppareils.value.toLowerCase()
+
+        addTag(searchAppareils, "appareils")
+
+        // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
+        // je filtre sur recipies
+        recettesFilteredByAppareil = recipies.filter(item =>
+        {   
+            // si dans ingredient je trouve ce qui à été tapé je retourne item
+            if( item.appliance.toLowerCase().includes(searchAppareils) )
+            {
+                return item
+            }
+        })
+
+        // je parcours les recettes filtrées par appareil
+        recettesFilteredByAppareil.forEach(recette => {
+            recipeCardsFactorie(recette)
+        })
+    })
+}
+sortAppareils()
+
+// USTENSILES
+function sortUstensiles()
+{
+    // par défaut recettesFilteredByAppareil = recipies
+    recettesFilteredByUstensile = recipies
+
+    // En cherchant un ustensile j'afficher les recettes qui contiennent cet ustensile
+    inputUstensiles.addEventListener('change', function()
+    {
+        // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
+        let searchUstensiles = inputUstensiles.value.toLowerCase()
+
+        addTag(searchUstensiles, "ustensils")
+
+        // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+        document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
+        // je filtre sur recipies
+        recettesFilteredByUstensile = recipies.filter(item =>
+        {   
+            // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
+            if( item.ustensils.find(ustensils => ustensils.toLowerCase().includes(searchUstensiles)) )
+            {
+                return item
+            }
+        })
+
+        // je parcours les recettes filtrées par ustensiles
+        recettesFilteredByUstensile.forEach(recette => {
+            recipeCardsFactorie(recette)
+        })
+    })
+}
+sortUstensiles()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // au click sur un item

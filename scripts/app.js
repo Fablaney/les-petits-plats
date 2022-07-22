@@ -143,6 +143,14 @@ function tagFilter()
     recipiesFiltered.forEach(recette => {
         recipeCardsFactorie(recette)
     })
+
+    console.log(recipiesFiltered)
+
+    if (recipiesFiltered.length == 0)
+    {
+        document.querySelector(".no-recipies").classList.remove("d-none")
+
+    }
 }
 
 function removeTag(type, value)
