@@ -207,33 +207,80 @@ function tagFilter()
 function addTag(itemTag, type)
 {
     // console.log("je recupere la valeur du champ")
+    // console.log(itemTag.toLowerCase())
     // console.log(itemTag)
     // console.log(type)
 
-    // Je crée le texte recherché
-    const tagItemDOM = `<div class="rounded p-2 tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
+    console.log(tagFiltered.length)
+    // Si je n'ai aucun tag 
+    if (tagFiltered.length == 0)
+    {
+        console.log(tagFiltered.length)
+        console.log("je n'ai aucun tag dans le tableau")
+        console.log("je l'ajoute")
 
-    let currentTag = document.querySelector(".filtres-actifs")
+        createTag()
+    }
+    else
+    {
+        console.log(tagFiltered)
 
-    currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
+        for( let i = 0; i < tagFiltered.length; i++)
+        {
+            console.log(tagFiltered)
+            console.log(tagFiltered[i].value.toLowerCase())
+            console.log(itemTag.toLowerCase())
 
-    tagFiltered.push({
-        type: type,
-        value: itemTag
-    })
+            // console.log("test")
+            if (tagFiltered[i].value.toLowerCase() != itemTag.toLowerCase())
+            {
+                // je n'ai pas encore ce tag dans le tableau
+                console.log("je n'ai pas encore ce tag dans le tableau")
+                console.log("je l'ajoute")
 
-    // console.log("currentRecipies")
-    // console.log(currentRecipies)
-    console.log(itemTag)
-    console.log(type)
-    tagFilter()
+                createTag()
+                break
+            }
+            // si ce tag existe déja dans le tableau
+            else
+            {
+                console.log("si ce tag existe déja dans le tableau")
+                console.log("je ne fais rien")
+
+                break
+            }
+        }
+    }
+   
+    // ajout du tag dans le dom et le push dans le tableau
+    function createTag()
+    {
+        // Je crée le texte recherché
+        const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
+
+        // je prends la div qui contiendra les tags
+        let currentTag = document.querySelector(".filtres-actifs")
+
+        // j'insere les nouveaux tags
+        currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
+
+        // je push chaque nouveau tag en objet dans le tableau tagFiltered
+        tagFiltered.push({
+            type: type,
+            value: itemTag
+        })
+
+        tagFilter()
+    } 
+
+    console.log(tagFiltered)
 }
 
 function removeTag(type, value)
 {
-    // console.log(type)
-    // console.log(value)
+    console.log(type)
+    console.log(value)
 
-    // let tagToErase = document.querySelectorAll(".tag-" + type)
-    // console.log(tagToErase.dataset)
+    let tagToErase = document.querySelectorAll(".tag-" + type)
+    console.log(tagToErase)
 }
