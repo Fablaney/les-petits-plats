@@ -209,7 +209,7 @@ function inputSearchAppareils()
         // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
         AppareilsFiltered.forEach(appareil => {
 
-        const appareilsDOM = `<div class="col-3" onclick="addTag('${appareil}', 'appliance')">${ appareil }</div>`
+        const appareilsDOM = `<div class="col-3" onclick="addTag('${appareil}', 'appareils')">${ appareil }</div>`
             dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
         })
     })

@@ -112,13 +112,18 @@ function tagFilter()
 
     tagFiltered.forEach(tag => {
         recipiesFiltered = currentRecipies.filter(recette =>{
+
+            // je fais un lowercase sur tag.value pour bien comparer ensuite
+            tag.value = tag.value.toLowerCase()
+
+            // INGREDIENTS
             if ( tag.type == "ingredients" )
             {
                 let ingredientfounded = false
 
                 for (let i = 0 ; i < recette.ingredients.length ; i++)
                 {
-                    if ( recette.ingredients[i].ingredient == tag.value )
+                    if ( recette.ingredients[i].ingredient.toLowerCase() == tag.value )
                     {
                         ingredientfounded = true
                         break
@@ -129,29 +134,63 @@ function tagFilter()
                     return recette   
                 }
             }
+            // APPAREILS
+            if ( tag.type == "appareils" )
+            {
+                let apapreilfounded = false
+
+                if ( recette.appliance.toLowerCase() == tag.value )
+                {
+                    apapreilfounded = true
+                }
+                if ( apapreilfounded == true )
+                {
+                    return recette   
+                }
+            }
+            // USTENSILES
+            if ( tag.type == "ustensils" )
+            {
+                let ustensilsfounded = false
+
+                for (let i = 0 ; i < recette.ustensils.length ; i++)
+                {
+                    if ( recette.ustensils[i].toLowerCase() == tag.value )
+                    {
+                        ustensilsfounded = true
+                        break
+                    }
+                }
+                if ( ustensilsfounded == true )
+                {
+                    return recette   
+                } 
+            }
         })
     })
-
-    // console.log(recipiesFiltered)
 
     // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
     document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
-    // je parcours les recettes
+    // je réaffiche les recetts filtrées par tags
     recipiesFiltered.forEach(recette => {
         recipeCardsFactorie(recette)
     })
 
-    console.log(recipiesFiltered)
+    // console.log("recipiesFiltered")
+    // console.log(recipiesFiltered)
 
-    // currentRecipies = recipiesFiltered
+    // je met à jour le contenu de currentRecipies
+    currentRecipies = recipiesFiltered
 
-    // afficheDropdownItems( currentRecipies, "ingredients")
+    // je rafraichis l'affichage des items dans les dropdowns
+    afficheDropdownItems( currentRecipies, "ingredients")
 
-    // afficheDropdownItems( currentRecipies, "appareils")
+    afficheDropdownItems( currentRecipies, "appareils")
 
-    // afficheDropdownItems( currentRecipies, "ustensiles")
+    afficheDropdownItems( currentRecipies, "ustensiles")
 
+    // si il n'y à aucune recette trouvée j'affiche un message d'erreur
     if (recipiesFiltered.length == 0)
     {
         document.querySelector(".no-recipies").classList.remove("d-none")
@@ -183,8 +222,8 @@ function addTag(itemTag, type)
         value: itemTag
     })
 
-    console.log("currentRecipies")
-    console.log(currentRecipies)
+    // console.log("currentRecipies")
+    // console.log(currentRecipies)
     console.log(itemTag)
     console.log(type)
     tagFilter()
