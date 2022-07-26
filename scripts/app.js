@@ -204,6 +204,7 @@ function tagFilter()
     }
 }
 
+
 // AJOUT DU TAG
 // au click sur un item
 // je récupere l'item cliqué
@@ -257,10 +258,30 @@ function addTag(itemTag, type)
         }
     }
    
+
     function dropItem()
     {
-        
+        switch(types)
+        {
+            case "ingredients":
+                dropIngredients
+                
+            break
+
+            case "appareils":
+               
+                dropUstensiles
+               
+            break
+
+            case "ustensiles":
+                
+                dropAppareils
+            break
+        }
     }
+    dropItem()
+
 
     // ajout du tag dans le dom et le push dans le tableau
     function createTag()
@@ -283,6 +304,7 @@ function addTag(itemTag, type)
         tagFilter()
     }
 }
+
 
 function removeTag(type, value)
 {
