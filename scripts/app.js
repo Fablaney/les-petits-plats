@@ -285,13 +285,17 @@ function removeTag(type, value)
 
     value = value.toLowerCase()
     
-    let tagToErase = document.querySelector(".filtres-actifs .tag-" + value).remove()
+    let tagToErase = document.querySelector(".filtres-actifs .tag-" + value)
 
+    console.log("tagToErase")
     console.log(tagToErase)
+
+    tagToErase.remove()
 
     tagFiltered = tagFiltered.filter(tag => tag.value !== value)
 
+    console.log("tagFiltered")
     console.log(tagFiltered)
 
-    tagFilter()
+    tagFilter(tagFiltered)
 }
