@@ -211,13 +211,14 @@ function addTag(itemTag, type)
     // console.log(itemTag)
     // console.log(type)
 
-    console.log(tagFiltered.length)
+    // console.log(tagFiltered.length)
+
     // Si je n'ai aucun tag 
     if (tagFiltered.length == 0)
     {
-        console.log(tagFiltered.length)
-        console.log("je n'ai aucun tag dans le tableau")
-        console.log("je l'ajoute")
+        // console.log(tagFiltered.length)
+        // console.log("je n'ai aucun tag dans le tableau")
+        // console.log("je l'ajoute")
 
         createTag()
     }
@@ -227,16 +228,17 @@ function addTag(itemTag, type)
 
         for( let i = 0; i < tagFiltered.length; i++)
         {
-            console.log(tagFiltered)
-            console.log(tagFiltered[i].value.toLowerCase())
-            console.log(itemTag.toLowerCase())
+            // console.clear()
+            // console.log(tagFiltered)
+            // console.log(tagFiltered[i].value.toLowerCase())
+            // console.log(itemTag.toLowerCase())
 
             // console.log("test")
             if (tagFiltered[i].value.toLowerCase() != itemTag.toLowerCase())
             {
                 // je n'ai pas encore ce tag dans le tableau
-                console.log("je n'ai pas encore ce tag dans le tableau")
-                console.log("je l'ajoute")
+                // console.log("je n'ai pas encore ce tag dans le tableau")
+                // console.log("je l'ajoute")
 
                 createTag()
                 break
@@ -244,8 +246,8 @@ function addTag(itemTag, type)
             // si ce tag existe déja dans le tableau
             else
             {
-                console.log("si ce tag existe déja dans le tableau")
-                console.log("je ne fais rien")
+                // console.log("si ce tag existe déja dans le tableau")
+                // console.log("je ne fais rien")
 
                 break
             }
@@ -256,7 +258,7 @@ function addTag(itemTag, type)
     function createTag()
     {
         // Je crée le texte recherché
-        const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
+        const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTag.toLowerCase()}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
 
         // je prends la div qui contiendra les tags
         let currentTag = document.querySelector(".filtres-actifs")
@@ -273,14 +275,23 @@ function addTag(itemTag, type)
         tagFilter()
     } 
 
-    console.log(tagFiltered)
+    // console.log(tagFiltered)
 }
 
 function removeTag(type, value)
 {
-    console.log(type)
-    console.log(value)
+    // console.log(type)
+    // console.log(value)
 
-    let tagToErase = document.querySelectorAll(".tag-" + type)
+    value = value.toLowerCase()
+    
+    let tagToErase = document.querySelector(".filtres-actifs .tag-" + value).remove()
+
     console.log(tagToErase)
+
+    tagFiltered = tagFiltered.filter(tag => tag.value !== value)
+
+    console.log(tagFiltered)
+
+    tagFilter()
 }
