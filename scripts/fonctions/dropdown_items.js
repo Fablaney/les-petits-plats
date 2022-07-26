@@ -67,7 +67,7 @@ function afficheDropdownItems(currentRecipies, types)
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             tabIngredients.forEach(ingre => {
 
-                const ingredientsDOM = `<div class="col-3" onclick="addTag('${ingre}', 'ingredients')">${ ingre }</div>`
+                const ingredientsDOM = `<div class="col-3 item-${ingre.toLowerCase()}" onclick="addTag('${ingre}', 'ingredients')">${ ingre }</div>`
 
                 dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
             })
