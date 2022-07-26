@@ -21,18 +21,6 @@ async function init()
 init()
 
 
-// function normalizeString(string)
-// {
-//     const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
-//     const spaceRegex = new RegExp(/\s/, "g");
-//     return string
-//       .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
-//       .replace(diacriticRegex, "") // remove diacritics
-//       .toLowerCase()
-//       .replace(spaceRegex, ""); // remove all spaces
-// }
-
-
 // Gestion des annimations sur les dropdown
 window.addEventListener('load', function()
 {
