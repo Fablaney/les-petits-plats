@@ -251,7 +251,7 @@ function inputSearchUstensiles()
 inputSearchUstensiles()
 
 
-// EN CHECHANT ET EN VALIDANT UN MOT DANS LE DROPDOWN
+// EN CHERCHANT ET EN VALIDANT UN MOT DANS LE DROPDOWN
 // INGREDIENTS
 function sortIngredients()
 {

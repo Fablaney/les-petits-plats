@@ -101,6 +101,11 @@ function tagFilter(tagFiltered)
     console.log("tagFiltered")
     console.log(tagFiltered)
 
+    if (tagFiltered.length == 0)
+    {
+        recipiesFiltered = recipies   
+    }
+
     tagFiltered.forEach(tag => {
         recipiesFiltered = currentRecipies.filter(recette =>{
 
@@ -163,16 +168,15 @@ function tagFilter(tagFiltered)
     // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
     document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
+    console.log("recipiesFiltered")
+    console.log(recipiesFiltered)
+
+    currentRecipies = recipiesFiltered
+
     // je réaffiche les recetts filtrées par tags
     recipiesFiltered.forEach(recette => {
         recipeCardsFactorie(recette)
     })
-
-    // console.log("recipiesFiltered")
-    // console.log(recipiesFiltered)
-
-    // je met à jour le contenu de currentRecipies
-    currentRecipies = recipiesFiltered
 
     // je rafraichis l'affichage des items dans les dropdowns
     afficheDropdownItems( currentRecipies, "ingredients")
@@ -189,8 +193,7 @@ function tagFilter(tagFiltered)
     else
     {
         document.querySelector(".no-recipies").classList.add("d-none")
-    } 
-
+    }
 }
 
 
@@ -268,9 +271,7 @@ function addTag(itemTag, type)
         })
 
         tagFilter(tagFiltered)
-    }
-
-    
+    }   
 }
 
 
@@ -281,12 +282,9 @@ function removeTag(type, value)
 
     value = value.toLowerCase()
     
-    let tagToErase = document.querySelector(".filtres-actifs .tag-" + value)
+    console.log(document.querySelector(".filtres-actifs .tag-" + value))
 
-    // console.log("tagToErase")
-    // console.log(tagToErase)
-
-    tagToErase.remove()
+    document.querySelector(".filtres-actifs .tag-" + value).remove()
 
     tagFiltered = tagFiltered.filter(tag => tag.value !== value)
 
