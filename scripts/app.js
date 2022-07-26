@@ -21,16 +21,16 @@ async function init()
 init()
 
 
-function normalizeString(string)
-{
-    const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
-    const spaceRegex = new RegExp(/\s/, "g");
-    return string
-      .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
-      .replace(diacriticRegex, "") // remove diacritics
-      .toLowerCase()
-      .replace(spaceRegex, ""); // remove all spaces
-}
+// function normalizeString(string)
+// {
+//     const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
+//     const spaceRegex = new RegExp(/\s/, "g");
+//     return string
+//       .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
+//       .replace(diacriticRegex, "") // remove diacritics
+//       .toLowerCase()
+//       .replace(spaceRegex, ""); // remove all spaces
+// }
 
 
 // Gestion des annimations sur les dropdown
@@ -109,6 +109,9 @@ let tagFiltered = []
 function tagFilter()
 {
     let recipiesFiltered = []
+
+    console.log("tagFiltered")
+    console.log(tagFiltered)
 
     tagFiltered.forEach(tag => {
         recipiesFiltered = currentRecipies.filter(recette =>{
@@ -212,7 +215,7 @@ function addTag(itemTag, type)
     // console.log(type)
 
     // console.log(tagFiltered.length)
-
+    
     // Si je n'ai aucun tag 
     if (tagFiltered.length == 0)
     {
@@ -254,6 +257,11 @@ function addTag(itemTag, type)
         }
     }
    
+    function dropItem()
+    {
+        
+    }
+
     // ajout du tag dans le dom et le push dans le tableau
     function createTag()
     {
@@ -273,9 +281,7 @@ function addTag(itemTag, type)
         })
 
         tagFilter()
-    } 
-
-    // console.log(tagFiltered)
+    }
 }
 
 function removeTag(type, value)
@@ -294,8 +300,8 @@ function removeTag(type, value)
 
     tagFiltered = tagFiltered.filter(tag => tag.value !== value)
 
-    console.log("tagFiltered")
-    console.log(tagFiltered)
+    // console.log("tagFiltered")
+    // console.log(tagFiltered)
 
     tagFilter(tagFiltered)
 }

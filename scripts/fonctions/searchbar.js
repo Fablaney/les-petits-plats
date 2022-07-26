@@ -1,7 +1,5 @@
 // Modern
 
-// let recettesFilteredByText
-
 function searchInput()
 {
     // je récupere le champ de recherche
