@@ -32,15 +32,17 @@ function generateCards(recettes)
 
 
 
-// function generateItems(tab, domBlock, type)
-// {
-//     tab.forEach(item => {
+function generateItems(tab, domBlock, type)
+{
+    tab.forEach(item => {
 
-//         const itemsDOM = `<div class="col-3 item-${item.toLowerCase()}" onclick="addTag('${item}', '${type}')">${ item }</div>`
+        itemNormalized = normalizeString(item)
 
-//         domBlock.insertAdjacentHTML('beforeEnd', itemsDOM)
-//     })
-// }
+        const itemsDOM = `<div class="col-3 item-${itemNormalized}" onclick="addTag('${item}', '${type}')">${ item }</div>`
+
+        domBlock.insertAdjacentHTML('beforeEnd', itemsDOM)
+    })
+}
 
 
 // Gestion des annimations sur les dropdown
@@ -115,7 +117,7 @@ window.addEventListener('load', function()
 let tagFiltered = []
 let recipiesFiltered = []
 
-function tagFilter(tagFiltered)
+function tagFilter(tagFiltered, currentRecipies)
 {
     console.log("tagFiltered")
     console.log(tagFiltered)
@@ -133,8 +135,8 @@ function tagFilter(tagFiltered)
 
         recipiesFiltered = currentRecipies.filter(recette =>{
             
-            console.log("recette")
-            console.log(recette)
+            // console.log("recette")
+            // console.log(recette)
 
             // je fais un lowercase sur tag.value pour bien comparer ensuite
             tag.value = tag.value.toLowerCase()
@@ -172,7 +174,7 @@ function tagFilter(tagFiltered)
                 }
             }
             // USTENSILES
-            if ( tag.type == "ustensils" )
+            if ( tag.type == "ustensiles" )
             {
                 let ustensilsfounded = false
 
@@ -244,7 +246,7 @@ function addTag(itemTag, type)
     }
     else
     {
-        console.log(tagFiltered)
+        // console.log(tagFiltered)
 
         for( let i = 0; i < tagFiltered.length; i++)
         {
@@ -278,8 +280,10 @@ function addTag(itemTag, type)
     // ajout du tag dans le dom et le push dans le tableau
     function createTag()
     {
+        itemTagNormalized= normalizeString(itemTag)
+
         // Je crée le texte recherché
-        const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTag.toLowerCase()}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
+        const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTagNormalized}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTagNormalized}')"></i></div>`
 
         // je prends la div qui contiendra les tags
         let currentTag = document.querySelector(".filtres-actifs")
@@ -293,16 +297,13 @@ function addTag(itemTag, type)
             value: itemTag
         })
 
-        tagFilter(tagFiltered)
+        tagFilter(tagFiltered, currentRecipies)
     }   
 }
 
 
 function removeTag(type, value)
 {
-    // console.log(type)
-    // console.log(value)
-
     value = value.toLowerCase()
     
     console.log(document.querySelector(".filtres-actifs .tag-" + value))
@@ -311,8 +312,16 @@ function removeTag(type, value)
 
     tagFiltered = tagFiltered.filter(tag => tag.value !== value)
 
-    // console.log("tagFiltered")
-    // console.log(tagFiltered)
-
     tagFilter(tagFiltered)
+}
+
+function normalizeString(string)
+{
+    const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
+    const spaceRegex = new RegExp(/\s/, "g");
+    return string
+      .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
+      .replace(diacriticRegex, "") // remove diacritics
+      .toLowerCase()
+      .replace(spaceRegex, ""); // remove all spaces
 }

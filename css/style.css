@@ -80,7 +80,7 @@ body
     margin-right: 1em;
 }
 
-.tag-ingredients, .tag-appareils, .tag-ustensils
+.tag-ingredients, .tag-appareils, .tag-ustensiles
 {
     color: white;
 }
@@ -92,7 +92,7 @@ body
 {
     background-color: #5ec796;
 }
-.bg-rouge, .tag-ustensils
+.bg-rouge, .tag-ustensiles
 {
     background-color: #ED6454;
 }
@@ -104,7 +104,7 @@ body
 {
     background-color: #4a9e77;
 }
-.bg-rouge:hover, .tag-ustensils:hover
+.bg-rouge:hover, .tag-ustensiles:hover
 {
     background-color: #d65a4c;
 }
