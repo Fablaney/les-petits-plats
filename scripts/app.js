@@ -21,6 +21,25 @@ async function init()
 init()
 
 
+function generateCards(recettes)
+{
+    // je parcours les recettes
+    recettes.forEach(recette => {
+        recipeCardsFactorie(recette)
+    })
+}
+
+function generateItems(tab, domBlock, type)
+{
+    tab.forEach(item => {
+
+        const itemsDOM = `<div class="col-3 item-${item.toLowerCase()}" onclick="addTag('${item}', '${type}')">${ item }</div>`
+
+        domBlock.insertAdjacentHTML('beforeEnd', itemsDOM)
+    })
+}
+
+
 // Gestion des annimations sur les dropdown
 window.addEventListener('load', function()
 {
@@ -107,7 +126,7 @@ function tagFilter(tagFiltered)
     }
 
     tagFiltered.forEach(tag => {
-        recipiesFiltered = currentRecipies.filter(recette =>{
+        recipiesFiltered = recipies.filter(recette =>{
 
             // je fais un lowercase sur tag.value pour bien comparer ensuite
             tag.value = tag.value.toLowerCase()
