@@ -45,6 +45,8 @@ function searchInput()
 
             console.log("if")
             console.log(currentRecipies)
+
+            errorMessage(currentRecipies)
         }
         else
         {
@@ -59,6 +61,8 @@ function searchInput()
 
             console.log("else")
             console.log(currentRecipies)
+
+            errorMessage(currentRecipies)
         }
     })
 }
