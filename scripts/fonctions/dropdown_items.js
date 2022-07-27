@@ -66,13 +66,6 @@ function afficheDropdownItems(currentRecipies, types)
 
             // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             generateItems(tabIngredients, dropIngredients, ingredients)
-        
-            // tabIngredients.forEach(ingre => {
-
-            //     const ingredientsDOM = `<div class="col-3 item-${ingre.toLowerCase()}" onclick="addTag('${ingre}', 'ingredients')">${ ingre }</div>`
-
-            //     dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
-            // })
         break
 
         // affichage des appareils
@@ -106,12 +99,6 @@ function afficheDropdownItems(currentRecipies, types)
 
             // je boucle sur chaque appareil
             generateItems(tabAppareils, dropAppareils, appareils)
-            // tabAppareils.forEach(appareil => {
-
-            //     const appareilsDOM = `<div class="col-3" item-${appareil.toLowerCase()}" onclick="addTag('${appareil}', 'appareils')">${ appareil }</div>`
-
-            //     dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
-            // })
         break
 
         // affichage des ustensiles
@@ -144,13 +131,7 @@ function afficheDropdownItems(currentRecipies, types)
             document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
 
             // je boucle sur chaque ustensile
-            generateItems(tabUstensiles, dropUstensiles, ustensils)
-            // tabUstensiles.forEach(ustensile => {
-
-            //     const ustensileDOM = `<div class="col-3" item-${ustensile.toLowerCase()}" onclick="addTag('${ustensile}', 'ustensils')">${ ustensile }</div>`
-
-            //     dropUstensiles.insertAdjacentHTML('beforeEnd', ustensileDOM)
-            // })
+            generateItems(tabUstensiles, dropUstensiles, ustensiles)
         break
     }
 }
@@ -179,12 +160,6 @@ function inputSearchIngredient()
         
         // je boucle sur chaque ingrédient
         generateItems(ingredientsFiltered, dropIngredients, ingredients)
-        // ingredientsFiltered.forEach(ingre => {
-
-        //     const ingredientsDOM = `<div class="col-3" item-${ingre.toLowerCase()}" onclick="addTag('${ingre}', 'ingredients')">${ ingre }</div>`
-
-        //     dropIngredients.insertAdjacentHTML('beforeEnd', ingredientsDOM)
-        // })
     })
 }
 inputSearchIngredient()
@@ -213,11 +188,6 @@ function inputSearchAppareils()
 
         // je boucle sur chaque appareil et je reaffiche les appareils triés par nom
         generateItems(AppareilsFiltered, dropAppareils, appareils)
-        // AppareilsFiltered.forEach(appareil => {
-
-        // const appareilsDOM = `<div class="col-3" item-${appareil.toLowerCase()}" onclick="addTag('${appareil}', 'appareils')">${ appareil }</div>`
-        //     dropAppareils.insertAdjacentHTML('beforeEnd', appareilsDOM)
-        // })
     })
 }
 inputSearchAppareils()
@@ -246,13 +216,7 @@ function inputSearchUstensiles()
         })
 
         // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom
-        generateItems(ustensilesFiltered, dropUstensiles, ustensils)
-        // ustensilesFiltered.forEach(ustensil => {
-
-        // const ustensilesDOM = `<div class="col-3" item-${ustensil.toLowerCase()}" onclick="addTag('${ustensil}', 'ustensils')">${ ustensil }</div>`
-
-        //     dropUstensiles.insertAdjacentHTML('beforeEnd', ustensilesDOM)
-        // })
+        generateItems(ustensilesFiltered, dropUstensiles, ustensiles)
     })
 }
 inputSearchUstensiles()
@@ -262,10 +226,6 @@ inputSearchUstensiles()
 // INGREDIENTS
 function sortIngredients()
 {
-    // par défaut on boucle sur tous les ingrédients de recipies
-    // currentRecipies = recipies
-
-    // dans le champ du dropdown
     // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
     inputIngredient.addEventListener('change', function()
     {
@@ -293,12 +253,10 @@ function sortIngredients()
 }
 sortIngredients()
 
+
 // APPAREILS
 function sortAppareils()
 {
-    // par défaut recettesFilteredByAppareil = recipies
-    // currentRecipies = recipies
-
     // En cherchant un appareil j'afficher les recettes qui contiennent cet appareil
     inputAppareils.addEventListener('change', function()
     {
@@ -326,12 +284,10 @@ function sortAppareils()
 }
 sortAppareils()
 
+
 // USTENSILES
 function sortUstensiles()
 {
-    // par défaut recettesFilteredByAppareil = recipies
-    // recettesFilteredByUstensile = recipies
-
     // En cherchant un ustensile j'afficher les recettes qui contiennent cet ustensile
     inputUstensiles.addEventListener('change', function()
     {
