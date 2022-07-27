@@ -121,7 +121,20 @@ function tagFilter(tagFiltered)
     console.log(tagFiltered)
 
     tagFiltered.forEach(tag => {
+
+        console.log("tag")
+        console.log(tag)
+
+        console.log("currentRecipies")
+        console.log(currentRecipies)
+
+        console.log("recipiesFiltered")
+        console.log(recipiesFiltered)
+
         recipiesFiltered = currentRecipies.filter(recette =>{
+            
+            console.log("recette")
+            console.log(recette)
 
             // je fais un lowercase sur tag.value pour bien comparer ensuite
             tag.value = tag.value.toLowerCase()
