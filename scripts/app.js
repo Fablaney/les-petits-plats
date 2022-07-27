@@ -1,5 +1,6 @@
 // Modern
 
+
 // Boucle sur les données
 async function init()
 {
@@ -28,6 +29,8 @@ function generateCards(recettes)
         recipeCardsFactorie(recette)
     })
 }
+
+
 
 // function generateItems(tab, domBlock, type)
 // {
@@ -116,14 +119,8 @@ let recipiesFiltered = []
 
 function tagFilter(tagFiltered)
 {
-
     console.log("tagFiltered")
     console.log(tagFiltered)
-
-    if (tagFiltered.length == 0)
-    {
-        recipiesFiltered = recipies   
-    }
 
     tagFiltered.forEach(tag => {
         recipiesFiltered = currentRecipies.filter(recette =>{

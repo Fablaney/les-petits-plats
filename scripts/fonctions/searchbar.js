@@ -12,15 +12,6 @@ function searchInput()
 
         // console.log(inputcontent)
 
-        // Je crée le tag texte recherché
-        const filterInputDOM = `<div class="btn btn-secondary tag-texte">${inputcontent} &nbsp;<i class="bi bi-x-circle" onclick="stopSearch('${inputcontent}')"></i></div>`
-
-        // je supprime le tag affiché avant le reafficher
-        document.querySelectorAll(".filtres-actifs .tag-texte").forEach( (elt)=>{ elt.remove() } )
-
-        // J'insere le texte dans sa div dans la zone HTML qui affiche les filtres actifs
-        document.querySelector(".filtres-actifs").insertAdjacentHTML('afterbegin', filterInputDOM)
-
         // je filtre sur recipies
         currentRecipies = recipies.filter(item =>
         {   
@@ -37,15 +28,14 @@ function searchInput()
             }
         })
 
+
         if( inputcontent.length > 2 )
         {
             // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
    
             // je parcours les recettes filtrées
-            currentRecipies.forEach(recette => {
-                recipeCardsFactorie(recette)
-            })
+            generateCards(currentRecipies)
 
             afficheDropdownItems( currentRecipies, "ingredients")
 
@@ -55,10 +45,14 @@ function searchInput()
         }
         else
         {
-            // je parcours les recettes
-            currentRecipies.forEach(recette => {
-                recipeCardsFactorie(recette)
-            }) 
+            // je parcours les recettes filtrées
+            generateCards(currentRecipies)
+
+            afficheDropdownItems( currentRecipies, "ingredients")
+
+            afficheDropdownItems( currentRecipies, "appareils")
+
+            afficheDropdownItems( currentRecipies, "ustensiles")
         }
     })
 }
