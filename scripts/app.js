@@ -117,7 +117,7 @@ window.addEventListener('load', function()
 let tagFiltered = []
 let recipiesFiltered = []
 
-function tagFilter(tagFiltered, currentRecipies)
+function tagFilter(tagFiltered)
 {
     console.log("tagFiltered")
     console.log(tagFiltered)
@@ -222,7 +222,6 @@ function tagFilter(tagFiltered, currentRecipies)
 }
 
 
-
 // AJOUT DU TAG
 // au click sur un item
 // je récupere l'item cliqué
@@ -297,7 +296,7 @@ function addTag(itemTag, type)
             value: itemTag
         })
 
-        tagFilter(tagFiltered, currentRecipies)
+        tagFilter(tagFiltered)
     }   
 }
 
@@ -314,6 +313,7 @@ function removeTag(type, value)
 
     tagFilter(tagFiltered)
 }
+
 
 function normalizeString(string)
 {
