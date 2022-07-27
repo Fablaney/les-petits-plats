@@ -185,18 +185,16 @@ function tagFilter(tagFiltered)
     console.log("recipiesFiltered")
     console.log(recipiesFiltered)
 
-    currentRecipies = recipiesFiltered
-
     // je réaffiche les recetts filtrées par tags
     generateCards(recipiesFiltered)
 
     // je rafraichis l'affichage des items dans les dropdowns
-    afficheDropdownItems( currentRecipies, "ingredients")
+    afficheDropdownItems( recipiesFiltered, "ingredients")
 
-    afficheDropdownItems( currentRecipies, "appareils")
+    afficheDropdownItems( recipiesFiltered, "appareils")
 
-    afficheDropdownItems( currentRecipies, "ustensiles")
-
+    afficheDropdownItems( recipiesFiltered, "ustensiles")
+    
     // si il n'y à aucune recette trouvée j'affiche un message d'erreur
     if (recipiesFiltered.length == 0)
     {
