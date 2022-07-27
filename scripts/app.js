@@ -58,8 +58,6 @@ window.addEventListener('load', function()
                 el.classList.remove('col-lg-7')
                 el.classList.add('col-lg-3')
                 el.classList.add('col-xl-2')
-
-                el.classList.add('rounded-bottom')
                 el.classList.add('rounded-bottom')
             }
         })
