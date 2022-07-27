@@ -42,6 +42,9 @@ function searchInput()
             afficheDropdownItems( currentRecipies, "appareils")
 
             afficheDropdownItems( currentRecipies, "ustensiles")
+
+            console.log("if")
+            console.log(currentRecipies)
         }
         else
         {
@@ -53,6 +56,9 @@ function searchInput()
             afficheDropdownItems( currentRecipies, "appareils")
 
             afficheDropdownItems( currentRecipies, "ustensiles")
+
+            console.log("else")
+            console.log(currentRecipies)
         }
     })
 }
