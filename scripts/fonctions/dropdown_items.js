@@ -255,7 +255,6 @@ inputSearchUstensiles()
 // INGREDIENTS
 function sortIngredients()
 {
-    // dans le champ du dropdown
     // En cherchant un ingredient j'afficher les recettes qui contiennent cet ingrédient
     inputIngredient.addEventListener('change', function()
     {
@@ -268,7 +267,7 @@ function sortIngredients()
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
         // je filtre sur recipies
-        currentRecipies = recipies.filter(recette =>
+        let recettesFilteredByIngredients = recipies.filter(recette =>
         {   
             // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
             if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
@@ -277,11 +276,12 @@ function sortIngredients()
             }
         })
 
+        recettesFilteredByIngredients
         // je parcours et re-affiche les recettes filtrées par ingrédient
-        currentRecipies.forEach(recette => {
+        recettesFilteredByIngredients.forEach(recette => {
             recipeCardsFactorie(recette)
         })
-        generateCards(currentRecipies)
+        // generateCards(recettesFilteredByIngredients)
     })
 }
 sortIngredients()
@@ -301,7 +301,7 @@ function sortAppareils()
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
         // je filtre sur recipies
-        currentRecipies = recipies.filter(item =>
+        let recettesFilteredByAppareil = recipies.filter(item =>
         {   
             // si dans ingredient je trouve ce qui à été tapé je retourne item
             if( item.appliance.toLowerCase().includes(searchAppareils) )
@@ -311,10 +311,10 @@ function sortAppareils()
         })
 
         // je parcours les recettes filtrées par appareil
-        // recettesFilteredByAppareil.forEach(recette => {
-        //     recipeCardsFactorie(recette)
-        // })
-        generateCards(currentRecipies)
+        recettesFilteredByAppareil.forEach(recette => {
+            recipeCardsFactorie(recette)
+        })
+        // generateCards(recettesFilteredByAppareil)
     })
 }
 sortAppareils()
@@ -334,7 +334,7 @@ function sortUstensiles()
         document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
         // je filtre sur recipies
-        currentRecipies = recipies.filter(item =>
+        let recettesFilteredByUstensile = recipies.filter(item =>
         {   
             // si dans recette.ustensiles je trouve ce qui à été tapé je retourne item
             if( item.ustensils.find(ustensils => ustensils.toLowerCase().includes(searchUstensiles)) )
@@ -344,10 +344,10 @@ function sortUstensiles()
         })
 
         // je parcours les recettes filtrées par ustensiles
-        // recettesFilteredByUstensile.forEach(recette => {
-        //     recipeCardsFactorie(recette)
-        // })
-        generateCards(currentRecipies)
+        recettesFilteredByUstensile.forEach(recette => {
+            recipeCardsFactorie(recette)
+        })
+        // generateCards(recettesFilteredByUstensile)
     })
 }
 sortUstensiles()

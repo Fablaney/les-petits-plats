@@ -21,13 +21,13 @@ async function init()
 init()
 
 
-function generateCards(recettes)
-{
-    // je parcours les recettes
-    recettes.forEach(recette => {
-        recipeCardsFactorie(recette)
-    })
-}
+// function generateCards(recettes)
+// {
+//     // je parcours les recettes
+//     recettes.forEach(recette => {
+//         recipeCardsFactorie(recette)
+//     })
+// }
 
 // function generateItems(tab, domBlock, type)
 // {
