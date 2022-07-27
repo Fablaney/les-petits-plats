@@ -29,15 +29,15 @@ function generateCards(recettes)
     })
 }
 
-function generateItems(tab, domBlock, type)
-{
-    tab.forEach(item => {
+// function generateItems(tab, domBlock, type)
+// {
+//     tab.forEach(item => {
 
-        const itemsDOM = `<div class="col-3 item-${item.toLowerCase()}" onclick="addTag('${item}', '${type}')">${ item }</div>`
+//         const itemsDOM = `<div class="col-3 item-${item.toLowerCase()}" onclick="addTag('${item}', '${type}')">${ item }</div>`
 
-        domBlock.insertAdjacentHTML('beforeEnd', itemsDOM)
-    })
-}
+//         domBlock.insertAdjacentHTML('beforeEnd', itemsDOM)
+//     })
+// }
 
 
 // Gestion des annimations sur les dropdown
