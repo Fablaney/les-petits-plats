@@ -21,13 +21,13 @@ async function init()
 init()
 
 
-// function generateCards(recettes)
-// {
-//     // je parcours les recettes
-//     recettes.forEach(recette => {
-//         recipeCardsFactorie(recette)
-//     })
-// }
+function generateCards(recettes)
+{
+    // je parcours les recettes
+    recettes.forEach(recette => {
+        recipeCardsFactorie(recette)
+    })
+}
 
 // function generateItems(tab, domBlock, type)
 // {
@@ -112,10 +112,10 @@ window.addEventListener('load', function()
 
 // GESTION DES TAGS
 let tagFiltered = []
+let recipiesFiltered = []
 
 function tagFilter(tagFiltered)
 {
-    let recipiesFiltered = []
 
     console.log("tagFiltered")
     console.log(tagFiltered)
@@ -126,7 +126,7 @@ function tagFilter(tagFiltered)
     }
 
     tagFiltered.forEach(tag => {
-        recipiesFiltered = recipies.filter(recette =>{
+        recipiesFiltered = currentRecipies.filter(recette =>{
 
             // je fais un lowercase sur tag.value pour bien comparer ensuite
             tag.value = tag.value.toLowerCase()
@@ -193,9 +193,7 @@ function tagFilter(tagFiltered)
     currentRecipies = recipiesFiltered
 
     // je réaffiche les recetts filtrées par tags
-    recipiesFiltered.forEach(recette => {
-        recipeCardsFactorie(recette)
-    })
+    generateCards(recipiesFiltered)
 
     // je rafraichis l'affichage des items dans les dropdowns
     afficheDropdownItems( currentRecipies, "ingredients")
