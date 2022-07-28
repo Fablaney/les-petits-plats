@@ -281,7 +281,7 @@ function addTag(itemTag, type)
     // ajout du tag dans le dom et le push dans le tableau
     function createTag()
     {
-        itemTagNormalized= normalizeString(itemTag)
+        itemTagNormalized = normalizeString(itemTag)
 
         // Je crée le texte recherché
         const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTagNormalized}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTagNormalized}')"></i></div>`

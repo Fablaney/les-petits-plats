@@ -1,4 +1,4 @@
-let recipies = [
+const recipies = [
     {
         "id": 1,
         "name" : "Limonade de Coco",
@@ -1766,15 +1766,15 @@ currentRecipies = recipies.filter(item =>
 
 // bench 2
 
-for ( var i = 0; i < recipies.length; i++ )
+for ( let i = 0; i < recipies.length; i++ )
 {
-    var recipie = recipies[i]
+    let recipie = recipies[i]
 
     let ingredients = recipie.ingredients
    
-    for ( var j = 0; j < ingredients.length ; j ++ )
+    for ( let j = 0; j < ingredients.length ; j ++ )
     {
-      var item = ingredients[j]
+      let item = ingredients[j]
 
       if ( 
         recipie.name.toLowerCase().includes(inputcontent )
@@ -1784,8 +1784,8 @@ for ( var i = 0; i < recipies.length; i++ )
         item.ingredient.toLowerCase().includes(inputcontent )
       )
       {
-        recettesFiltered.push(recipie)
+        currentRecipies.push(recipie)
       }
     }    
 }
-return recettesFiltered
+return currentRecipies
