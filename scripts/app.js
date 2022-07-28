@@ -31,7 +31,6 @@ function generateCards(recettes)
 }
 
 
-
 function generateItems(tab, domBlock, type)
 {
     tab.forEach(item => {
