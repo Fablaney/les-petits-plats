@@ -10,27 +10,25 @@ function searchInput()
         // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
         const inputcontent = searchinput.value.toLowerCase().trim()
 
-        // console.log(inputcontent)
-
-        // je filtre sur recipies
-        currentRecipies = recipies.filter(item =>
-        {   
-            // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
-            if(
-                item.name.toLowerCase().trim().includes(inputcontent) ||
-                item.description.toLowerCase().trim().includes(inputcontent) ||
-                item.ingredients.find(element => {
-                    return element.ingredient.toLowerCase().trim().includes(inputcontent)
-                }) != undefined
-            )
-            {
-                return item
-            }
-        })
-
-
+        // Si le champ de recherche contient + de 2 caracteres
         if( inputcontent.length > 2 )
         {
+            // je filtre sur recipies
+            currentRecipies = recipies.filter(item =>
+            {   
+                // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
+                if(
+                    item.name.toLowerCase().trim().includes(inputcontent) ||
+                    item.description.toLowerCase().trim().includes(inputcontent) ||
+                    item.ingredients.find(element => {
+                        return element.ingredient.toLowerCase().trim().includes(inputcontent)
+                    }) != undefined
+                )
+                {
+                    return item
+                }
+            })
+
             // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
    
@@ -50,19 +48,20 @@ function searchInput()
         }
         else
         {
+            // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
+            document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
+
             // je parcours les recettes filtrées
-            generateCards(currentRecipies)
+            generateCards(recipies)
 
-            afficheDropdownItems( currentRecipies, "ingredients")
+            afficheDropdownItems( recipies, "ingredients")
 
-            afficheDropdownItems( currentRecipies, "appareils")
+            afficheDropdownItems( recipies, "appareils")
 
-            afficheDropdownItems( currentRecipies, "ustensiles")
+            afficheDropdownItems( recipies, "ustensiles")
 
             console.log("else")
-            console.log(currentRecipies)
-
-            errorMessage(currentRecipies)
+            console.log(recipies)
         }
     })
 }
