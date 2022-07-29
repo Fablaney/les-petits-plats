@@ -1,6 +1,8 @@
 // Modern
 
 
+let tagFiltered = []
+
 // Boucle sur les données
 async function init()
 {
@@ -13,11 +15,11 @@ async function init()
     searchInput()
 
     // initialisation du tri des items
-    afficheDropdownItems( currentRecipies, "ingredients")
+    afficheDropdownItems( currentRecipies, "ingredients", tagFiltered)
 
-    afficheDropdownItems( currentRecipies, "appareils")
+    afficheDropdownItems( currentRecipies, "appareils", tagFiltered)
 
-    afficheDropdownItems( currentRecipies, "ustensiles")
+    afficheDropdownItems( currentRecipies, "ustensiles", tagFiltered)
 }
 init()
 
@@ -113,34 +115,17 @@ window.addEventListener('load', function()
 
 
 // GESTION DES TAGS
-let tagFiltered = []
-
 function tagFilter(tagFiltered)
 {
-    let recipiesFiltered = []
+    let recipiesFiltered = currentRecipies
 
-    console.log("tagFiltered")
-    console.log(tagFiltered)
-
-    // si le tableau de tags n'est pas vide je filtre sur current recipies selon les tags
+    // si le tableau de tags n'est pas vide je filtre sur recipiesFiltered selon les tags
     if (tagFiltered.length !== 0 )
     {
         tagFiltered.forEach(tag => {
 
-            console.log("tag")
-            console.log(tag)
-    
-            console.log("currentRecipies")
-            console.log(currentRecipies)
-    
-            console.log("recipiesFiltered")
-            console.log(recipiesFiltered)
-    
-            recipiesFiltered = currentRecipies.filter(recette =>{
+            recipiesFiltered = recipiesFiltered.filter(recette =>{
                 
-                // console.log("recette")
-                // console.log(recette)
-    
                 // je fais un lowercase sur tag.value pour bien comparer ensuite
                 tag.value = tag.value.toLowerCase()
     
@@ -206,18 +191,15 @@ function tagFilter(tagFiltered)
     // je supprime les articles affichés avant de reboucler dessus et refaire un affrichage filtré 
     document.querySelectorAll(".article-recette").forEach( (elt)=>{ elt.remove() } )
 
-    console.log("recipiesFiltered")
-    console.log(recipiesFiltered)
-
     // je réaffiche les recetts filtrées par tags
     generateCards(recipiesFiltered)
 
     // je rafraichis l'affichage des items dans les dropdowns
-    afficheDropdownItems( recipiesFiltered, "ingredients")
+    afficheDropdownItems( recipiesFiltered, "ingredients", tagFiltered )
 
-    afficheDropdownItems( recipiesFiltered, "appareils")
+    afficheDropdownItems( recipiesFiltered, "appareils", tagFiltered )
 
-    afficheDropdownItems( recipiesFiltered, "ustensiles")
+    afficheDropdownItems( recipiesFiltered, "ustensiles", tagFiltered )
     
     errorMessage(recipiesFiltered)
 }
@@ -225,82 +207,28 @@ function tagFilter(tagFiltered)
 
 // AJOUT DU TAG
 // au click sur un item
-// je récupere l'item cliqué
+// ajout du tag dans le dom et le push dans le tableau
 function addTag(itemTag, type)
 {
-    // console.log("je recupere la valeur du champ")
-    // console.log(itemTag.toLowerCase())
-    // console.log(itemTag)
-    // console.log(type)
+    itemTagNormalized = normalizeString(itemTag)
 
-    // console.log(tagFiltered.length)
-    
-    // Si je n'ai aucun tag 
-    if (tagFiltered.length == 0)
-    {
-        // console.log(tagFiltered.length)
-        // console.log("je n'ai aucun tag dans le tableau")
-        // console.log("je l'ajoute")
+    // Je crée le texte recherché
+    const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTagNormalized}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTagNormalized}')"></i></div>`
 
-        createTag()
-    }
-    else
-    {
-        // console.log(tagFiltered)
+    // je prends la div qui contiendra les tags
+    let currentTag = document.querySelector(".filtres-actifs")
 
-        for( let i = 0; i < tagFiltered.length; i++)
-        {
-            // console.clear()
-            // console.log(tagFiltered)
-            // console.log(tagFiltered[i].value.toLowerCase())
-            // console.log(itemTag.toLowerCase())
+    // j'insere les nouveaux tags
+    currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
 
-            // console.log("test")
-            if (tagFiltered[i].value.toLowerCase() != itemTag.toLowerCase())
-            {
-                // je n'ai pas encore ce tag dans le tableau
-                // console.log("je n'ai pas encore ce tag dans le tableau")
-                // console.log("je l'ajoute")
+    // je push chaque nouveau tag en objet dans le tableau tagFiltered
+    tagFiltered.push({
+        type: type,
+        value: itemTag
+    })
 
-                createTag()
-                break
-            }
-            // si ce tag existe déja dans le tableau
-            else
-            {
-                // console.log("si ce tag existe déja dans le tableau")
-                // console.log("je ne fais rien")
-
-                break
-            }
-        }
-    }
-   
-
-    // ajout du tag dans le dom et le push dans le tableau
-    function createTag()
-    {
-        itemTagNormalized = normalizeString(itemTag)
-
-        // Je crée le texte recherché
-        const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTagNormalized}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTagNormalized}')"></i></div>`
-
-        // je prends la div qui contiendra les tags
-        let currentTag = document.querySelector(".filtres-actifs")
-
-        // j'insere les nouveaux tags
-        currentTag.insertAdjacentHTML('beforeEnd', tagItemDOM )
-
-        // je push chaque nouveau tag en objet dans le tableau tagFiltered
-        tagFiltered.push({
-            type: type,
-            value: itemTag
-        })
-
-        tagFilter(tagFiltered)
-    }   
-}
-
+    tagFilter(tagFiltered)
+}   
 
 function removeTag(type, value)
 {

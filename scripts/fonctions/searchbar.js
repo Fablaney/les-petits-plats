@@ -35,14 +35,11 @@ function searchInput()
             // je parcours les recettes filtrées
             generateCards(currentRecipies)
 
-            afficheDropdownItems( currentRecipies, "ingredients")
+            afficheDropdownItems( currentRecipies, "ingredients", tagFiltered)
 
-            afficheDropdownItems( currentRecipies, "appareils")
+            afficheDropdownItems( currentRecipies, "appareils", tagFiltered)
 
-            afficheDropdownItems( currentRecipies, "ustensiles")
-
-            console.log("if")
-            console.log(currentRecipies)
+            afficheDropdownItems( currentRecipies, "ustensiles", tagFiltered)
 
             errorMessage(currentRecipies)
         }
@@ -54,14 +51,11 @@ function searchInput()
             // je parcours les recettes filtrées
             generateCards(recipies)
 
-            afficheDropdownItems( recipies, "ingredients")
+            afficheDropdownItems( recipies, "ingredients", tagFiltered)
 
-            afficheDropdownItems( recipies, "appareils")
+            afficheDropdownItems( recipies, "appareils", tagFiltered)
 
-            afficheDropdownItems( recipies, "ustensiles")
-
-            console.log("else")
-            console.log(recipies)
+            afficheDropdownItems( recipies, "ustensiles", tagFiltered)
         }
     })
 }

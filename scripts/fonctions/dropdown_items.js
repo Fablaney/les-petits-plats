@@ -29,7 +29,7 @@ let tabUstensiles = []
 
 // AFFICHAGE INITIAL
 // affichage des items dans leurs dropdown respectifs
-function afficheDropdownItems(currentRecipies, types)
+function afficheDropdownItems(currentRecipies, types, tagFiltered)
 {
     switch(types)
     {
@@ -46,12 +46,14 @@ function afficheDropdownItems(currentRecipies, types)
 
                     // j'uniformise tout en minuscule
                     ingredient = ingredient.ingredient.toLowerCase()
-            
+
+                    let ingredientIsFiltered = tagFiltered.find( tag => tag.value === ingredient )
+                        
                     // je remet seulement la 1ere lettre en majuscule
                     ingredient = ingredient[0].toUpperCase() + ingredient.slice(1)
 
                     // Je remplis le tableau et evite les doublons
-                    if ( tabIngredients.includes(ingredient) == false )
+                    if ( tabIngredients.includes(ingredient) == false && ingredientIsFiltered == undefined)
                     {
                         tabIngredients.push(ingredient)
                     }
