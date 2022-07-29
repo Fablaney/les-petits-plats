@@ -1,5 +1,6 @@
 // Modern
 
+
 // je selectionne les dropdown qui afficherons les elements filtrables
 let dropIngredients = document.querySelector("#ingredients")
 let dropUstensiles  = document.querySelector("#ustensiles")
@@ -65,7 +66,7 @@ function afficheDropdownItems(currentRecipies, types, tagFiltered)
             // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
-            // je boucle sur chaque ingrédient
+            // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
             generateItems(tabIngredients, dropIngredients, 'ingredients')
 
         break
@@ -152,8 +153,7 @@ function inputSearchIngredient()
     inputIngredient.addEventListener('input', function()
     {
         // je récupere la valeur de l'input et je passe en minuscule
-        let searchIngredient = normalizeString(inputIngredient.value)
-        // inputIngredient.value.toLowerCase()
+        let searchIngredient = inputIngredient.value.toLowerCase()
 
         // je supprime les ingrédients affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
@@ -161,7 +161,7 @@ function inputSearchIngredient()
         // je filtre sur tabingredients
         let ingredientsFiltered = tabIngredients.filter(item =>
         {
-            if ( normalizeString(item).includes(searchIngredient) )
+            if ( item.toLowerCase().includes(searchIngredient) )
             {
                 return item
             }
@@ -181,15 +181,15 @@ function inputSearchAppareils()
     inputAppareils.addEventListener('input', function()
     {
         // je récupere la valeur de l'input et je passe en minuscule
-        let searchAppareils = normalizeString(inputAppareils.value)
-       
+        let searchAppareils = inputAppareils.value.toLowerCase()
+
         // je supprime les appareils affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll("#appareils div").forEach( (elt)=>{ elt.remove() } )
         
         // je filtre sur tabAppareils
         let appareilsFiltered = tabAppareils.filter(item =>
-        {
-            if ( normalizeString(item).includes(searchAppareils) )
+        {   
+            if ( item.toLowerCase().includes(searchAppareils) )
             {
                 return item
             }     
@@ -209,8 +209,8 @@ function inputSearchUstensiles()
     inputUstensiles.addEventListener('input', function()
     {
         // je récupere la valeur de l'input et je passe en minuscule
-        let searchUstensile = normalizeString(inputUstensiles.value)
-        
+        let searchUstensile = inputUstensiles.value.toLowerCase()
+
         // je supprime les ustensiles affichés avant de reboucler dessus et refaire un affrichage filtré 
         document.querySelectorAll("#ustensiles div").forEach( (elt)=>{ elt.remove() } )
 
@@ -218,7 +218,7 @@ function inputSearchUstensiles()
         let ustensilesFiltered = tabUstensiles.filter(item =>
         {   
         
-            if ( normalizeString(item).includes(searchUstensile) )
+            if ( item.toLowerCase().includes(searchUstensile) )
             {
                 return item
             }
@@ -239,8 +239,7 @@ function sortIngredients()
     inputIngredient.addEventListener('change', function()
     {
         // // je récupere la valeur de l'input et je pass en minuscule
-        // let searchIngredient = inputIngredient.value.toLowerCase()
-        let searchIngredient = normalizeString(inputIngredient.value)
+        let searchIngredient = inputIngredient.value.toLowerCase()
 
         addTag(searchIngredient, "ingredients")
 
@@ -251,11 +250,7 @@ function sortIngredients()
         let recettesFilteredByIngredients = recipies.filter(recette =>
         {   
             // si dans ingredient je trouve ce qui à été cherché je retourne "recette"
-            // if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
-            // {
-            //     return recette
-            // }
-            if( recette.ingredients.find(element => {return normalizeString(element.ingredient).includes(searchIngredient)}) != undefined )
+            if( recette.ingredients.find(element => {return element.ingredient.toLowerCase().includes(searchIngredient)}) != undefined )
             {
                 return recette
             }
