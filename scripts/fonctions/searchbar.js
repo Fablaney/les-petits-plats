@@ -8,8 +8,9 @@ function searchInput()
     searchinput.addEventListener('input', function()
     {
         // je récupere sa valeur après avoir tapé 1 lettre et je réduit tout en miniscule
-        const inputcontent = searchinput.value.toLowerCase().trim()
-
+        // const inputcontent = searchinput.value.toLowerCase().trim()
+        const inputcontent = normalizeString(searchinput.value)
+        
         // Si le champ de recherche contient + de 2 caracteres
         if( inputcontent.length > 2 )
         {
@@ -18,10 +19,10 @@ function searchInput()
             {   
                 // si dans name description ou ingredient je trouve ce qui à été tapé je retourne item
                 if(
-                    item.name.toLowerCase().trim().includes(inputcontent) ||
-                    item.description.toLowerCase().trim().includes(inputcontent) ||
+                    normalizeString(item.name).includes(inputcontent) ||
+                    normalizeString(item.description).includes(inputcontent) ||
                     item.ingredients.find(element => {
-                        return element.ingredient.toLowerCase().trim().includes(inputcontent)
+                        return normalizeString(element.ingredient).includes(inputcontent)
                     }) != undefined
                 )
                 {
