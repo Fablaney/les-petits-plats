@@ -118,8 +118,6 @@ function tagFilter(tagFiltered)
 {
     let recipiesFiltered = currentRecipies
 
-    console.log(tagFiltered)
-
     // si le tableau de tags n'est pas vide je filtre sur recipiesFiltered selon les tags
     if (tagFiltered.length !== 0 )
     {
@@ -202,7 +200,7 @@ function tagFilter(tagFiltered)
 
     afficheDropdownItems( recipiesFiltered, "ustensiles", tagFiltered )
     
-    errorMessage(recipiesFiltered, recipiesFiltered)
+    errorMessage(recipiesFiltered)
 }
 
 
@@ -256,10 +254,10 @@ function normalizeString(string)
       .replace(spaceRegex, ""); // remove all spaces
 }
 
-function errorMessage(recettes, recipiesFiltered)
+function errorMessage(recettes)
 {
     // si il n'y à aucune recette trouvée j'affiche un message d'erreur
-    if ( recettes.length == 0 || recipiesFiltered.length == 0)
+    if ( recettes.length == 0)
     {
         document.querySelector(".no-recipies").classList.remove("d-none")
     }
