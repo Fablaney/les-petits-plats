@@ -1,6 +1,5 @@
 // Modern
 
-
 // je selectionne les dropdown qui afficherons les elements filtrables
 let dropIngredients = document.querySelector("#ingredients")
 let dropUstensiles  = document.querySelector("#ustensiles")
@@ -66,8 +65,9 @@ function afficheDropdownItems(currentRecipies, types, tagFiltered)
             // je supprime les items affichés avant de reboucler dessus et refaire un affrichage filtré 
             document.querySelectorAll("#ingredients div").forEach( (elt)=>{ elt.remove() } )
 
-            // je boucle sur chaque ingrédient et je reaffiche les ingrédients triés par nom
+            // je boucle sur chaque ingrédient
             generateItems(tabIngredients, dropIngredients, 'ingredients')
+
         break
 
         // affichage des appareils
@@ -82,7 +82,7 @@ function afficheDropdownItems(currentRecipies, types, tagFiltered)
 
                 // j'uniformise tout en minuscule
                 appareil = appareil.toLowerCase()
-                
+
                 let appareilIsFiltered = tagFiltered.find( tag => tag.value === appareil )
 
                 // je remet seulement la 1ere lettre en majuscule
@@ -121,8 +121,10 @@ function afficheDropdownItems(currentRecipies, types, tagFiltered)
                             
                     ustensile = ustensile[0].toUpperCase() + ustensile.slice(1) 
 
+                    let ustensileIsFiltered = tagFiltered.find( tag => tag.value === ustensile.toLowerCase() )
+
                     // Je remplis le tableau et evite les doublons
-                    if ( tabUstensiles.includes(ustensile) == false )
+                    if ( tabUstensiles.includes(ustensile) == false && ustensileIsFiltered == undefined )
                     {
                         tabUstensiles.push(ustensile)
                     }
@@ -137,6 +139,7 @@ function afficheDropdownItems(currentRecipies, types, tagFiltered)
 
             // je boucle sur chaque ustensile
             generateItems(tabUstensiles, dropUstensiles, 'ustensiles')
+
         break
     }
 }
@@ -218,7 +221,6 @@ function inputSearchUstensiles()
             {
                 return item
             }
-            console.log(item)
         })
 
         // je boucle sur chaque ustensile et je reaffiche les ustensiles triés par nom

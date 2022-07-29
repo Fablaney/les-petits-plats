@@ -1,12 +1,15 @@
 // Modern
+
 function recipeCardsFactorie(recette)
-{
+{ 
     function getRecipeCardDOM()
     {
         let photo = "";
 
-        photo = "illustation-recette.jpg";
-        // photo = recette.name.toLowerCase().replace(/\s/g, "");
+        // photo = "illustation-recette";
+        photo = normalizeString(recette.name)
+
+        console.log(photo)
 
         // Je prends la div qui va contenir mes cards
         const recipeList = document.querySelector("#wrapper-recettes");
@@ -15,7 +18,7 @@ function recipeCardsFactorie(recette)
         const articleRecipie = `
             <article class="col-xl-4 col-md-6 article-recette">
 
-                <img class="image" src="./assets/images/${photo}" alt="illustration" role="Image"/>
+                <img class="image" src="./assets/images/${photo}.jpg" alt="illustration" role="Image"/>
                 
                 <div class="row descriptif p-3">
 

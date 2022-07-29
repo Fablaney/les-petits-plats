@@ -1,6 +1,5 @@
 // Modern
 
-
 let tagFiltered = []
 
 // Boucle sur les données
@@ -23,7 +22,7 @@ async function init()
 }
 init()
 
-
+// appel de la boucle pour les cards de recette
 function generateCards(recettes)
 {
     // je parcours les recettes
@@ -32,7 +31,7 @@ function generateCards(recettes)
     })
 }
 
-
+// appel de la boucle pour les items de chaque dropdown
 function generateItems(tab, domBlock, type)
 {
     tab.forEach(item => {
@@ -64,7 +63,7 @@ window.addEventListener('load', function()
                 el.classList.add('rounded-bottom')
             }
         })
-        // je montre le dropdown à ceux qui ne sont pas cliqués
+        // je cache le dropdown à ceux qui ne sont pas cliqués
         document.querySelectorAll('.dropdown-content').forEach(function(el)
         {
             // close any showing dropdown that isn't the one just clicked
@@ -82,7 +81,7 @@ window.addEventListener('load', function()
                 el.classList.add('d-none')
             }     
         })
-        // je cache montre
+        // je montre la flèche bas
         document.querySelectorAll('.dropbtn .bi-caret-down').forEach(function(el)
         {
             // close any showing dropdown that isn't the one just clicked
@@ -233,8 +232,6 @@ function addTag(itemTag, type)
 function removeTag(type, value)
 {
     value = value.toLowerCase()
-    
-    console.log(document.querySelector(".filtres-actifs .tag-" + value))
 
     document.querySelector(".filtres-actifs .tag-" + value).remove()
 
