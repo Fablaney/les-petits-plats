@@ -83,11 +83,13 @@ function afficheDropdownItems(currentRecipies, types, tagFiltered)
                 // j'uniformise tout en minuscule
                 appareil = appareil.toLowerCase()
                 
+                let appareilIsFiltered = tagFiltered.find( tag => tag.value === appareil )
+
                 // je remet seulement la 1ere lettre en majuscule
                 appareil = appareil[0].toUpperCase() + appareil.slice(1)
 
                 // Je remplis le tableau et evite les doublons
-                if ( tabAppareils.includes(appareil) == false )
+                if ( tabAppareils.includes(appareil) == false && appareilIsFiltered == undefined )
                 {
                     tabAppareils.push(appareil)
                 }
