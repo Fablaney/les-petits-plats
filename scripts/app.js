@@ -231,8 +231,6 @@ function addTag(itemTag, type)
 
 function removeTag(type, value)
 {
-    value = value.toLowerCase()
-
     document.querySelector(".filtres-actifs .tag-" + value).remove()
 
     tagFiltered = tagFiltered.filter(tag => tag.value !== value)
