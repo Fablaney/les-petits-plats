@@ -4,10 +4,8 @@ function recipeCardsFactorie(recette)
 { 
     function getRecipeCardDOM()
     {
-        let photo = "";
-
-        // photo = "illustation-recette";
-        photo = normalizeString(recette.name)
+        // let photo = "illustation-recette";
+        let photo = normalizeString(recette.name)
 
         console.log(photo)
 
