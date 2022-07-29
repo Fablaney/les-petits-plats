@@ -7,8 +7,6 @@ function recipeCardsFactorie(recette)
         // let photo = "illustation-recette";
         let photo = normalizeString(recette.name)
 
-        console.log(photo)
-
         // Je prends la div qui va contenir mes cards
         const recipeList = document.querySelector("#wrapper-recettes");
 
