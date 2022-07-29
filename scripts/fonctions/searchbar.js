@@ -42,7 +42,7 @@ function searchInput()
 
             afficheDropdownItems( currentRecipies, "ustensiles", tagFiltered)
 
-            errorMessage(currentRecipies)
+            errorMessage(currentRecipies, currentRecipies)
         }
         else
         {

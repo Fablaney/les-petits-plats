@@ -145,6 +145,10 @@ body
 {
     color: white;
 }
+.dropdown-input > input:focus, .dropdown-input > input:active
+{
+    background-color: transparent !important;
+}
 .dropdown-content
 {
     width: 100%;

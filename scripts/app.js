@@ -118,6 +118,8 @@ function tagFilter(tagFiltered)
 {
     let recipiesFiltered = currentRecipies
 
+    console.log(tagFiltered)
+
     // si le tableau de tags n'est pas vide je filtre sur recipiesFiltered selon les tags
     if (tagFiltered.length !== 0 )
     {
@@ -200,7 +202,7 @@ function tagFilter(tagFiltered)
 
     afficheDropdownItems( recipiesFiltered, "ustensiles", tagFiltered )
     
-    errorMessage(recipiesFiltered)
+    errorMessage(recipiesFiltered, recipiesFiltered)
 }
 
 
@@ -212,7 +214,7 @@ function addTag(itemTag, type)
     itemTagNormalized = normalizeString(itemTag)
 
     // Je crée le texte recherché
-    const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTagNormalized}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTagNormalized}')"></i></div>`
+    const tagItemDOM = `<div class="rounded p-2 mb-3 tag-${type} tag-${itemTagNormalized}" data-type="${type}" data-value="${itemTag}">${itemTag} &nbsp;<i class="bi bi-x-circle" onclick="removeTag('${type}', '${itemTag}')"></i></div>`
 
     // je prends la div qui contiendra les tags
     let currentTag = document.querySelector(".filtres-actifs")
@@ -231,7 +233,11 @@ function addTag(itemTag, type)
 
 function removeTag(type, value)
 {
-    document.querySelector(".filtres-actifs .tag-" + value).remove()
+    value = value.toLowerCase()
+
+    valueClass = normalizeString(value)
+
+    document.querySelector(".filtres-actifs .tag-" + valueClass).remove()
 
     tagFiltered = tagFiltered.filter(tag => tag.value !== value)
 
@@ -250,10 +256,10 @@ function normalizeString(string)
       .replace(spaceRegex, ""); // remove all spaces
 }
 
-function errorMessage(recettes)
+function errorMessage(recettes, recipiesFiltered)
 {
     // si il n'y à aucune recette trouvée j'affiche un message d'erreur
-    if ( recettes.length == 0 )
+    if ( recettes.length == 0 || recipiesFiltered.length == 0)
     {
         document.querySelector(".no-recipies").classList.remove("d-none")
     }
